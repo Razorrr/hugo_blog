@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>(*´･д･)?</title>
+    <link>http://xrazor.org/</link>
+    <description>Recent content on (*´･д･)?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Oct 2017 07:07:16 +0200</lastBuildDate>
+    
+	<atom:link href="http://xrazor.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于</title>
+      <link>http://xrazor.org/post/%E5%85%B3%E4%BA%8E/</link>
+      <pubDate>Mon, 02 Oct 2017 07:07:16 +0200</pubDate>
+      
+      <guid>http://xrazor.org/post/%E5%85%B3%E4%BA%8E/</guid>
+      <description>123</description>
+    </item>
+    
+    <item>
+      <title>Fisrt</title>
+      <link>http://xrazor.org/post/fisrt/</link>
+      <pubDate>Sun, 01 Oct 2017 12:07:18 +0200</pubDate>
+      
+      <guid>http://xrazor.org/post/fisrt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>关于</title>
+      <link>http://xrazor.org/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://xrazor.org/about/</guid>
+      <description>123</description>
+    </item>
+    
+  </channel>
+</rss>

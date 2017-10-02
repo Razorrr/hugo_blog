@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://xrazor.org/post/%E5%85%B3%E4%BA%8E/</loc>
+    <lastmod>2017-10-02T07:07:16+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xrazor.org/post/fisrt/</loc>
+    <lastmod>2017-10-01T12:07:18+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xrazor.org/</loc>
+    <lastmod>2017-10-02T07:07:16+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://xrazor.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://xrazor.org/post/</loc>
+    <lastmod>2017-10-02T07:07:16+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://xrazor.org/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://xrazor.org/about/</loc>
+  </url>
+  
+</urlset>
