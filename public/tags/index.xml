@@ -10,5 +10,14 @@
 	<atom:link href="http://xrazor.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>建站</title>
+      <link>http://xrazor.org/tags/%E5%BB%BA%E7%AB%99/</link>
+      <pubDate>Wed, 04 Oct 2017 18:03:49 +0800</pubDate>
+      
+      <guid>http://xrazor.org/tags/%E5%BB%BA%E7%AB%99/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

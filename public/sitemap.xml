@@ -3,18 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://xrazor.org/post/%E5%85%B3%E4%BA%8E/</loc>
-    <lastmod>2017-10-02T07:07:16+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xrazor.org/post/fisrt/</loc>
-    <lastmod>2017-10-01T12:07:18+02:00</lastmod>
+    <loc>http://xrazor.org/post/hugo&#43;nginx&#43;webhook%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</loc>
+    <lastmod>2017-10-04T18:03:49+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://xrazor.org/</loc>
-    <lastmod>2017-10-02T07:07:16+02:00</lastmod>
+    <lastmod>2017-10-04T18:03:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -25,7 +20,7 @@
   
   <url>
     <loc>http://xrazor.org/post/</loc>
-    <lastmod>2017-10-02T07:07:16+02:00</lastmod>
+    <lastmod>2017-10-04T18:03:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -36,6 +31,12 @@
   
   <url>
     <loc>http://xrazor.org/about/</loc>
+  </url>
+  
+  <url>
+    <loc>http://xrazor.org/tags/%E5%BB%BA%E7%AB%99/</loc>
+    <lastmod>2017-10-04T18:03:49+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>
