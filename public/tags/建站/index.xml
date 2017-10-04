@@ -24,7 +24,7 @@
 3.使用github的webhook实现本地到线上的自动发布.
 在本地安装并使用hugo 安装 本地使用的系统为ArchLinux，安装较为方便，直接使用命令行安装：
 sudo pacman -S hugo
-生成新网站 安装好后,　比如“blog”，然后：
+生成新网站 安装好后,　比如你预想的网站根目录名字是“blog”，则可输入命令：
 hugo new site blog
 这样就会在打开终端的地方生成一个名为&amp;rdquo;blog&amp;rdquo;的文件夹，里面是网站的目录文件。
 生成新文章 在新生成&amp;rdquo;blog”的目录下输入命令：
