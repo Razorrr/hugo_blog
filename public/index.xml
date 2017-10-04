@@ -48,12 +48,12 @@ user root;　# 原本的用户是nginx而不是root worker_processes auto; error
     </item>
     
     <item>
-      <title>关于</title>
+      <title>关于我</title>
       <link>http://xrazor.org/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://xrazor.org/about/</guid>
-      <description> 工学学士，管理学学士，工商管理硕士； ２年工人，2年秘书，１年创业，1年数据挖掘； 划了１５年水后卫；11年不认真的民谣，5年蜻蜓点水的摄影； 还想再看看更大的世界。  </description>
+      <description> 工学学士，管理学学士，工商管理硕士； ２年工人，２年秘书，１年创业，１年数据挖掘； 划了１５年水的篮球后卫；１１年不认真的民谣，５年蜻蜓点水的摄影； 还想再看看更大的世界。  </description>
     </item>
     
   </channel>
