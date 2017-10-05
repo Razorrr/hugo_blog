@@ -164,7 +164,7 @@ http {
 
     server {
         listen       80;　# listen就这一行就可以了，否则listen多行可能存在端口占用
-        server_name  xrazor.org;
+        server_name  xrazor.org; # 换成自己的域名
         root         /../public; # 设置为public的路径
 
         # Load configuration files for the default server block.
@@ -213,7 +213,7 @@ num  target     prot opt source               destination
 插入后保存一下:<br />
 <code>service iptables save</code><br />
 这里可能会遇到什么systemctl的问题，自己搜一下解决方案，大概就是iptables已经交给另一个体系管理了，你要重新跟这个体系报备一下，才能正常使用。具体的我就不复现了。<br />
-端口打开之后基本上就能访问了，可以用多种方法测试一下是否访问正常，比如telnet或者curl方式都可以,我倾向用curl:
+端口打开之后基本上就能访问了，可以用多种方法测试一下是否访问正常，比如telnet或者curl方式都可以,我倾向用curl:<br />
 <code>curl -v &lt;url&gt;</code><br />
 一方面可以看域名是否解析到了服务器，另一方面可以看http是否通常，如果不通畅可以看看返回的是什么结果。<br />
 忘了说了，<strong>国内的服务器不备案开不了80端口</strong>,老司机都知道。</p>
