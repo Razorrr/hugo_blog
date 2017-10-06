@@ -264,7 +264,7 @@ def application(environ, start_response):
   
 <nav class="post-nav">
   <span class="nav-prev"></span>
-  <span class="nav-next"></span>
+  <span class="nav-next"><a href="/post/latex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">LaTex快速入门</a> &rarr;</span>
 </nav>
 
 
@@ -289,6 +289,14 @@ def application(environ, start_response):
 
 
   
+  
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'],]}
+});
+</script>
   <hr>
   <div class="copyright">&copy; <a href="https://xrazor.org">xrazor</a> 2017 | <a href="https://github.com/razorrr">Github</a> | <a href="https://twitter.com/">Twitter</a></div>
   
