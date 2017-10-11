@@ -88,8 +88,10 @@ user root;　# 原本的用户是nginx而不是root worker_processes auto; error
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://xrazor.org/bookmarks/</guid>
-      <description> Statistic  统计之都 sci-hub
-MachineLearning  SEO Friend </description>
+      <description> Statistic  统计之都
+MachineLearning SEO 看雪论坛
+ShotCuts sci-hub
+Friend  </description>
     </item>
     
     <item>
