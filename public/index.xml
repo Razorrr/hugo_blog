@@ -103,5 +103,14 @@ Friend  </description>
       <description> 工学学士，管理学学士，工商管理硕士； ２年工人，２年秘书，１年创业，１年数据挖掘，业余爬虫，三脚猫黑帽； 划了１５年水的篮球后卫；１１年不认真的民谣，５年蜻蜓点水的摄影； 还想再看看更大的世界。  </description>
     </item>
     
+    <item>
+      <title>技能树</title>
+      <link>http://xrazor.org/skilltree/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://xrazor.org/skilltree/</guid>
+      <description> 机器学习 数理统计基础 最优化 模型评估 常见算法 特征工程 安全渗透 SEO 读书扎记 </description>
+    </item>
+    
   </channel>
 </rss>
