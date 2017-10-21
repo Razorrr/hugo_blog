@@ -6,9 +6,19 @@
     <description>Recent content in Tags on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 21 Aug 2016 23:26:03 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python</title>
+      <link>http://xrazor.org/tags/python/</link>
+      <pubDate>Sun, 21 Aug 2016 23:26:03 +0800</pubDate>
+      
+      <guid>http://xrazor.org/tags/python/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>建站</title>
@@ -25,6 +35,24 @@
       <pubDate>Fri, 06 Oct 2017 14:05:10 +0800</pubDate>
       
       <guid>http://xrazor.org/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>机器学习</title>
+      <link>http://xrazor.org/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 21 Nov 2016 23:21:28 +0800</pubDate>
+      
+      <guid>http://xrazor.org/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>自我管理</title>
+      <link>http://xrazor.org/tags/%E8%87%AA%E6%88%91%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Wed, 21 Dec 2016 23:14:34 +0800</pubDate>
+      
+      <guid>http://xrazor.org/tags/%E8%87%AA%E6%88%91%E7%AE%A1%E7%90%86/</guid>
       <description></description>
     </item>
     
