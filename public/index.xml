@@ -105,7 +105,7 @@ Data Visualization 数据可视化 Python下用pandas很容易做数据统计描
       <guid>http://xrazor.org/post/word2vec%E7%AE%80%E5%8D%95%E5%AE%9E%E8%B7%B5/</guid>
       <description>word2vec 简介 word2vec是google的一个开源工具，能够根据输入的词的集合计算出词与词之间的距离。 它将term转换成向量形式，可以把对文本内容的处理简化为向量空间中的向量运算，计算出向量空间上的相似度，来表示文本语义上的相似度。 word2vec计算的是余弦值，距离范围为0-1之间，值越大代表两个词关联度越高。 词向量：用Distributed Representation表示词，通常也被称为“Word Representation”或“Word Embedding（嵌入）”。 安装Gensim 和分词工具
 Gensim 这里主要通过Gensim模块来实现word2vec:
-pip install gensim -i https://pypi.douban.com/simple 后面用豆瓣的源会快一些。
+pip install gensim -i https://pypi.douban.com/simple  后面用豆瓣的源会快一些。
 分词工具 分词工具有很多：中科院NLPIR，哈工大LTP，结巴分词等。我这里用的是结巴分词。如果没有也是先用pip安装。
 pip install jieba -i https://pypi.douban.com/simple  语料准备 随便下载一部小说，我这里用的是&amp;lt;天龙八部&amp;gt;。下下来可能是乱码。可以自己写一段小代码重新加工一下:
 #!/usr/bin/env python # -*- coding: utf-8 -*- file_in = open(&#39;/home/luke/Downloads/tlbb.txt&#39;, &#39;r&#39;) file_out = open(&#39;/home/luke/Downloads/tlbb_utf8.txt&#39;, &#39;w&#39;) line = file_in.readline() while line: newline = line.decode(&#39;GB18030&#39;).encode(&#39;utf-8&#39;) #用GBK、GB2312都会出错 print newline, print &amp;gt;&amp;gt; file_out, newline, line = file_in.readline() file_in.close() file_out.close()  训练模型 # -*- coding: utf-8 -*- import gensim.</description>
