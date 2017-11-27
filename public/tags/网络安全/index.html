@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Terminal代理设置导致pip和git无法正常使用 - (*´･д･)?</title>
-    <meta property="og:title" content="Terminal代理设置导致pip和git无法正常使用 - (*´･д･)?">
+    <title>网络安全 - (*´･д･)?</title>
+    <meta property="og:title" content="网络安全 - (*´･д･)?">
     
 
     
@@ -15,10 +15,9 @@
     
 
     
+    <link href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/index.xml" rel="alternate" type="application/rss+xml" title="(*´･д･)?" />
     
-
-
-
+    
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -27,7 +26,7 @@
   </head>
 
   
-  <body class="post">
+  <body class="tags">
     <header class="masthead">
       <h1><a href="/">(*´･д･)?</a></h1>
 
@@ -63,10 +62,10 @@
     <article class="main">
       <header class="title">
       
-<h1>Terminal代理设置导致pip和git无法正常使用</h1>
+<h1>网络安全</h1>
 
 <h3>
-  2017-11-16</h3>
+</h3>
 <hr>
 
 
@@ -75,57 +74,17 @@
 
 
 
-
-<h3 id="问题描述">问题描述</h3>
-
-<p>今天用pip安装东西的时候忽然频繁出现连不上的问题，百思不得其解，尝试了用各种代理各种恢复未果。然后用git clone出现如下错误：</p>
-
-<pre><code>Cloning into 'spider'...
-fatal: unable to access 'https://github.com/gsh199449/spider.git/': Failed to connect to 127.0.0.1 port 44131: Connection refused
-
-</code></pre>
-
-<p>才怀疑到环境上。</p>
-
-<h3 id="解决办法">解决办法</h3>
-
-<p>先在终端中查看当前代理状况</p>
-
-<pre><code>env | grep -i proxy
-
-</code></pre>
-
-<p>然后发现是这样的：</p>
-
-<pre><code>HTTP_PROXY=http://127.0.0.1:44131/
-http_proxy=http://127.0.0.1:44131/
-no_proxy=localhost,127.0.0.0/8,::1
-NO_PROXY=localhost,127.0.0.0/8,::1
-HTTPS_PROXY=http://127.0.0.1:44131/
-
-</code></pre>
-
-<p>故可以确定是代理设置的问题，所以将其恢复为无代理状态。</p>
-
-<pre><code>unset http_proxy
-
-</code></pre>
-
-<p>或者</p>
-
-<pre><code>http_proxy=&quot;&quot;
-</code></pre>
-
-<p>至此，问题解决。</p>
-
+<ul>
+  
+  <li>
+    <span class="date">2017/11/27</span>
+    <a href="/post/%E4%BD%A0%E7%9A%84ssh%E8%A2%AB%E7%88%86%E4%BA%86%E4%B9%88/">你的ssh被爆了么</a>
+  </li>
+  
+</ul>
 
   <footer>
   
-<nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/%E8%AF%BB%E5%A4%A7%E8%B4%A5%E5%B1%80%EF%BD%89%E4%BB%80%E4%B9%88%E5%86%B3%E5%AE%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F/">读《大败局Ｉ》——什么决定了一个企业的生存周期?</a></span>
-  <span class="nav-next"><a href="/post/%E4%BD%A0%E7%9A%84ssh%E8%A2%AB%E7%88%86%E4%BA%86%E4%B9%88/">你的ssh被爆了么</a> &rarr;</span>
-</nav>
-
 
 
 
@@ -136,16 +95,6 @@ HTTPS_PROXY=http://127.0.0.1:44131/
 <script async src="//yihui.name/js/center-img.js"></script>
 
   
-
-
-
-<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
-
-
-
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
 
   
   
