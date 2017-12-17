@@ -6,10 +6,20 @@
     <description>Recent content in 数学之美 on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Oct 2017 14:05:10 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Dec 2017 23:00:16 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>直播行业主播收益目标函数分析</title>
+      <link>http://xrazor.org/post/%E7%9B%B4%E6%92%AD%E8%A1%8C%E4%B8%9A%E4%B8%BB%E6%92%AD%E6%94%B6%E7%9B%8A%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sun, 17 Dec 2017 23:00:16 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E7%9B%B4%E6%92%AD%E8%A1%8C%E4%B8%9A%E4%B8%BB%E6%92%AD%E6%94%B6%E7%9B%8A%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E5%88%86%E6%9E%90/</guid>
+      <description>主播收益是关乎直播平台、经济公司以及主播个人三者的利益，也是主播能力和发展潜力评估的核心指标，显然三方都希望主播收益越高越好。对此，这里以主播收益为核心，分析与收益相关的一系列因素。
+目标函数 $maximize 主播收益 = 观看人数 × 打赏率 × 人均打赏金额$</description>
+    </item>
     
     <item>
       <title>LaTex快速入门</title>
