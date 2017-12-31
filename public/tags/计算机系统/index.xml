@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机系统 on (*´･д･)?</title>
+    <link>http://xrazor.org/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 计算机系统 on (*´･д･)?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Dec 2017 23:49:31 +0800</lastBuildDate>
+    
+	<atom:link href="http://xrazor.org/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>架构的三个层次</title>
+      <link>http://xrazor.org/post/%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1/</link>
+      <pubDate>Sat, 30 Dec 2017 23:49:31 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1/</guid>
+      <description>什么是架构 架构狭义的说狭义的来说，是在信息系统研发中，负责依据需求来确定主要的系统设计、技术选择的主体框架结构，并负责搭建实施的活动。而广义的架构应包含业务架构。
+架构的三个层次 按照定义，架构可分为三个层次： * 业务架构 * 系统架构 * 技术架构
+业务架构 根据业务需求设计业务模块和交互关系。比如：一个商城网站。
+系统架构 根据业务需求设计系统和子系统的模块。比如：MVC架构。
+技术架构 根据业务需求决定采用的技术及框架。比如。基于MVC的RoR。
+DDD与Micro-server DDD Domain Driven Design 领域驱动设计。一种方法论。主要解决的问题是：让业务架构和系统架构绑定，实现系统架构随着业务架构的演进而演进，即系统架构有随着业务架构进化的能力。这样以来，技术架构与系统架构就是解耦的。
+Micro-server 微服务。可基于DDD实现。</description>
+    </item>
+    
+  </channel>
+</rss>
