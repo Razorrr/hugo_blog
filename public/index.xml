@@ -6,10 +6,19 @@
     <description>Recent content on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Dec 2017 23:49:31 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jan 2018 15:32:26 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>那些好用的命令行</title>
+      <link>http://xrazor.org/post/%E9%82%A3%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Mon, 01 Jan 2018 15:32:26 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E9%82%A3%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description> Coding辅助  cppmanC++ 98/11/14 手册查询 for Linux/MacOS  编辑辅助  pandoc 将markdown转化为任意电子书格式 [graphviz]() 文本转图表  运维辅助  [nload]() 监控当前主机网络流量 screenfetch 当前主机信息 [iotop]() 磁盘io实时监控 [bmon]() 指定网卡流量监控 thefuck 命令行智能纠错工具  渗透辅助  hydra 暴力破解pwd  其他  [figlet]() 将输入字符转换成艺术字体  bash学习资源  bash-guide  </description>
+    </item>
     
     <item>
       <title>架构的三个层次</title>

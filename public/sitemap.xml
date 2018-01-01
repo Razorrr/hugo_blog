@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://xrazor.org/post/%E9%82%A3%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C/</loc>
+    <lastmod>2018-01-01T15:32:26+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://xrazor.org/post/%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1/</loc>
     <lastmod>2017-12-30T23:49:31+08:00</lastmod>
   </url>
@@ -68,7 +73,7 @@
   
   <url>
     <loc>http://xrazor.org/</loc>
-    <lastmod>2017-12-30T23:49:31+08:00</lastmod>
+    <lastmod>2018-01-01T15:32:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -79,7 +84,7 @@
   
   <url>
     <loc>http://xrazor.org/post/</loc>
-    <lastmod>2017-12-30T23:49:31+08:00</lastmod>
+    <lastmod>2018-01-01T15:32:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -101,6 +106,12 @@
   
   <url>
     <loc>http://xrazor.org/about/</loc>
+  </url>
+  
+  <url>
+    <loc>http://xrazor.org/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2018-01-01T15:32:26+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
