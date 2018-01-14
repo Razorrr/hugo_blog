@@ -37,7 +37,7 @@
 3.1 -&amp;gt; 在单天的指标计算上，采用移动平均，减缓震荡幅度；与前值作比对，如大于设定振幅上限，则取上限值。
 3.2 -&amp;gt; 如数量不多，采用该主播前后数据填充，如单个主播整体缺失，采用行业内同级别主播均值数据填充。
 基本公式结构 采用时间衰减:
-${index = f(δ_t * g(xt) +δ{t-1} * g(x{t-1} ) + &amp;hellip; + δ{t-T} * g(x_{t-T})}$</description>
+$$index = f(δ_t * g(xt) +δ{t-1} * g(x{t-1} ) + &amp;hellip; + δ{t-T} * g(x_{t-T})$$</description>
     </item>
     
     <item>
