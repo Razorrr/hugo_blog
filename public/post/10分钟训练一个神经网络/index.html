@@ -234,7 +234,9 @@ model.add(Activation('softmax')) # 8
       validation_data=(x_test, y_test))
 </code></pre>
 
-<p>这里batch_size = 128 实际上就是用了mini_batch， epoch = 4 说明每个batch都看了4遍，因此参数的update操作实际上是进行了128 × 4 次。为什么没有用随机梯度下降呢? 不是说随机梯度下降更快吗?理论上是的，但实际上，有两个原因使得大家更倾向于使用mini_batch,一是因为mini_batch更稳定，二是在并行计算中，实际上mini_batch和sgd的计算实际相差不大，因此是划算的。那能不能搞一个很大的batch呢，显然是不能的，batch太大，可能得到的结果很差，因为很容易陷入local minimun 出不来，而batch小的话，如果谷不深，还有机会跳出低点。<br />
+<p>这里batch_size = 128 实际上就是用了mini_batch， epoch = 4 说明每个batch都看了4遍，因此参数的update操作实际上是进行了128 × 4 次。<strong>为什么没有用随机梯度下降呢? 不是说随机梯度下降更快吗?</strong><br />
+理论上是的，但实际上，有两个原因使得大家更倾向于使用mini_batch,一是因为mini_batch更稳定，二是在并行计算中，实际上mini_batch和sgd的计算实际相差不大，因此是划算的。<br />
+那能不能搞一个很大的batch呢，显然是不能的，batch太大，可能得到的结果很差，因为很容易陷入local minimun 出不来，而batch小的话，如果谷不深，还有机会跳出低点。<br />
 训练：</p></li>
 </ol>
 
