@@ -295,11 +295,7 @@ isinstance(&#39;object&#39;,str) instance(&#39;object&#39;,unicode)  不要对st
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://xrazor.org/bookmarks/</guid>
-      <description> ML  NTU李宏毅
-Statistic 统计之都
-MachineLearning Security 看雪论坛
- UC
- Exploit-db
+      <description> MachineLearning  NTU李宏毅  Statistic  统计之都  Security  看雪论坛 UC Exploit-db
 ShotCuts sci-hub
 Friend  </description>
     </item>
