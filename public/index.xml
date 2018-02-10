@@ -175,6 +175,18 @@ user root;　# 原本的用户是nginx而不是root worker_processes auto; error
     </item>
     
     <item>
+      <title>Impala&#43;Spark操作实践</title>
+      <link>http://xrazor.org/post/impala&#43;spark%E6%93%8D%E4%BD%9C%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Sat, 10 Jun 2017 21:24:23 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/impala&#43;spark%E6%93%8D%E4%BD%9C%E5%AE%9E%E8%B7%B5/</guid>
+      <description>背景 最近Mysql+Redis的架构无法满足日益变化和增长的数据需求，因此需要引更适合于大数据的系统架构，目的是在scalability和数据的读写性能上有所提升。初步采用的是CDH的部署，选用了Hadoop、HBase、Hive、Impala作为资源层。用Spark做批处理和流计算。
+选用Impala的原因及基本使用 Why Impala  Implala基本使用sql语法，可以实现开发者无缝切换使用，学习成本低。 性能卓越，比hive快。  Impala和其他组件的关系  Hadoop是一切的基础 Hbase是基于Hadoop的NoSQL数据库 Hive在本文中起到存储Metadata的作用，原本是通过MapReduce对Hadoop中的数据进行访问。 Impala是一个取数接口。  建表 step 1 进入hbase的shell，在hbase中建表, 第二项是列族名
+create &#39;danmu_test_003&#39;, &#39;danmu_info&#39;  step 2 在hive中建外部表, 第一个字段自动作为rowkey, varchar 要标range,不然会报错。
+CREATE EXTERNAL TABLE gogo.danmu_test_003( uid bigint, level int, room_id int, nick_name varchar(255), create_time varchar(255), content varchar(255)) ROW FORMAT SERDE &#39;org.apache.hadoop.hive.hbase.HBaseSerDe&#39; STORED BY &#39;org.apache.hadoop.hive.hbase.HBaseStorageHandler&#39; WITH SERDEPROPERTIES (&amp;quot;hbase.columns.mapping&amp;quot; = &amp;quot;:key, danmu_info:level, danmu_info:room_id, danmu_info:nick_name, danmu_info:create_time, danmu_info:content&amp;quot;) TBLPROPERTIES(&amp;quot;hbase.table.name&amp;quot; = &amp;quot;danmu_test_003&amp;quot;);  step 3 在impala-shell中同步数据:</description>
+    </item>
+    
+    <item>
       <title>机器学习的几个规定动作</title>
       <link>http://xrazor.org/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%84%E5%AE%9A%E5%8A%A8%E4%BD%9C/</link>
       <pubDate>Mon, 20 Mar 2017 00:05:02 +0800</pubDate>
