@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>现代数学与数学空间 - (*´･д･)?</title>
-    <meta property="og:title" content="现代数学与数学空间 - (*´･д･)?">
+    <title>位运算总结 - (*´･д･)?</title>
+    <meta property="og:title" content="位运算总结 - (*´･д･)?">
     
 
     
@@ -16,6 +16,9 @@
 
     
     
+
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -60,10 +63,10 @@
     <article class="main">
       <header class="title">
       
-<h1>现代数学与数学空间</h1>
+<h1>位运算总结</h1>
 
 <h3>
-  2016-06-16</h3>
+  2016-02-22</h3>
 <hr>
 
 
@@ -71,45 +74,96 @@
 
 
 
-<p>现代数学以集合为研究对象，这样的好处就是可以将很多不同问题的本质抽象出来。因为每个人的研究方向不同，为了能有效研究集合，必须给集合赋予一些“框架”（或叫做”结构“）。</p>
 
-<p><strong>从数学的本质上看，最基本的集合有两种</strong>  ：</p>
 
-<ul>
-<li>线性空间</li>
-<li>度量空间<br /></li>
-<li>
-<strong>对于线性空间</strong>，主要研究集合的描述，直观的说就是告诉别人这个集合是什么样子。为了描述清楚，首先引入了基（相当于三维座标系）的概念，对于一个线性空间来说，集合中的元素只要知道其在给定基下的座标即可。<br /></li>
-</ul>
+<h1 id="位运算概念">位运算概念</h1>
 
-<p>但是，线性座标系中的元素没有<strong>长度</strong>的概念，为了量化线性空间中的元素，所以又在线性空间中引入了特殊的“长度”，即范数。</p>
+<p>位运算是指对整数在内存中进行二进制操作。而bitmap是利用位运算的特性，bit位来标记记某个元素对应value，而key即是该元素。由于采取了bit为单位存储数据，所以可以大大节省存储空间。</p>
 
-<p><code>线性空间+范数=赋范线性空间</code>
-但是赋范线性空间中没有<strong>角度</strong>的概念，为了解决这个问题，又在线性空间中引入了<strong>内积</strong>的概念。</p>
+<h1 id="位运算基本操作">位运算基本操作</h1>
 
-<p>因为有了度量，所以可以在度量、赋范线性空间以及内积空间中引入极限，但抽象空间中的极限和实数极限很大的一个不同点，就是极限点可能不在原先给定的集合中（即造成了原先集合少点、或者少皮），所以又引入了完备的概念，完备的内积空间即Hilbert空间。</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">描述</th>
+<th align="center">运算规则</th>
+</tr>
+</thead>
 
-<p>至此，我们的升级版的线性空间已包括：</p>
+<tbody>
+<tr>
+<td align="center">&amp;</td>
+<td align="center">与</td>
+<td align="center">2个为1，结果才为1</td>
+</tr>
 
-<ul>
-<li>基</li>
-<li>范数</li>
-<li>内积</li>
-<li>完备性<br /></li>
-</ul>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">或</td>
+</tr>
 
-<p>线性空间 + 范数 = 赋范空间</p>
+<tr>
+<td align="center">^</td>
+<td align="center">异或</td>
+<td align="center">相同为0，相异为1</td>
+</tr>
 
-<p>赋范空间 + 线性结构 + 内积 = 内积空间</p>
+<tr>
+<td align="center">～</td>
+<td align="center">取反</td>
+<td align="center">0变1,1变0</td>
+</tr>
 
-<p>内积空间 + 完备性 = Hilbert空间</p>
+<tr>
+<td align="center">&lt;&lt;</td>
+<td align="center">左移</td>
+<td align="center">所有二进位左移若干位，相当于乘2的n次方</td>
+</tr>
+
+<tr>
+<td align="center">&gt;&gt;</td>
+<td align="center">右移</td>
+<td align="center">所有二进位右移若干位，相当于除2的n次方</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="位运算基本应用">位运算基本应用</h1>
+
+<h3 id="判断寄偶数">判断寄偶数</h3>
+
+<pre><code>a &amp; 1 
+</code></pre>
+
+<p>结果为0则a为偶数，结果为1则为奇数</p>
+
+<h3 id="两数交换">两数交换</h3>
+
+<pre><code>a ^= b
+b ^= a
+a ^= b
+
+</code></pre>
+
+<p>核心是：1.0异或任何数，都为任何数本身；2.异或满足交换律；</p>
+
+<h3 id="改变符号">改变符号</h3>
+
+<p>取反后加1</p>
+
+<pre><code>～a + 1
+</code></pre>
+
+<h1 id="bitmap空间压缩">bitmap空间压缩</h1>
 
 
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev">&larr; <a href="/post/%E4%BD%8D%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/">位运算总结</a></span>
-  <span class="nav-next"><a href="/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%89%8B%E6%89%8E/">计算机字符编码手扎</a> &rarr;</span>
+  <span class="nav-prev"></span>
+  <span class="nav-next"><a href="/post/%E7%8E%B0%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%95%B0%E5%AD%A6%E7%A9%BA%E9%97%B4/">现代数学与数学空间</a> &rarr;</span>
 </nav>
 
 
@@ -122,6 +176,16 @@
 <script async src="//yihui.name/js/center-img.js"></script>
 
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   

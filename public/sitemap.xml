@@ -83,6 +83,11 @@
   </url>
   
   <url>
+    <loc>http://xrazor.org/post/%E4%BD%8D%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2016-02-22T11:50:21+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://xrazor.org/contact/</loc>
   </url>
   
@@ -121,6 +126,12 @@
   
   <url>
     <loc>http://xrazor.org/about/</loc>
+  </url>
+  
+  <url>
+    <loc>http://xrazor.org/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2016-02-22T11:50:21+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
