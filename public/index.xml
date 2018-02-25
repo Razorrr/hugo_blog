@@ -24,7 +24,7 @@
 以下N行每行包含两个整数Xi, Yi代表Pi的坐标。(0 &amp;lt;= Xi, Yi &amp;lt;= 10000)
 输出 输出折线段的中点坐标。坐标保留一位小数。
 样例输入 3 0 0 30 30 40 20  样例输出 20.0 20.0  思路  每输入一个点，就计算与上一个点所形成线段的长度，并与之前线段长度累加，则输入最后一个点后，可求得折线总长s 计算出是加上哪一段线段后，使得当前距离大于d,其中d = 1&amp;frasl;2 * s，则说明折线中点在该线段上 计算该段线段长度 计算该线段为d“贡献”了多少长度 按照比例求出中点坐标
-代码 ``` #include using namespace std; int x[110],y[110]; double s[110]; double dis(int i) { return sqrt((x[i]-x[i-1])(x[i]-x[i-1])+(y[i]-y[i-1])(y[i]-y[i-1])); } int main() { int n; scanf(&amp;ldquo;%d&amp;rdquo;,&amp;amp;n); scanf(&amp;ldquo;%d%d&amp;rdquo;,&amp;amp;x[0],&amp;amp;y[0]); for(int i=1;i&amp;lt;n;i++) { scanf(&amp;ldquo;%d%d&amp;rdquo;,&amp;amp;x[i],&amp;amp;y[i]); s[i]=dis(i)+s[i-1]; }</description>
+代码  #include&amp;lt;bits/stdc++.h&amp;gt; using namespace std; int x[110],y[110]; double s[110]; double dis(int i) { return sqrt((x[i]-x[i-1])*(x[i]-x[i-1])+(y[i]-y[i-1])*(y[i]-y[i-1])); } int main() { int n; scanf(&amp;quot;%d&amp;quot;,&amp;amp;n); scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;x[0],&amp;amp;y[0]); for(int i=1;i&amp;lt;n;i++) { scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;x[i],&amp;amp;y[i]); s[i]=dis(i)+s[i-1]; } double d=s[n-1]/2; int t=lower_bound(s,s+n,d)-s; double len=s[t]-s[t-1]; d-=s[t-1]; printf(&amp;quot;%.</description>
     </item>
     
     <item>

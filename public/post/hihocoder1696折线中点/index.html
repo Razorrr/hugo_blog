@@ -121,38 +121,37 @@
 
 <li><p>按照比例求出中点坐标</p>
 
-<h1 id="代码">代码</h1>
+<h1 id="代码">代码</h1></li>
+</ol>
 
-<p>```
-#include<bits/stdc++.h>
+<pre><code>#include&lt;bits/stdc++.h&gt;
 using namespace std;
 int x[110],y[110];
 double s[110];
 double dis(int i)
 {
-return sqrt((x[i]-x[i-1])<em>(x[i]-x[i-1])+(y[i]-y[i-1])</em>(y[i]-y[i-1]));
+    return sqrt((x[i]-x[i-1])*(x[i]-x[i-1])+(y[i]-y[i-1])*(y[i]-y[i-1]));
 }
 int main()
 {
-int n;
-scanf(&ldquo;%d&rdquo;,&amp;n);
-scanf(&ldquo;%d%d&rdquo;,&amp;x[0],&amp;y[0]);
-for(int i=1;i&lt;n;i++)
-{
-    scanf(&ldquo;%d%d&rdquo;,&amp;x[i],&amp;y[i]);
-    s[i]=dis(i)+s[i-1];
-}</p>
+    int n;
+    scanf(&quot;%d&quot;,&amp;n);
+    scanf(&quot;%d%d&quot;,&amp;x[0],&amp;y[0]);
+    for(int i=1;i&lt;n;i++)
+    {
+        scanf(&quot;%d%d&quot;,&amp;x[i],&amp;y[i]);
+        s[i]=dis(i)+s[i-1];
+    }
 
-<p>double d=s[n-1]/2;
-int t=lower_bound(s,s+n,d)-s;
-double len=s[t]-s[t-1];
-d-=s[t-1];
-printf(&ldquo;%.1f %.1f\n&rdquo;,x[t-1]+(x[t]-x[t-1])<em>(d/len),y[t-1]+(y[t]-y[t-1])</em>(d/len));
-return 0;
-}</p></li>
-</ol>
+    double d=s[n-1]/2;
+    int t=lower_bound(s,s+n,d)-s; 
+    double len=s[t]-s[t-1];
+    d-=s[t-1];
+    printf(&quot;%.1f %.1f\n&quot;,x[t-1]+(x[t]-x[t-1])*(d/len),y[t-1]+(y[t]-y[t-1])*(d/len));
+    return 0;
+}
 
-<p>```</p>
+</code></pre>
 
 
   <footer>
