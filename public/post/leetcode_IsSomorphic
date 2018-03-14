@@ -1,0 +1,56 @@
+---
+title: "Leetcode_IsSomorphic"
+date: 2017-03-01T22:31:12+08:00
+tags: ["编程练手"]
+draft: false
+---
+
+# 题目
+Given two strings s and t, determine if they are isomorphic.
+
+Two strings are isomorphic if the characters in s can be replaced to get t.
+
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
+
+#### For example,
+Given "egg", "add", return true.
+
+Given "foo", "bar", return false.
+
+Given "paper", "title", return true.
+
+#### Note:
+You may assume both s and t have the same length.
+
+# 分析
+这题主要考察的是hashtable，可以借用ASCII码（总共256个）将input的string做一个1个hashtable映射，比如，对于s建一个table1 = [0,0,...0],对于t建一个table2 = [0,0,...0], 其中len(table1) = len(table2) = 256.
+```
+table1, table2 = [0 for _ in xrange(256)], [0 for _ in xrange(256)]
+``` 
+
+解题的关键在于：
+```
+1. 利用ord获取ASCII码，如：ord('a')=97
+2. **s的同一个字符，能且仅能与t中的1个字符映射** 
+
+    for i in xrange(len(s)):
+        if table1[ord(s[i])] != table2[ord(t[i])]: # 1
+            return False
+        table1[ord(s[i])] = i+1  # 2
+        table2[ord(t[i])] = i+1
+    return True
+
+``` 
+以‘egg’和‘adx’为例， ord('e')= 101, ord('a') = 97, 此时 table[101] = 0 =table[97] (初始值都为0)，跳过#1 的判断语句， 执行#2后， table[101] = 1, table[97] = 1, 同理，ord('g') =  103, ord('d') = 100, 执行#2后table1[103] = 1 = table[100]； 继续， ord('g') = 103, table1[103]= 1, 原先'g'应该对应'd', 但是现在是'x', table2(ord('x')) = 0, 因此1#中返回False， 结束。
+
+# 完整代码
+``` 
+def isIsomorphic(self, s, t):
+    d1, d2 = [0 for _ in xrange(256)], [0 for _ in xrange(256)]
+    for i in xrange(len(s)):
+        if d1[ord(s[i])] != d2[ord(t[i])]:
+            return False
+        d1[ord(s[i])] = i+1
+        d2[ord(t[i])] = i+1
+    return True
+```
