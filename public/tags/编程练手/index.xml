@@ -27,5 +27,18 @@
 代码  #include&amp;lt;bits/stdc++.h&amp;gt; using namespace std; int x[110],y[110]; double s[110]; double dis(int i) { return sqrt((x[i]-x[i-1])*(x[i]-x[i-1])+(y[i]-y[i-1])*(y[i]-y[i-1])); } int main() { int n; scanf(&amp;quot;%d&amp;quot;,&amp;amp;n); scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;x[0],&amp;amp;y[0]); for(int i=1;i&amp;lt;n;i++) { scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;x[i],&amp;amp;y[i]); s[i]=dis(i)+s[i-1]; } double d=s[n-1]/2; int t=lower_bound(s,s+n,d)-s; double len=s[t]-s[t-1]; d-=s[t-1]; printf(&amp;quot;%.</description>
     </item>
     
+    <item>
+      <title>leetcode_isSomorphic</title>
+      <link>http://xrazor.org/post/leetcode_issomorphic/</link>
+      <pubDate>Sat, 25 Mar 2017 23:04:01 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/leetcode_issomorphic/</guid>
+      <description>题目 Given two strings s and t, determine if they are isomorphic.
+Two strings are isomorphic if the characters in s can be replaced to get t.
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
+For example, Given &amp;ldquo;egg&amp;rdquo;, &amp;ldquo;add&amp;rdquo;, return true.
+Given &amp;ldquo;foo&amp;rdquo;, &amp;ldquo;bar&amp;rdquo;, return false.</description>
+    </item>
+    
   </channel>
 </rss>

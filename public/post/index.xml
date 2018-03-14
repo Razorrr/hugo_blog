@@ -203,6 +203,19 @@ CREATE EXTERNAL TABLE gogo.danmu_test_003( uid bigint, level int, room_id int, n
     </item>
     
     <item>
+      <title>leetcode_isSomorphic</title>
+      <link>http://xrazor.org/post/leetcode_issomorphic/</link>
+      <pubDate>Sat, 25 Mar 2017 23:04:01 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/leetcode_issomorphic/</guid>
+      <description>题目 Given two strings s and t, determine if they are isomorphic.
+Two strings are isomorphic if the characters in s can be replaced to get t.
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
+For example, Given &amp;ldquo;egg&amp;rdquo;, &amp;ldquo;add&amp;rdquo;, return true.
+Given &amp;ldquo;foo&amp;rdquo;, &amp;ldquo;bar&amp;rdquo;, return false.</description>
+    </item>
+    
+    <item>
       <title>机器学习的几个规定动作</title>
       <link>http://xrazor.org/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%84%E5%AE%9A%E5%8A%A8%E4%BD%9C/</link>
       <pubDate>Mon, 20 Mar 2017 00:05:02 +0800</pubDate>
