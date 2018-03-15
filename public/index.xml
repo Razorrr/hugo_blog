@@ -240,6 +240,17 @@ Data Visualization 数据可视化 Python下用pandas很容易做数据统计描
     </item>
     
     <item>
+      <title>Leetcode_Hindex</title>
+      <link>http://xrazor.org/post/leetcode_hindex/</link>
+      <pubDate>Wed, 15 Mar 2017 08:31:42 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/leetcode_hindex/</guid>
+      <description>题目 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher&amp;rsquo;s h-index.
+According to the definition of h-index on Wikipedia: &amp;ldquo;A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.&amp;rdquo;
+For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively.</description>
+    </item>
+    
+    <item>
       <title>Word2vec简单实践</title>
       <link>http://xrazor.org/post/word2vec%E7%AE%80%E5%8D%95%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Thu, 12 Jan 2017 23:57:26 +0800</pubDate>

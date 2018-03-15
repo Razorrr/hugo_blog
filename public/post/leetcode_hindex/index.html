@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>编程练手 - (*´･д･)?</title>
-    <meta property="og:title" content="编程练手 - (*´･д･)?">
+    <title>Leetcode_Hindex - (*´･д･)?</title>
+    <meta property="og:title" content="Leetcode_Hindex - (*´･д･)?">
     
 
     
@@ -15,9 +15,10 @@
     
 
     
-    <link href="/tags/%E7%BC%96%E7%A8%8B%E7%BB%83%E6%89%8B/index.xml" rel="alternate" type="application/rss+xml" title="(*´･д･)?" />
     
-    
+
+
+
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -26,7 +27,7 @@
   </head>
 
   
-  <body class="tags">
+  <body class="post">
     <header class="masthead">
       <h1><a href="/">(*´･д･)?</a></h1>
 
@@ -62,10 +63,10 @@
     <article class="main">
       <header class="title">
       
-<h1>编程练手</h1>
+<h1>Leetcode_Hindex</h1>
 
 <h3>
-</h3>
+  2017-03-15</h3>
 <hr>
 
 
@@ -74,30 +75,46 @@
 
 
 
-<ul>
-  
-  <li>
-    <span class="date">2018/02/25</span>
-    <a href="/post/hihocoder1696%E6%8A%98%E7%BA%BF%E4%B8%AD%E7%82%B9/">Hihocoder1696折线中点</a>
-  </li>
-  
-  <li>
-    <span class="date">2017/03/25</span>
-    <a href="/post/leetcode_issomorphic/">leetcode_isSomorphic</a>
-  </li>
-  
-  <li>
-    <span class="date">2017/03/15</span>
-    <a href="/post/leetcode_hindex/">Leetcode_Hindex</a>
-  </li>
-  
-</ul>
+
+<h1 id="题目">题目</h1>
+
+<p>Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher&rsquo;s h-index.</p>
+
+<p>According to the definition of h-index on Wikipedia: &ldquo;A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.&rdquo;</p>
+
+<p>For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, his h-index is 3.</p>
+
+<h4 id="note">Note:</h4>
+
+<p>If there are several possible values for h, the maximum one is taken as the h-index.</p>
+
+<h1 id="分析">分析</h1>
+
+<p>根据给出的算法，先把论文的引用次数从小到大排序，然后遍历排序后的列表， 当引用大于n-i时，返回n-i</p>
+
+<h1 id="代码">代码</h1>
+
+<pre><code class="language-python">class Solution(object):
+    def hIndex(self, citations):
+        &quot;&quot;&quot;
+        :type citations: List[int]
+        :rtype: int
+        &quot;&quot;&quot;
+
+        citations.sort()
+        n = len(citations)
+        for i in xrange(n):
+            if citations[i] &gt;= (n-i):
+                return n-i
+        return 0
+</code></pre>
+
 
   <footer>
   
 <nav class="post-nav">
-  <span class="nav-prev"></span>
-  <span class="nav-next"></span>
+  <span class="nav-prev">&larr; <a href="/post/word2vec%E7%AE%80%E5%8D%95%E5%AE%9E%E8%B7%B5/">Word2vec简单实践</a></span>
+  <span class="nav-next"><a href="/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%84%E5%AE%9A%E5%8A%A8%E4%BD%9C/">机器学习的几个规定动作</a> &rarr;</span>
 </nav>
 
 
@@ -110,6 +127,16 @@
 <script async src="//yihui.name/js/center-img.js"></script>
 
   
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
 
   
   
