@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>实做CNN手写数字辨识 - (*´･д･)?</title>
+    <meta property="og:title" content="实做CNN手写数字辨识 - (*´･д･)?">
+    
+
+    
+      
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">(*´･д･)?</a></h1>
+
+
+
+      <nav class="menu">
+        <input id="menu-check" type="checkbox" />
+        <label id="menu-label" for="menu-check" class="unselectable">
+          <span class="icon close-icon">✕</span>
+          <span class="icon open-icon">☰</span>
+          <span class="text">Menu</span>
+        </label>
+        <ul>
+        
+        
+        <li><a href="/">Rencent</a></li>
+        
+        <li><a href="/tags/">Tags</a></li>
+        
+        <li><a href="/skilltree/">SkillTree</a></li>
+        
+        <li><a href="/bookmarks/">BookMarks</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+        
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>实做CNN手写数字辨识</h1>
+
+<h3>
+  2017-06-25</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<h1 id="开始">开始</h1>
+
+<div align=center><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-3-18/3017240.jpg"/></div> 
+
+<ul>
+<li>语言：Python2</li>
+<li>框架：Keras</li>
+<li>Backend: tensorflow</li>
+<li>OS: Archlinux</li>
+<li>Package: numpy,pandas,seaborn,sklearn,etc</li>
+<li>Method: CPU(i7)</li>
+<li>数据集: MNIST</li>
+</ul>
+
+<p>模型结构：</p>
+
+<pre><code>In -&gt; [[Conv2D-&gt;relu]*2 -&gt; MaxPool2D -&gt; Dropout]*2 -&gt; Flatten -&gt; Dense -&gt; Dropout -&gt; Out
+</code></pre>
+
+<p>现在让我们在Ipython里面跑。</p>
+
+<h1 id="数据预处理">数据预处理</h1>
+
+<h3 id="import各种包">import各种包</h3>
+
+<pre><code class="language-python">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import seaborn as sns
+
+np.random.seed(2) # seed中使用数字相同，则每次程序中生成的随机数都相同
+
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
+import itertools
+
+from keras.utils.np_utils import to_categorical # convert to one-hot-encoding
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPool2D
+from keras.optimizers import RMSprop
+from keras.preprocessing.image import ImageDataGenerator
+from keras.callbacks import ReduceLROnPlateau 
+
+sns.set(style='white', context='notebook', palette='deep')
+</code></pre>
+
+<h3 id="载入数据">载入数据</h3>
+
+<pre><code class="language-python">train = pd.read_csv(&quot;../data/train.csv&quot;)
+test = pd.read_csv(&quot;../data/test.csv&quot;)
+</code></pre>
+
+<pre><code class="language-python">Y_train = train[&quot;label&quot;]
+X_train = train.drop(labels = [&quot;label&quot;],axis = 1) 
+
+g = sns.countplot(Y_train) # 看一看各标签大致分布情况
+Y_train.value_counts() 
+</code></pre>
+
+<div align=center><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-3-18/32508221.jpg"/></div>
+
+<p>总共0-9 10个数字，可以看出分布都差不多。</p>
+
+<h3 id="检查空值-缺失值">检查空值/缺失值</h3>
+
+<p>mnist是处理好的数据集，不会有缺失的情况，但是这个检查步骤要形成习惯。</p>
+
+<pre><code class="language-python">X_train.isnull().any().describe()
+</code></pre>
+
+<h3 id="归一化">归一化</h3>
+
+<p>mnist是黑白的，因此这里做的是灰度归一化(grey scale),归一化的作用有2个：</p>
+
+<ul>
+<li>减小照度带来的差异</li>
+<li>加快模型训练速度</li>
+</ul>
+
+<pre><code class="language-python">X_train = X_train / 255.0
+test = test / 255.0
+</code></pre>
+
+<h3 id="reshape">Reshape</h3>
+
+<pre><code class="language-python">X_train = X_train.values.reshape(-1,28,28,1)
+test = test.values.reshape(-1,28,28,1)
+</code></pre>
+
+<p>pandas 导进来的数据是784长度的1D vector， 我们要将其转为28 * 28 的3D metrices, 因为是黑白图片所以通道数只有1， 如果是彩色的，则RGB通道就是3.</p>
+
+<h3 id="对labels进行one-hot编码">对labels进行one-hot编码</h3>
+
+<p>keras里面自带的就有，直接用。</p>
+
+<pre><code class="language-python">Y_train = to_categorical(Y_train, num_classes = 10) # (ex : 2 -&gt; [0,0,1,0,0,0,0,0,0,0])
+</code></pre>
+
+<p>one-hot的作用在于：它使距离计算或相似度计算更合理了。</p>
+
+<h3 id="划分训练集和验证集-validation-set">划分训练集和验证集(validation set)</h3>
+
+<p>这里用sklearn的方法，很方便。</p>
+
+<pre><code class="language-python">random_seed = 2
+X_train, X_val, Y_train, Y_val = train_test_split(X_train, Y_train, test_size = 0.2, random_state=random_seed)
+</code></pre>
+
+<p>这里训练集和验证集是8:2， 注意：这里是随机分，能随机分的前提是各个labels的分布比较均匀， 对于一些有偏斜的类，直接像上面这样random可能结果会变得很糟糕，应对之法是在train_test_split中多加一个参数stratify，它使validation之后的分布仍和之前的分布一样。</p>
+
+<h1 id="训练模型">训练模型</h1>
+
+<h3 id="cnn">CNN</h3>
+
+<p>这里keras的后端用的是tensorflow，众所周知采用的是先架“管道”后通“水”的运作方式，先定义图，再将数据导入。
+对于CNN模型的搭建，我们使用keras中的Sequential API操作，搭建的方式也非常符合”直觉“，需要什么层就按顺序添加就好。
+再来看看我们之前说的神经网络结构：</p>
+
+<pre><code>In -&gt; [[Conv2D-&gt;relu]*2 -&gt; MaxPool2D -&gt; Dropout]*2 -&gt; Flatten -&gt; Dense -&gt; Dropout -&gt; Out
+</code></pre>
+
+<p>CNN有”四大神兽“：</p>
+
+<ul>
+<li>先是<strong>卷积层</strong>(convelutional layer)。卷积层有几个核心的参数需要设定，一是filters的数量，每一个filters都会学习某一种特征，比如说有的学“撇”、有的学“捺”、有的学”竖“&hellip;， 而到了第二个卷积层的时候所学的特征就会比第一层卷积更”高级“， 比如说已经可以学习到一些连笔之类的， 这些filters学出来的东西又组合成一个矩阵叫feature map，供下一层作为input。总之我们这里前后各有2个卷积层，前面的filters是32个，后面的是64个。</li>
+<li>第二是<strong>池化层</strong>(pooling layer), 它的作用是一个下采样器（downsampling）,比如一个size是(2, 2)的maxpooling filter就是从一个2*2的方块中选出最大的那个数字，然后移动到下一个方块，maxpooling filter的移动一般是不overlap的。它的作用一是减少参数，加快训练；二是减少过拟合几率，增强泛化能力。</li>
+<li>三是<strong>Dropout层</strong>（不知道怎么翻译），这是一个正则化的方法，在CNN的开山论文中被提出，作用是减少过拟合，它的工作就是按概率让神经网络中的某些神经元失效。</li>
+<li>最后是<strong>激活层</strong>(activation layer), 它为整个神经网络引入非线性的特征，我们这里用的是ReLU(max(0, x))。</li>
+</ul>
+
+<p>另外， flatten 层的作用是把前一层卷积/池化得到的featuremap展平成1维， 让后面的全连接层可以用。
+最后我们用softmax来输出各分类的概率。</p>
+
+<pre><code class="language-python">model = Sequential()
+
+model.add(Conv2D(filters = 32, kernel_size = (5,5),padding = 'Same', 
+                 activation ='relu', input_shape = (28,28,1)))
+model.add(Conv2D(filters = 32, kernel_size = (5,5),padding = 'Same', 
+                 activation ='relu'))
+model.add(MaxPool2D(pool_size=(2,2)))
+model.add(Dropout(0.25))
+
+model.add(Conv2D(filters = 64, kernel_size = (3,3),padding = 'Same', 
+                 activation ='relu'))
+model.add(Conv2D(filters = 64, kernel_size = (3,3),padding = 'Same', 
+                 activation ='relu'))
+model.add(MaxPool2D(pool_size=(2,2), strides=(2,2)))
+model.add(Dropout(0.25))
+
+model.add(Flatten())
+model.add(Dense(256, activation = &quot;relu&quot;))
+model.add(Dropout(0.5))
+model.add(Dense(10, activation = &quot;softmax&quot;))
+</code></pre>
+
+<h3 id="优化器">优化器</h3>
+
+<p>机器学习方法= 模型+策略+算法， 现在模型已经搞定了，还剩策略和算法。策略是指如何评价一个模型的好坏，算法是指我们怎么计算能够又快又好的找到一个解。具体地，就是要定义loss function和optimization算法, optimization 一定是能不断减小loss function的。
+这里我们的loss function选用交叉熵, 即categorical_crossentropy, 优化算法选RMSprop，比SGD高效。</p>
+
+<pre><code class="language-python">optimizer = RMSprop(lr=0.001, rho=0.9, epsilon=1e-08, decay=0.0)
+# 编译模型
+model.compile(optimizer = optimizer , loss = &quot;categorical_crossentropy&quot;, metrics=[&quot;accuracy&quot;])
+</code></pre>
+
+<p>这样模型就编译好了。</p>
+
+<p><strong>One more thing&hellip;</strong>
+为了让优化器收敛更快， 我们需要对一个关键参数——学习率（learning rate）用退火法处理。原理上来说，学习率越大，参数更新得越快，然而事实是有时候步子迈大了容易陷入一个局部最小的趋于， 在里面来回逛。因此我们需要一个逐步变小的学习率。怎么变呢？如果正确率不再提高，那么我们设定3个周期后自动将学习率将至原来的一半。这里通过调用ReduceLROnPlateau方法可以实现。这是一个回调函数，回调函数就是在迭代过程中某一时刻会按条件触发的函数。</p>
+
+<pre><code class="language-python">learning_rate_reduction = ReduceLROnPlateau(monitor='val_acc', # 监测指标
+                                            patience=3, # 等待周期
+                                            verbose=1, 
+                                            factor=0.5, # 每次衰减幅度
+                                            min_lr=0.00001 # 学习率下限)
+</code></pre>
+
+<p>这里我们同时设立一下epoch和batch，batch就是一次看多少个样本，epoch就是一个batch看几遍。</p>
+
+<pre><code class="language-python">epochs = 15
+batch_size = 86
+</code></pre>
+
+<h3 id="数据增强-data-augmentation">数据增强(Data augmentation)</h3>
+
+<p>为了增强模型的泛化能力，我们希望它能多看一下数据，但是原本的数据就这么大，怎么办呢，我们可以在原本的数据集上做一些微小的改动，给他们增加一些noise，这样就等于有了更多的feature。这个是一个压箱底的”大杀器“，使用后可明显提高性能。常用的Data augmentation包括但不限于：</p>
+
+<ul>
+<li>灰度缩放grayscales</li>
+<li>水平翻转horizontal flips</li>
+<li>垂直翻转vertical flips</li>
+<li>随机裁剪random crops</li>
+<li>颜色抖动color jitters</li>
+<li>旋转rotations</li>
+</ul>
+
+<p>还是调用现成的方法：</p>
+
+<pre><code class="language-python">datagen = ImageDataGenerator(
+        featurewise_center=False,  # set input mean to 0 over the dataset
+        samplewise_center=False,  # set each sample mean to 0
+        featurewise_std_normalization=False,  # divide inputs by std of the dataset
+        samplewise_std_normalization=False,  # divide each input by its std
+        zca_whitening=False,  # apply ZCA whitening
+        rotation_range=10,  # randomly rotate images in the range (degrees, 0 to 180)
+        zoom_range = 0.1, # Randomly zoom image 
+        width_shift_range=0.1,  # randomly shift images horizontally (fraction of total width)
+        height_shift_range=0.1,  # randomly shift images vertically (fraction of total height)
+        horizontal_flip=False,  # randomly flip images
+        vertical_flip=False)  # randomly flip images
+
+datagen.fit(X_train)
+</code></pre>
+
+<p>我们这里采用的有那么几招：</p>
+
+<ul>
+<li>随机旋转10°</li>
+<li>随机缩放10%</li>
+<li>随机水平拉伸10%</li>
+<li>随机垂直拉伸10%</li>
+</ul>
+
+<h3 id="是时候train一发了">是时候train一发了</h3>
+
+<p>把刚才的退火法lr回调函数写进callbacks里，train之。</p>
+
+<pre><code class="language-python">history = model.fit_generator(datagen.flow(X_train,Y_train, batch_size=batch_size),
+                              epochs = epochs, validation_data = (X_val,Y_val),
+                              verbose = 2, steps_per_epoch=X_train.shape[0] // batch_size
+                              , callbacks=[learning_rate_reduction])
+</code></pre>
+
+<p>注意这里用的是model.fit_generator, 如果是model.fit就是直接把数据一把load进内存中，这个对于使用gpu计算的情况，数据集太大的话有可能会把显存撑爆。
+接下来让我们看一看结果&gt;&gt;&gt;&gt;&gt;</p>
+
+<pre><code> - 110s - loss: 0.5793 - acc: 0.8131 - val_loss: 0.0908 - val_acc: 0.9712
+Epoch 2/15
+ - 103s - loss: 0.1894 - acc: 0.9434 - val_loss: 0.0935 - val_acc: 0.9678
+Epoch 3/15
+ - 103s - loss: 0.1374 - acc: 0.9585 - val_loss: 0.0380 - val_acc: 0.9886
+Epoch 4/15
+ - 106s - loss: 0.1070 - acc: 0.9685 - val_loss: 0.0457 - val_acc: 0.9853
+Epoch 5/15
+ - 104s - loss: 0.0958 - acc: 0.9711 - val_loss: 0.0387 - val_acc: 0.9886
+Epoch 6/15
+ - 104s - loss: 0.0888 - acc: 0.9747 - val_loss: 0.0354 - val_acc: 0.9909
+Epoch 7/15
+ - 104s - loss: 0.0761 - acc: 0.9766 - val_loss: 0.0399 - val_acc: 0.9893
+Epoch 8/15
+ - 104s - loss: 0.0806 - acc: 0.9757 - val_loss: 0.0289 - val_acc: 0.9919
+Epoch 9/15
+ - 104s - loss: 0.0703 - acc: 0.9797 - val_loss: 0.0328 - val_acc: 0.9886
+Epoch 10/15
+ - 104s - loss: 0.0695 - acc: 0.9791 - val_loss: 0.0378 - val_acc: 0.9899
+Epoch 11/15
+ - 104s - loss: 0.0686 - acc: 0.9803 - val_loss: 0.0314 - val_acc: 0.9914
+Epoch 12/15
+
+Epoch 00012: reducing learning rate to 0.000500000023749.
+ - 104s - loss: 0.0633 - acc: 0.9801 - val_loss: 0.0329 - val_acc: 0.9907
+Epoch 13/15
+ - 104s - loss: 0.0519 - acc: 0.9853 - val_loss: 0.0257 - val_acc: 0.9929
+Epoch 14/15
+ - 104s - loss: 0.0523 - acc: 0.9848 - val_loss: 0.0276 - val_acc: 0.9912
+Epoch 15/15
+ - 104s - loss: 0.0514 - acc: 0.9856 - val_loss: 0.0295 - val_acc: 0.9932
+
+</code></pre>
+
+<p>没用gpu，跑了半个多小时，这里我们train了15个epoch，loss和acc是训练集上的，val_loss和val_acc是验证集上的，可以看到一开始训练集比验证集上的acc要差，这是因为我们做了data augmentation，导致看训练集识别的难度有所提升。另外在epoch=12时触发了回调函数，调整了学习率，最终我们的acc在验证集上做到了0.9932，勉强可以，如果epoch更高应该会有更好的表现，这里为了节省时间只跑了15个epoch。</p>
+
+<h1 id="模型评估">模型评估</h1>
+
+<h3 id="画loss和acc曲线">画loss和acc曲线</h3>
+
+<pre><code class="language-python">fig, ax = plt.subplots(2,1)
+ax[0].plot(history.history['loss'], color='b', label=&quot;Training loss&quot;)
+ax[0].plot(history.history['val_loss'], color='r', label=&quot;validation loss&quot;,axes =ax[0])
+legend = ax[0].legend(loc='best', shadow=True)
+
+ax[1].plot(history.history['acc'], color='b', label=&quot;Training accuracy&quot;)
+ax[1].plot(history.history['val_acc'], color='r',label=&quot;Validation accuracy&quot;)
+legend = ax[1].legend(loc='best', shadow=True)
+</code></pre>
+
+<p><div align=center><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-3-18/64903322.jpg"/></div>
+在15个epoch里面，validation set 的acc一直略微高于training set的，说明没有过拟合，模型训练得不错。</p>
+
+<h3 id="画混淆矩阵-confusion-matrix">画混淆矩阵(Confusion Matrix)</h3>
+
+<p>混淆矩阵的一轴表示预测下的分类样本数，另一轴表示实际的分类样本数，通过混淆矩阵我们可以直观的判断哪些地方误分类较为严重。这里我们选用validation set的数据来做。</p>
+
+<pre><code class="language-python">def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+    &quot;&quot;&quot;
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    &quot;&quot;&quot;
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, cm[i, j],
+                 horizontalalignment=&quot;center&quot;,
+                 color=&quot;white&quot; if cm[i, j] &gt; thresh else &quot;black&quot;)
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+
+# Predict the values from the validation dataset
+Y_pred = model.predict(X_val)
+# Return the biggest num's index.
+Y_pred_classes = np.argmax(Y_pred,axis = 1) 
+
+Y_true = np.argmax(Y_val,axis = 1) 
+# compute the confusion matrix
+confusion_mtx = confusion_matrix(Y_true, Y_pred_classes) 
+# plot the confusion matrix
+plot_confusion_matrix(confusion_mtx, classes = range(10)) 
+</code></pre>
+
+<p><div align=center><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-3-18/60901388.jpg"/></div>
+从混淆矩阵可以看出，大多数分类都还ok，只有9相对比较差，容易被误分为4。
+让我们进一步看一看错误的典型。</p>
+
+<pre><code class="language-python"># get errors bool array
+errors = (Y_pred_classes - Y_true != 0)
+# check which class is misclassification
+Y_pred_classes_errors = Y_pred_classes[errors]
+Y_pred_errors = Y_pred[errors]
+Y_true_errors = Y_true[errors]
+X_val_errors = X_val[errors]
+
+def display_errors(errors_index,img_errors,pred_errors, obs_errors):
+    &quot;&quot;&quot; This function shows 6 images with their predicted and real labels&quot;&quot;&quot;
+    n = 0
+    nrows = 2
+    ncols = 3
+    fig, ax = plt.subplots(nrows,ncols,sharex=True,sharey=True)
+    for row in range(nrows):
+        for col in range(ncols):
+            error = errors_index[n]
+            ax[row,col].imshow((img_errors[error]).reshape((28,28)))
+            ax[row,col].set_title(&quot;Predicted label :{}\nTrue label :{}&quot;.format(pred_errors[error],obs_errors[error]))
+            n += 1
+
+# Probabilities of the wrong predicted numbers
+Y_pred_errors_prob = np.max(Y_pred_errors,axis = 1)
+
+# Predicted probabilities of the true values in the error set
+true_prob_errors = np.diagonal(np.take(Y_pred_errors, Y_true_errors, axis=1))
+
+# Difference between the probability of the predicted label and the true label
+delta_pred_true_errors = Y_pred_errors_prob - true_prob_errors
+
+# Sorted list of the delta prob errors
+sorted_dela_errors = np.argsort(delta_pred_true_errors)
+
+# Top 6 errors 
+most_important_errors = sorted_dela_errors[-6:]
+
+# Show the top 6 errors
+display_errors(most_important_errors, X_val_errors, Y_pred_classes_errors, Y_true_errors)
+</code></pre>
+
+<p>好了，这里我们就找出来top6的错误：
+<div align=center><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-3-18/16765960.jpg"/></div>
+简直坑爹，那几个true label是9的人都会认错有木有，所以我们模型表现还是不错的。
+OK, 今天就先到这里了。</p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/impala&#43;spark%E6%93%8D%E4%BD%9C%E5%AE%9E%E8%B7%B5/">Impala&#43;Spark操作实践</a></span>
+  <span class="nav-next"><a href="/post/hugo&#43;nginx&#43;webhook%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/">Hugo&#43;nginx&#43;webhook:在服务器上搭建个人博客并实现自动发布</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'],]}
+});
+</script>
+  <hr>
+  <div class="copyright">&copy; <a href="https://xrazor.org">xrazor</a> 2017 | <a href="https://github.com/razorrr">Github</a> | <a href="https://twitter.com/">Twitter</a></div>
+  
+  </footer>
+  </article>
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-113190132-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

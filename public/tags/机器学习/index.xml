@@ -6,10 +6,21 @@
     <description>Recent content in 机器学习 on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Mar 2017 00:05:02 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 25 Jun 2017 23:04:01 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>实做CNN手写数字辨识</title>
+      <link>http://xrazor.org/post/%E5%AE%9E%E5%81%9Acnn%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%BE%A8%E8%AF%86/</link>
+      <pubDate>Sun, 25 Jun 2017 23:04:01 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E5%AE%9E%E5%81%9Acnn%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%BE%A8%E8%AF%86/</guid>
+      <description>开始   语言：Python2 框架：Keras Backend: tensorflow OS: Archlinux Package: numpy,pandas,seaborn,sklearn,etc Method: CPU(i7) 数据集: MNIST  模型结构：
+In -&amp;gt; [[Conv2D-&amp;gt;relu]*2 -&amp;gt; MaxPool2D -&amp;gt; Dropout]*2 -&amp;gt; Flatten -&amp;gt; Dense -&amp;gt; Dropout -&amp;gt; Out  现在让我们在Ipython里面跑。
+数据预处理 import各种包 import pandas as pd import numpy as np import matplotlib.pyplot as plt import matplotlib.image as mpimg import seaborn as sns np.random.seed(2) # seed中使用数字相同，则每次程序中生成的随机数都相同 from sklearn.model_selection import train_test_split from sklearn.metrics import confusion_matrix import itertools from keras.</description>
+    </item>
     
     <item>
       <title>机器学习的几个规定动作</title>
@@ -38,7 +49,7 @@ Data Visualization 数据可视化 Python下用pandas很容易做数据统计描
     <item>
       <title>10分钟训练一个神经网络</title>
       <link>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
-      <pubDate>Wed, 18 Jan 2017 21:17:20 +0800</pubDate>
+      <pubDate>Sat, 18 Feb 2017 21:17:20 +0800</pubDate>
       
       <guid>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
       <description>准备  OS:Archlinux 语言:Python2 框架:Keras(非GPU) IDE:Ipython 数据集:MNIST  开始 默认以上环境已经齐备，下面直接开始。
