@@ -18,7 +18,7 @@
       
       <guid>http://xrazor.org/post/%E5%AE%9E%E5%81%9Acnn%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%BE%A8%E8%AF%86/</guid>
       <description>开始   语言：Python2 框架：Keras Backend: tensorflow OS: Archlinux Package: numpy,pandas,seaborn,sklearn,etc Method: CPU(i7) 数据集: MNIST  模型结构：
-In -&amp;gt; [[Conv2D-&amp;gt;relu]*2 -&amp;gt; MaxPool2D -&amp;gt; Dropout]*2 -&amp;gt; Flatten -&amp;gt; Dense -&amp;gt; Dropout -&amp;gt; Out  现在让我们在Ipython里面跑。
+In -&amp;gt; [[Conv2D-&amp;gt;relu]*2 -&amp;gt; MaxPool2D -&amp;gt; Dropout]*2 -&amp;gt; Flatten -&amp;gt; Dense -&amp;gt; Dropout -&amp;gt; Out.  现在让我们在Ipython里面跑。
 数据预处理 import各种包 import pandas as pd import numpy as np import matplotlib.pyplot as plt import matplotlib.image as mpimg import seaborn as sns np.random.seed(2) # seed中使用数字相同，则每次程序中生成的随机数都相同 from sklearn.model_selection import train_test_split from sklearn.metrics import confusion_matrix import itertools from keras.</description>
     </item>
     
