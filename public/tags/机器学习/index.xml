@@ -6,21 +6,10 @@
     <description>Recent content in 机器学习 on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jan 2018 21:17:20 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Mar 2017 00:05:02 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>10分钟训练一个神经网络</title>
-      <link>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
-      <pubDate>Thu, 18 Jan 2018 21:17:20 +0800</pubDate>
-      
-      <guid>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
-      <description>准备  OS:Archlinux 语言:Python2 框架:Keras(非GPU) IDE:Ipython 数据集:MNIST  开始 默认以上环境已经齐备，下面直接开始。
-Step 1:把包导进来 import matplotlib.pyplot as plt # 1 from keras.datasets import mnist # 2 from keras.models import Sequential # 3 from keras.layers.core import Dense, Dropout, Activation # 4 from keras.utils import np_utils # 5  对应注释上的编号:
- 画图的 内置数据集 Sequential的神经网络是线性的从头到尾不分叉的 Dense即fully connection, Dropout层防止过拟合，Actiction 即激活层 numpy移植版  Step 2:把数据load进来 nb_classes = 10 (X_train, y_train), (X_test, y_test) = mnist.load_data() # 1 print(&amp;quot;X_train original shape&amp;quot;, X_train.</description>
-    </item>
     
     <item>
       <title>机器学习的几个规定动作</title>
@@ -44,6 +33,17 @@ Data Visualization 数据可视化 Python下用pandas很容易做数据统计描
  基于参数的优化
  基于模型融合的优化
   </description>
+    </item>
+    
+    <item>
+      <title>10分钟训练一个神经网络</title>
+      <link>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Wed, 18 Jan 2017 21:17:20 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <description>准备  OS:Archlinux 语言:Python2 框架:Keras(非GPU) IDE:Ipython 数据集:MNIST  开始 默认以上环境已经齐备，下面直接开始。
+Step 1:把包导进来 import matplotlib.pyplot as plt # 1 from keras.datasets import mnist # 2 from keras.models import Sequential # 3 from keras.layers.core import Dense, Dropout, Activation # 4 from keras.utils import np_utils # 5  对应注释上的编号:
+ 画图的 内置数据集 Sequential的神经网络是线性的从头到尾不分叉的 Dense即fully connection, Dropout层防止过拟合，Actiction 即激活层 numpy移植版  Step 2:把数据load进来 nb_classes = 10 (X_train, y_train), (X_test, y_test) = mnist.load_data() # 1 print(&amp;quot;X_train original shape&amp;quot;, X_train.</description>
     </item>
     
     <item>
