@@ -126,7 +126,7 @@ RMSprop每一次更新都会考虑之前的&amp;delta&amp;和这一步的梯度�
 
 <h4 id="momentum">momentum</h4>
 
-<p><div align=center><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-3-20/91409062.jpg.jpg"/></div>
+<p><div align=center><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-3-20/91409062.jpg"/></div>
 基于动量的参数更新每次减掉的不是梯度，而是动量，而动量又是上一次动量和这一次梯度×学习率的和，因此是参数的更新具有了一定的惯性。<br />
 <div align=center><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-3-20/5652729.jpg"/></div>
 比如当小球卡在local minuma时，由于之前的动量的存在，及时在本次迭代梯度为0的情况下，小球能有机会向右移动，跳出局部最小区域。这就是动量的核心思想。</p>
