@@ -85,7 +85,7 @@
 <p>题目来源:<a href="http://www.shiyanbar.com/ctf/33">实验吧</a></p>
 
 <p>题目:<a href="http://ctf5.shiyanbar.com/8/index.php?id=1">http://ctf5.shiyanbar.com/8/index.php?id=1</a><br />
-<img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/47735074.jpg" alt="" /></p>
+<img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/47735074.jpg" alt="5" /></p>
 
 <h3 id="解题">解题</h3>
 
@@ -95,7 +95,8 @@
 </code></pre>
 
 <p>在末尾添加单引号：id=1&rsquo;<br />
-这样如果报错则可初步判断存在注入点。</p>
+这样如果报错则可初步判断存在注入点。<br />
+<img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/58669093.jpg" alt="0" /></p>
 
 <h4 id="2-上sqlmap扫描">2.上sqlmap扫描</h4>
 
@@ -103,7 +104,7 @@
 
 </code></pre>
 
-<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/54235938.jpg" alt="" /><br />
+<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/54235938.jpg" alt="4" /><br />
 很快就扫出了3个DB的名字，看着这个my_db嫌疑比较大，接下来我们就对它下手。</p>
 
 <h4 id="3-获取tables">3.获取tables</h4>
@@ -112,7 +113,7 @@
 
 </code></pre>
 
-<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/78922882.jpg" alt="" /></p>
+<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/78922882.jpg" alt="1" /></p>
 
 <p>马上拿到了table名,显然我们要找的是这个thiskey,别问我怎么知道的:D</p>
 
@@ -121,7 +122,7 @@
 <pre><code>sqlmap -u &quot;http://ctf5.shiyanbar.com/8/index.php?id=1&quot; -D my_db -T thiskey --columns
 </code></pre>
 
-<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/22798812.jpg" alt="" /><br />
+<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/22798812.jpg" alt="2" /><br />
 这样我们就拿到了column, 下一步就是猜解字段内容</p>
 
 <h4 id="5-猜解内容">5.猜解内容</h4>
@@ -130,7 +131,7 @@
 
 </code></pre>
 
-<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/36708550.jpg" alt="" /><br />
+<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-1/36708550.jpg" alt="3" /><br />
 这样我们就拿到了第一个flag.<br />
 虽然简单，却也大概了解了sqlmap的能力和用法。<br />
 明天见。</p>
