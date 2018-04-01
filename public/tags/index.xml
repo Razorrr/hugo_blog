@@ -6,10 +6,19 @@
     <description>Recent content in Tags on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Jun 2017 21:24:23 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Apr 2018 08:48:58 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ctf_web</title>
+      <link>http://xrazor.org/tags/ctf_web/</link>
+      <pubDate>Sun, 01 Apr 2018 08:48:58 +0800</pubDate>
+      
+      <guid>http://xrazor.org/tags/ctf_web/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Python</title>
