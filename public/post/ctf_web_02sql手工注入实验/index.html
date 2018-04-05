@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>[CTF_WEB_02]sql手工注入实验 - (*´･д･)?</title>
+    <meta property="og:title" content="[CTF_WEB_02]sql手工注入实验 - (*´･д･)?">
+    
+
+    
+      
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">(*´･д･)?</a></h1>
+
+
+
+      <nav class="menu">
+        <input id="menu-check" type="checkbox" />
+        <label id="menu-label" for="menu-check" class="unselectable">
+          <span class="icon close-icon">✕</span>
+          <span class="icon open-icon">☰</span>
+          <span class="text">Menu</span>
+        </label>
+        <ul>
+        
+        
+        <li><a href="/">Rencent</a></li>
+        
+        <li><a href="/tags/">Tags</a></li>
+        
+        <li><a href="/skilltree/">SkillTree</a></li>
+        
+        <li><a href="/bookmarks/">BookMarks</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+        
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>[CTF_WEB_02]sql手工注入实验</h1>
+
+<h3>
+  2018-04-05</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p><a href="http://www.lujza.me/%E5%AE%9E%E9%AA%8C%E5%90%A7ctf%E4%B9%8Bweb%E4%B8%93%E9%A2%98-1.html">来源</a></p>
+
+<h3 id="题目">题目</h3>
+
+<p>题目来源:<a href="http://www.shiyanbar.com/ctf/1942">实验吧</a></p>
+
+<p>题目:<a href="http://ctf5.shiyanbar.com/web/wonderkun/web/index.html">http://ctf5.shiyanbar.com/web/wonderkun/web/index.html</a><br />
+<img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-5/57884224.jpg" alt="1" /><br />
+<img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-5/68905625.jpg" alt="2" /></p>
+
+<h3 id="解题">解题</h3>
+
+<p>打开后就一个框，什么都没有，在username的地方我们输入<code>' or 1=1</code>,意图是构造如下sql语句：</p>
+
+<pre><code class="language-sql">select * from user where username='' or 1=1;
+</code></pre>
+
+<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-5/73058646.jpg" alt="3" /></p>
+
+<p>然而失败了，看结果我们知道是过滤了关键字or，但是没有过滤单引号，所以接下来我们只能构造仅有单引号的语句。</p>
+
+<pre><code>select * from user where username=' ' =' '
+</code></pre>
+
+<p>username=&rsquo; &lsquo;会返回false，然后false 等于&rsquo; &lsquo;(NULL)，结果就是true了，奇技淫巧有没有，渗透就是这种节奏。<br />
+我们实际输入&rsquo;=&lsquo;, password的地方也如此。结果就成功了。</p>
+
+<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-5/49953720.jpg" alt="4" /></p>
+
+<p><img src="http://markdown0327.oss-cn-beijing.aliyuncs.com/18-4-5/54534445.jpg" alt="5" /></p>
+
+<h3 id="关于其他手工注入常用奇技淫巧的总结">关于其他手工注入常用奇技淫巧的总结</h3>
+
+<h4 id="1-判断是否存在注入漏洞">1.判断是否存在注入漏洞</h4>
+
+<pre><code>'
+and 1=1
+and 1=2
+</code></pre>
+
+<h3 id="2-通过枚举查看字段个数">2.通过枚举查看字段个数</h3>
+
+<pre><code>Order by 数字 
+</code></pre>
+
+<p>比如:</p>
+
+<pre><code>select * from user order by 3
+</code></pre>
+
+<p>如果正常返回则说明有第三列，继续：</p>
+
+<pre><code>select * from user order by 4
+</code></pre>
+
+<p>如果此时报错，说明此表只有3个字段</p>
+
+<h3 id="3-对于sqlserver">3.对于SQLserver</h3>
+
+<pre><code>and user &gt; 0 
+</code></pre>
+
+<p>user是SQLserver的内置参数，类型是nvarchar，当和int比较时，会先将nvarchar转化为int， 转化过程中可能会报错，比如:将nvarchar值 ”xxx” 转换数据类型为 int 的列时发生语法错误。xxx正是user的值！
+(待续)</p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/ctf_web_01sqlmap%E5%AE%9E%E9%AA%8C%E8%BF%99%E4%B8%AA%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9C%89%E7%82%B9%E7%AE%80%E5%8D%95/">[CTF_WEB_01]sqlmap实验——“这个看起来有点简单”</a></span>
+  <span class="nav-next"></span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'],]}
+});
+</script>
+  <hr>
+  <div class="copyright">&copy; <a href="https://xrazor.org">xrazor</a> 2017 | <a href="https://github.com/razorrr">Github</a> | <a href="https://twitter.com/">Twitter</a></div>
+  
+  </footer>
+  </article>
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-113190132-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

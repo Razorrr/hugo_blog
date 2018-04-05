@@ -6,10 +6,29 @@
     <description>Recent content in Posts on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Apr 2018 08:48:58 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Apr 2018 21:10:24 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[CTF_WEB_02]sql手工注入实验</title>
+      <link>http://xrazor.org/post/ctf_web_02sql%E6%89%8B%E5%B7%A5%E6%B3%A8%E5%85%A5%E5%AE%9E%E9%AA%8C/</link>
+      <pubDate>Thu, 05 Apr 2018 21:10:24 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/ctf_web_02sql%E6%89%8B%E5%B7%A5%E6%B3%A8%E5%85%A5%E5%AE%9E%E9%AA%8C/</guid>
+      <description>来源
+题目 题目来源:实验吧
+题目:http://ctf5.shiyanbar.com/web/wonderkun/web/index.html
+解题 打开后就一个框，什么都没有，在username的地方我们输入&#39; or 1=1,意图是构造如下sql语句：
+select * from user where username=&#39;&#39; or 1=1;  然而失败了，看结果我们知道是过滤了关键字or，但是没有过滤单引号，所以接下来我们只能构造仅有单引号的语句。
+select * from user where username=&#39; &#39; =&#39; &#39;  username=&amp;rsquo; &amp;lsquo;会返回false，然后false 等于&amp;rsquo; &amp;lsquo;(NULL)，结果就是true了，奇技淫巧有没有，渗透就是这种节奏。
+我们实际输入&amp;rsquo;=&amp;lsquo;, password的地方也如此。结果就成功了。
+关于其他手工注入常用奇技淫巧的总结 1.判断是否存在注入漏洞 &#39; and 1=1 and 1=2  2.通过枚举查看字段个数 Order by 数字  比如:
+select * from user order by 3  如果正常返回则说明有第三列，继续：
+select * from user order by 4  如果此时报错，说明此表只有3个字段
+3.对于SQLserver and user &amp;gt; 0  user是SQLserver的内置参数，类型是nvarchar，当和int比较时，会先将nvarchar转化为int， 转化过程中可能会报错，比如:将nvarchar值 ”xxx” 转换数据类型为 int 的列时发生语法错误。xxx正是user的值！ (待续)</description>
+    </item>
     
     <item>
       <title>[CTF_WEB_01]sqlmap实验——“这个看起来有点简单”</title>
