@@ -6,10 +6,24 @@
     <description>Recent content on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Apr 2018 21:10:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 May 2018 23:15:16 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sbt换源</title>
+      <link>http://xrazor.org/post/sbt%E6%8D%A2%E6%BA%90/</link>
+      <pubDate>Tue, 15 May 2018 23:15:16 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/sbt%E6%8D%A2%E6%BA%90/</guid>
+      <description>1.只需要编辑 ~/.sbt/repositories文件，加入
+[repositories] local aliyun: http://maven.aliyun.com/nexus/content/groups/public/ central: http://repo1.maven.org/maven2/  2.然后 sbt run -Dsbt.override.build.repos=true
+主要是sbt后面的参数：-Dsbt.override.build.repos=true
+试了很多，这个有用。
+作者：Scott Huang
+链接：https://www.zhihu.com/question/31158252/answer/326757822 来源：知乎</description>
+    </item>
     
     <item>
       <title>[CTF_WEB_02]sql手工注入实验</title>
