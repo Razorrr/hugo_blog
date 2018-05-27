@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>位运算总结 - (*´･д･)?</title>
+    <meta property="og:title" content="位运算总结 - (*´･д･)?">
+    
+
+    
+      
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">(*´･д･)?</a></h1>
+
+
+
+      <nav class="menu">
+        <input id="menu-check" type="checkbox" />
+        <label id="menu-label" for="menu-check" class="unselectable">
+          <span class="icon close-icon">✕</span>
+          <span class="icon open-icon">☰</span>
+          <span class="text">Menu</span>
+        </label>
+        <ul>
+        
+        
+        <li><a href="/">Rencent</a></li>
+        
+        <li><a href="/tags/">Tags</a></li>
+        
+        <li><a href="/skilltree/">SkillTree</a></li>
+        
+        <li><a href="/bookmarks/">BookMarks</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+        
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>位运算总结</h1>
+
+<h3>
+  2016-02-22</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<h1 id="位运算概念">位运算概念</h1>
+
+<p>位运算是指对整数在内存中进行二进制操作。而bitmap是利用位运算的特性，bit位来标记某个元素对应value，而key即是该元素。由于采取了bit为单位存储数据，所以可以大大节省存储空间。</p>
+
+<h1 id="位运算基本操作">位运算基本操作</h1>
+
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">描述</th>
+<th align="center">运算规则</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">&amp;</td>
+<td align="center">与</td>
+<td align="center">2个为1，结果才为1</td>
+</tr>
+
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">或</td>
+</tr>
+
+<tr>
+<td align="center">^</td>
+<td align="center">异或</td>
+<td align="center">相同为0，相异为1</td>
+</tr>
+
+<tr>
+<td align="center">～</td>
+<td align="center">取反</td>
+<td align="center">0变1,1变0</td>
+</tr>
+
+<tr>
+<td align="center">&lt;&lt;</td>
+<td align="center">左移</td>
+<td align="center">所有二进位左移若干位，相当于乘2的n次方</td>
+</tr>
+
+<tr>
+<td align="center">&gt;&gt;</td>
+<td align="center">右移</td>
+<td align="center">所有二进位右移若干位，相当于除2的n次方</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="位运算基本应用">位运算基本应用</h1>
+
+<h3 id="判断寄偶数">判断寄偶数</h3>
+
+<pre><code>a &amp; 1 
+</code></pre>
+
+<p>结果为0则a为偶数，结果为1则为奇数</p>
+
+<h3 id="两数交换">两数交换</h3>
+
+<pre><code>a ^= b
+b ^= a
+a ^= b
+
+</code></pre>
+
+<p>核心是：1.0异或任何数，都为任何数本身；2.异或满足交换律；</p>
+
+<h3 id="改变符号">改变符号</h3>
+
+<p>取反后加1</p>
+
+<pre><code>～a + 1
+</code></pre>
+
+<h1 id="bitmap空间压缩">bitmap空间压缩</h1>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev"></span>
+  <span class="nav-next"><a href="/post/web%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5%E5%B0%8F%E7%BB%93/">Web编程概念小结</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'],]}
+});
+</script>
+  <hr>
+  <div class="copyright">&copy; <a href="https://xrazor.org">xrazor</a> 2017 | <a href="https://github.com/razorrr">Github</a> | <a href="https://twitter.com/">Twitter</a></div>
+  
+  </footer>
+  </article>
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-113190132-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

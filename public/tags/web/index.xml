@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on (*´･д･)?</title>
+    <link>http://xrazor.org/tags/web/</link>
+    <description>Recent content in Web on (*´･д･)?</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Mar 2016 08:47:52 +0800</lastBuildDate>
+    
+	<atom:link href="http://xrazor.org/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web编程概念小结</title>
+      <link>http://xrazor.org/post/web%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Sun, 27 Mar 2016 08:47:52 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/web%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5%E5%B0%8F%E7%BB%93/</guid>
+      <description> 三次握手  来一发?SYN 好啊，确定来一发吗? ACK+ SYN 确定 ACK  WebSocket Websocket是为了解决client和service之间实现双向长连接通信而设计的。主要应用于监控、聊天。websocket与http都是基于TCP协议，但与http的区别在于，http是一种单向无状态协议，而websocket是一种双向有状态协议。
+RESTful REST &amp;ndash; REpresentational State Transfer,全称是 Resource Representational State Transfer, 直接翻译：资源在网络中以某种表现形式进行状态转移。一句话总结:URL定位资源，用HTTP动词（method:GET,POST,DELETE,DETC）描述操作。RESTful API可以通过一套统一的接口为Client提供服务。
+RESTful API原则  url简洁 只带名词不带动词 保证GET方法安全，使资源不被污染  MVC 主要是为了实现前后端逻辑分离。
+ M(Model):后台抽象逻辑 V(View): 状态等综合形成的上下文 C(Control):用户端信息  </description>
+    </item>
+    
+  </channel>
+</rss>

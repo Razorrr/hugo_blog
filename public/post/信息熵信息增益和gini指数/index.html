@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>信息熵、信息增益和Gini指数 - (*´･д･)?</title>
+    <meta property="og:title" content="信息熵、信息增益和Gini指数 - (*´･д･)?">
+    
+
+    
+      
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">(*´･д･)?</a></h1>
+
+
+
+      <nav class="menu">
+        <input id="menu-check" type="checkbox" />
+        <label id="menu-label" for="menu-check" class="unselectable">
+          <span class="icon close-icon">✕</span>
+          <span class="icon open-icon">☰</span>
+          <span class="text">Menu</span>
+        </label>
+        <ul>
+        
+        
+        <li><a href="/">Rencent</a></li>
+        
+        <li><a href="/tags/">Tags</a></li>
+        
+        <li><a href="/skilltree/">SkillTree</a></li>
+        
+        <li><a href="/bookmarks/">BookMarks</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+        
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>信息熵、信息增益和Gini指数</h1>
+
+<h3>
+  2016-11-21</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增益的大小作为特征选择判定的标准，C4.5则选用信息增益比为选择标准，CART则用Gini指数作为选择标准。那么，所引入的这几个指标的内涵意义是什么呢？本文将作一个简单的梳理。</p>
+
+<h3 id="信息熵">信息熵</h3>
+
+<p>在信息论里面，熵被用来衡量一个随机变量出现的期望值，对不确定性的测量，是描述一个系统所需的最低存储单元。在信息世界，熵越高，所需传递的信息越丰富，熵越低，则意味着所需传输的信息越少。而在热力学里，熵越高，表示混乱度越高。
+这三个解释乍一看毫无关联，实际上确实可以相互印证的。以抛硬币为例，自然条件下结果为正面或反面的概率均为50%， 此时结果的不确定性最高， 越混乱，而我们要描述这个结果所需的文字（暂且用文字的个数代表存储单元）越多，比如你会这么描述“结果可能是正面，也可能是反面”（加逗号14个字）；而当我们假定正面出现的概率为100%时，信息熵为0，不混乱很清晰，而此时我们描述这个结果所需的存储单元是很少的，比如说“是正面”（3个字）就能描述清楚。</p>
+
+<h3 id="信息增益">信息增益</h3>
+
+<p>有了上面的概念，我们就可以结合ID3算法来看看信息增益是什么东西。
+在ID3中，使用信息增益作为特征选择的准则，用H（D）表示数据集的经验熵，用H（D|A)表示在A特征下数据集D的经验条件熵，则信息增益g（D，A）= H(D) - H(D|A), 表示 有A 和 没A ，整个系统的不确定性变化了多少。这里要牢记， 熵高，是说明不确定很大，如果H（D）很大，而 H（D|A)很小，则g（D,A）会趋大， 说明特征A 的存在，大大降低了系统的不确定性， 因此它是一个关键的特征。</p>
+
+<h3 id="gini指数">Gini指数</h3>
+
+<p>Gini指数是CART算法中生成分类树时用来选择特征的一个指标。</p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%89%8B%E6%89%8E/">计算机字符编码手扎</a></span>
+  <span class="nav-next"><a href="/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8C%81%E7%BB%AD%E8%BE%93%E5%87%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%A5%E8%AF%86/">为什么要持续输出自己的知识</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+  
+  
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'],]}
+});
+</script>
+  <hr>
+  <div class="copyright">&copy; <a href="https://xrazor.org">xrazor</a> 2017 | <a href="https://github.com/razorrr">Github</a> | <a href="https://twitter.com/">Twitter</a></div>
+  
+  </footer>
+  </article>
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-113190132-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

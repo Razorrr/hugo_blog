@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>你的ssh被爆了么 - (*´･д･)?</title>
+    <meta property="og:title" content="你的ssh被爆了么 - (*´･д･)?">
+    
+
+    
+      
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">(*´･д･)?</a></h1>
+
+
+
+      <nav class="menu">
+        <input id="menu-check" type="checkbox" />
+        <label id="menu-label" for="menu-check" class="unselectable">
+          <span class="icon close-icon">✕</span>
+          <span class="icon open-icon">☰</span>
+          <span class="text">Menu</span>
+        </label>
+        <ul>
+        
+        
+        <li><a href="/">Rencent</a></li>
+        
+        <li><a href="/tags/">Tags</a></li>
+        
+        <li><a href="/skilltree/">SkillTree</a></li>
+        
+        <li><a href="/bookmarks/">BookMarks</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+        
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>你的ssh被爆了么</h1>
+
+<h3>
+  2017-11-27</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<h2 id="世界很危险">世界很危险</h2>
+
+<p>前段时间买了个法国杜甫，今天突发奇想要看看有有多少人爆过我的ssh，不看不知道，一看吓一跳。
+首先用lastb命令看看有多少登录不成功的记录：</p>
+
+<pre><code>lastb
+</code></pre>
+
+<p>结果：</p>
+
+<pre><code>root     ssh:notty    218.87.109.152   Sat Nov 25 03:16 - 03:16  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+win      ssh:notty    89.46.65.12      Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+win      ssh:notty    89.46.65.12      Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:15 - 03:15  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+willie   ssh:notty    89.46.65.12      Sat Nov 25 03:14 - 03:14  (00:00)    
+willie   ssh:notty    89.46.65.12      Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    123.244.9.83     Sat Nov 25 03:14 - 03:14  (00:00)    
+root     ssh:notty    218.87.109.152   Sat Nov 25 03:14 - 03:14  (00:00)    
+
+</code></pre>
+
+<p>密密麻麻，可以看到有很多ip多次攻击。
+我们再来看看具体的次数统计。</p>
+
+<pre><code>cat /var/log/secure | awk '/Failed/{print $(NF-3)}' | sort | uniq -c | awk '{print $2&quot; = &quot;$1;}'
+</code></pre>
+
+<p>结果如下：</p>
+
+<pre><code>113.120.63.152 = 6
+123.194.186.22 = 3
+123.244.9.83 = 2760
+145.249.105.70 = 4
+157.255.157.45 = 1
+162.144.123.124 = 2
+163.172.71.118 = 1
+165.227.115.224 = 21
+176.118.131.84 = 1
+178.251.182.132 = 6
+178.62.79.54 = 1
+180.168.12.26 = 906
+185.31.141.60 = 1
+186.202.178.76 = 1
+189.0.214.15 = 61
+193.87.173.134 = 1
+196.204.81.131 = 1
+203.200.180.182 = 1
+218.189.230.248 = 6
+222.103.136.189 = 1
+222.103.136.94 = 1
+36.189.242.19 = 19
+58.212.110.173 = 6
+58.42.228.170 = 6
+60.177.201.178 = 6
+60.187.154.18 = 6
+61.222.1.91 = 1
+64.137.188.181 = 1
+86.57.164.109 = 3
+89.87.178.129 = 1
+
+</code></pre>
+
+<p>花擦，这个123.244.9.83 ip竟然爆了2760次，还好我密码复杂，　没让他得逞。查ip可以看到是辽宁铁岭的&hellip;等有机会再反击..</p>
+
+<h2 id="应对之策">应对之策</h2>
+
+<p>面对这样的字典爆破，不能听之任之，必须要做登录限制，比较简单的是用DenyHost.</p>
+
+<h3 id="下载denyhosts-解压-安装">下载DenyHosts &gt; 解压 &gt; 安装</h3>
+
+<pre><code>wget http://soft.vpser.net/security/denyhosts/DenyHosts-2.6.tar.gz
+tar zxvf DenyHosts-2.6.tar.gz
+cd DenyHosts-2.6
+python setup.py install
+</code></pre>
+
+<h3 id="修改配置文件">修改配置文件</h3>
+
+<pre><code>cd /usr/share/denyhosts/
+cp denyhosts.cfg-dist denyhosts.cfg
+cp daemon-control-dist daemon-control
+</code></pre>
+
+<h3 id="启动">启动</h3>
+
+<pre><code>chown root daemon-control
+chmod 700 daemon-control
+./daemon-control start
+</code></pre>
+
+<p>如果要使DenyHosts每次重起后自动启动还需做如下设置：</p>
+
+<pre><code>ln -sf /usr/share/denyhosts/daemon-control /etc/init.d/denyhosts
+chkconfig --add denyhosts
+chkconfig --level 2345 denyhosts on
+</code></pre>
+
+<p>DenyHosts配置文件/usr/share/denyhosts/denyhosts.cfg说明：</p>
+
+<pre><code>SECURE_LOG = /var/log/secure
+#sshd日志文件，它是根据这个文件来判断的，不同的操作系统，文件名稍有不同。
+  
+HOSTS_DENY = /etc/hosts.deny
+控制用户登陆的文件
+  
+PURGE_DENY = 5m
+DAEMON_PURGE = 5m
+过多久后清除已经禁止的IP，如5m（5分钟）、5h（5小时）、5d（5天）、5w（5周）、1y（一年）
+  
+BLOCK_SERVICE = sshd
+禁止的服务名，可以只限制不允许访问ssh服务，也可以选择ALL
+  
+DENY_THRESHOLD_INVALID = 5
+允许无效用户失败的次数
+  
+DENY_THRESHOLD_VALID = 10
+允许普通用户登陆失败的次数
+  
+DENY_THRESHOLD_ROOT = 5
+允许root登陆失败的次数
+  
+HOSTNAME_LOOKUP=NO
+是否做域名反解
+  
+DAEMON_LOG = /var/log/denyhosts
+</code></pre>
+
+<p>为防止自己的IP被屏蔽：</p>
+
+<pre><code>echo “你的IP” &gt;&gt; /usr/share/denyhosts/allowed-hosts 将你的IP加入白名单，再重启DenyHosts：/etc/init.d/denyhosts
+</code></pre>
+
+<p>如有IP被误封，可以执行下面的命令解封：</p>
+
+<pre><code>wget http://soft.vpser.net/security/denyhosts/denyhosts_removeip.sh &amp;&amp; bash denyhost_removeip.sh 要解封的IP
+</code></pre>
+
+<p>查看攻击ip 记录</p>
+
+<pre><code>cat /etc/hosts.deny
+</code></pre>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/terminal%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4pip%E5%92%8Cgit%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8/">Terminal代理设置导致pip和git无法正常使用</a></span>
+  <span class="nav-next"><a href="/post/%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1/">架构的三个层次</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'],]}
+});
+</script>
+  <hr>
+  <div class="copyright">&copy; <a href="https://xrazor.org">xrazor</a> 2017 | <a href="https://github.com/razorrr">Github</a> | <a href="https://twitter.com/">Twitter</a></div>
+  
+  </footer>
+  </article>
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-113190132-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

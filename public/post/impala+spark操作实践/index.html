@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Impala&#43;Spark操作实践 - (*´･д･)?</title>
+    <meta property="og:title" content="Impala&#43;Spark操作实践 - (*´･д･)?">
+    
+
+    
+      
+    
+
+    
+
+    
+    
+
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="post">
+    <header class="masthead">
+      <h1><a href="/">(*´･д･)?</a></h1>
+
+
+
+      <nav class="menu">
+        <input id="menu-check" type="checkbox" />
+        <label id="menu-label" for="menu-check" class="unselectable">
+          <span class="icon close-icon">✕</span>
+          <span class="icon open-icon">☰</span>
+          <span class="text">Menu</span>
+        </label>
+        <ul>
+        
+        
+        <li><a href="/">Rencent</a></li>
+        
+        <li><a href="/tags/">Tags</a></li>
+        
+        <li><a href="/skilltree/">SkillTree</a></li>
+        
+        <li><a href="/bookmarks/">BookMarks</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/contact/">Contact</a></li>
+        
+        
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Impala&#43;Spark操作实践</h1>
+
+<h3>
+  2017-06-10</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<h1 id="背景">背景</h1>
+
+<p>最近Mysql+Redis的架构无法满足日益变化和增长的数据需求，因此需要引更适合于大数据的系统架构，目的是在scalability和数据的读写性能上有所提升。初步采用的是CDH的部署，选用了Hadoop、HBase、Hive、Impala作为资源层。用Spark做批处理和流计算。</p>
+
+<h1 id="选用impala的原因及基本使用">选用Impala的原因及基本使用</h1>
+
+<h2 id="why-impala">Why Impala</h2>
+
+<ul>
+<li>Implala基本使用sql语法，可以实现开发者无缝切换使用，学习成本低。</li>
+<li>性能卓越，比hive快。</li>
+</ul>
+
+<h2 id="impala和其他组件的关系">Impala和其他组件的关系</h2>
+
+<ul>
+<li>Hadoop是一切的基础</li>
+<li>Hbase是基于Hadoop的NoSQL数据库</li>
+<li>Hive在本文中起到存储Metadata的作用，原本是通过MapReduce对Hadoop中的数据进行访问。</li>
+<li>Impala是一个取数接口。</li>
+</ul>
+
+<h2 id="建表">建表</h2>
+
+<h4 id="step-1">step 1</h4>
+
+<p>进入<strong>hbase</strong>的shell，在hbase中建表, 第二项是列族名</p>
+
+<pre><code>create 'danmu_test_003', 'danmu_info'
+</code></pre>
+
+<h4 id="step-2">step 2</h4>
+
+<p>在<strong>hive</strong>中建外部表, 第一个字段自动作为rowkey, varchar 要标range,不然会报错。</p>
+
+<pre><code>CREATE EXTERNAL TABLE gogo.danmu_test_003(
+     uid bigint,
+     level int,
+     room_id int,
+     nick_name varchar(255),
+     create_time varchar(255),
+     content varchar(255))  
+ROW FORMAT SERDE 'org.apache.hadoop.hive.hbase.HBaseSerDe'  
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' 
+WITH SERDEPROPERTIES (&quot;hbase.columns.mapping&quot; = &quot;:key, danmu_info:level, danmu_info:room_id, danmu_info:nick_name, danmu_info:create_time, danmu_info:content&quot;)
+TBLPROPERTIES(&quot;hbase.table.name&quot; = &quot;danmu_test_003&quot;);
+</code></pre>
+
+<h4 id="step-3">step 3</h4>
+
+<p>在<strong>impala-shell</strong>中同步数据:</p>
+
+<pre><code>INVALIDATE METADATA;
+</code></pre>
+
+<h2 id="使用impala写库">使用Impala写库</h2>
+
+<pre><code># coding: utf-8
+from impala.dbapi import connect
+from impala.util import as_pandas
+import MySQLdb as mysql
+import pandas as pd
+import time
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
+def multipleRows(params):
+    ret = []
+
+    for param in params:
+        if isinstance(param, (int, long, float, bool)):
+            ret.append(str(param))
+        elif isinstance(param, (str, unicode)):
+            ret.append('cast(&quot;' + param + '&quot; as varchar(255))')
+        else:
+            print ('unsupport value: %s ' % param)
+    return '(' + ','.join(ret) + ')'
+
+
+def mysql_connect():
+    sql_server = {
+        'host': '',
+        'port': 3308,
+        'user': '',
+        'password': '',
+        'db': '',
+        'charset': 'utf8',
+    }
+    try:
+        conn = mysql.connect(host=sql_server['host'],
+                             user=sql_server['user'],
+                             passwd=sql_server['password'],
+                             db=sql_server['db'],
+                             port=sql_server['port'],
+                             charset='utf8')
+        return conn
+    except Exception as e:
+        print e
+
+
+def impala_connect():
+    conn = connect(host='172.19.10.216', port=21050)
+    return conn
+
+
+def write_to_impala(df):
+    conn = impala_connect()
+    batch_list = []
+    cur = conn.cursor()
+    count = 0
+    for i, r in df.iterrows():
+        count += 1
+        print &quot;count &gt;&quot;, count
+        batch_list.append(multipleRows([r.uid, r.level, r.room_id, str(r.nick_name), str(r.create_time),  str(r.content)]))
+
+        if len(batch_list) == 3000:
+            sql = &quot;INSERT INTO &quot; \
+                  &quot;gogo.danmu_test_003(&quot; \
+                  &quot;uid, &quot; \
+                  &quot;level, &quot; \
+                  &quot;room_id, &quot; \
+                  &quot;nick_name, &quot; \
+                  &quot;create_time, &quot; \
+                  &quot;content)&quot; \
+                  &quot; VALUES %s &quot; % ','.join(batch_list)
+            print sql
+            cur.execute(sql)
+            conn.commit()
+            batch_list = []
+
+    # 剩下的一把更
+    cur.execute(&quot;INSERT INTO &quot; \
+                &quot;gogo.danmu_test_003(&quot; \
+                &quot;uid, &quot; \
+                &quot;level, &quot; \
+                &quot;room_id, &quot; \
+                &quot;nick_name, &quot; \
+                &quot;create_time, &quot; \
+                &quot;content)&quot; \
+                &quot; VALUES %s &quot; % ','.join(batch_list))
+    conn.commit()
+    conn.close()
+
+
+def fetchDataFromMsqlDB():
+    conn = mysql_connect()
+    sql = &quot;select uid, &quot; \
+          &quot;level, &quot; \
+          &quot;room_id, &quot; \
+          &quot;nick_name, &quot; \
+          &quot;create_time, &quot; \
+          &quot;content &quot; \
+          &quot;from all_douyu_danmu limit 10000&quot;
+    try:
+        df = pd.read_sql(sql, conn)
+        print &quot;df shape&gt;&gt;&gt;&quot;, df.shape
+        df['create_time'] = df['create_time'].astype('str')
+        return df
+    except Exception, e:
+        print e
+    finally:
+        conn.close()
+
+
+def main():
+    start = time.time()
+    db = fetchDataFromMsqlDB()
+    write_to_impala(db)
+    print &quot;cost :&quot;, time.time() - start
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+
+<h2 id="在spark中通过impala读取数据">在Spark中通过Impala读取数据</h2>
+
+<p>主要是通过jdbc包进行连接。</p>
+
+<h4 id="读全表">读全表</h4>
+
+<ul>
+<li>启动前先把jar包加载进来: ./pyspark &ndash;jars /path/to/ImpalaJDBC41.jar</li>
+<li>作业提交时用./spark-submit &ndash;jars /path/to/ImpalaJDBC41.jar myprocess.py</li>
+<li>所用Driver为cloudera的impala_jdbc</li>
+</ul>
+
+<pre><code>from pyspark.sql import SQLContext 
+
+
+sqlContext = SQLContext(sc)
+# 读数据--------------
+# 选择全表
+df = sqlContext.read.format(&quot;jdbc&quot;).options(url=&quot;jdbc:impala://127.0.0.1:21050/gogo&quot;,
+														 driver=&quot;com.cloudera.impala.jdbc41.Driver&quot;, 
+														 dbtable=&quot;pokes&quot;).load()
+df.show()
+</code></pre>
+
+<h4 id="条件选择">条件选择</h4>
+
+<p>dbtable= 后面的部分默认是SELECT * from {}, 因此写条件查询时按子查询来操作</p>
+
+<pre><code>df = sqlContext.read.format(&quot;jdbc&quot;).options(url=&quot;jdbc:impala://127.0.0.1:21050/gogo&quot;,
+														 driver=&quot;com.cloudera.impala.jdbc41.Driver&quot;, 
+														 dbtable=&quot;(select * from pokes where foo&gt;200)tmp&quot;).load()
+df.show() 
+</code></pre>
+
+<p>读出来是这样的：</p>
+
+<pre><code>+---+-------+
+|foo|    bar|
++---+-------+
+|238|val_238|
+|311|val_311|
+|409|val_409|
+|255|val_255|
+|278|val_278|
+|484|val_484|
+|265|val_265|
+|401|val_401|
+|273|val_273|
+|224|val_224|
+|369|val_369|
+|213|val_213|
+|406|val_406|
+|429|val_429|
+|374|val_374|
+|469|val_469|
+|495|val_495|
+|327|val_327|
+|281|val_281|
+|277|val_277|
++---+-------+
+</code></pre>
+
+<h4 id="取出前两行">取出前两行</h4>
+
+<pre><code>df.take(2)
+
+</code></pre>
+
+<p>结果是这样的:</p>
+
+<pre><code>[Row(foo=238, bar=u'val_238'), Row(foo=311, bar=u'val_311')]
+</code></pre>
+
+<h4 id="其他spark的一些基础操作">其他Spark的一些基础操作</h4>
+
+<h5 id="改列名">改列名</h5>
+
+<pre><code>df.select(&quot;foo&quot;, &quot;bar&quot;).toDF(&quot;f1&quot;, 'f2').take(2) 
+</code></pre>
+
+<h5 id="写数据">写数据</h5>
+
+<pre><code>data = [(9999, &quot;val_88888&quot;), (10000, &quot;val_222&quot;)]
+df = sqlContext.createDataFrame(data, ['foo','bar'])
+df.collect()
+
+df.write.jdbc(url=&quot;jdbc:impala://127.0.0.1:21050/gogo&quot;,
+          mode=&quot;append&quot;,
+          table=&quot;pokes&quot;,
+          properties={&quot;driver&quot;: 'com.cloudera.impala.jdbc41.Driver'}) 
+</code></pre>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/post/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E6%80%BB%E7%BB%93/">梯度下降法总结</a></span>
+  <span class="nav-next"><a href="/post/%E5%AE%9E%E5%81%9Acnn%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%BE%A8%E8%AF%86/">实做CNN手写数字辨识</a> &rarr;</span>
+</nav>
+
+
+
+
+
+<script src="//yihui.name/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+
+
+
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'],]}
+});
+</script>
+  <hr>
+  <div class="copyright">&copy; <a href="https://xrazor.org">xrazor</a> 2017 | <a href="https://github.com/razorrr">Github</a> | <a href="https://twitter.com/">Twitter</a></div>
+  
+  </footer>
+  </article>
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-113190132-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+
