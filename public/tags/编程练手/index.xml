@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>编程练手 on (*´･д･)?</title>
+    <title>编程练手 on Hack and Guitar</title>
     <link>http://xrazor.org/tags/%E7%BC%96%E7%A8%8B%E7%BB%83%E6%89%8B/</link>
-    <description>Recent content in 编程练手 on (*´･д･)?</description>
+    <description>Recent content in 编程练手 on Hack and Guitar</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sun, 25 Feb 2018 23:04:01 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/tags/%E7%BC%96%E7%A8%8B%E7%BB%83%E6%89%8B/index.xml" rel="self" type="application/rss+xml" />
@@ -17,14 +17,7 @@
       <pubDate>Sun, 25 Feb 2018 23:04:01 +0800</pubDate>
       
       <guid>http://xrazor.org/post/hihocoder1696%E6%8A%98%E7%BA%BF%E4%B8%AD%E7%82%B9/</guid>
-      <description>题目 时间限制:10000ms 单点时限:1000ms 内存限制:256MB
-描述 给定平面上N个点P1, P2, &amp;hellip; PN，将他们按顺序连起来，形成一条折线。
-请你求出这条折线的中点坐标。
-输入 第一行包含一个整数N。 (2 &amp;lt;= N &amp;lt;= 100)
-以下N行每行包含两个整数Xi, Yi代表Pi的坐标。(0 &amp;lt;= Xi, Yi &amp;lt;= 10000)
-输出 输出折线段的中点坐标。坐标保留一位小数。
-样例输入 3 0 0 30 30 40 20  样例输出 20.0 20.0  思路  每输入一个点，就计算与上一个点所形成线段的长度，并与之前线段长度累加，则输入最后一个点后，可求得折线总长s 计算出是加上哪一段线段后，使得当前距离大于d,其中d = 1&amp;frasl;2 * s，则说明折线中点在该线段上 计算该段线段长度 计算该线段为d“贡献”了多少长度 按照比例求出中点坐标
-代码  #include&amp;lt;bits/stdc++.h&amp;gt; using namespace std; int x[110],y[110]; double s[110]; double dis(int i) { return sqrt((x[i]-x[i-1])*(x[i]-x[i-1])+(y[i]-y[i-1])*(y[i]-y[i-1])); } int main() { int n; scanf(&amp;quot;%d&amp;quot;,&amp;amp;n); scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;x[0],&amp;amp;y[0]); for(int i=1;i&amp;lt;n;i++) { scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;x[i],&amp;amp;y[i]); s[i]=dis(i)+s[i-1]; } double d=s[n-1]/2; int t=lower_bound(s,s+n,d)-s; double len=s[t]-s[t-1]; d-=s[t-1]; printf(&amp;quot;%.</description>
+      <description>题目 时间限制:10000ms 单点时限:1000ms 内存限制:256MB 描述 给定平面上N个点P1, P2, &amp;hellip; PN，将他们按顺序连起来，形成一条折线。</description>
     </item>
     
     <item>
@@ -33,11 +26,7 @@
       <pubDate>Sat, 25 Mar 2017 23:04:01 +0800</pubDate>
       
       <guid>http://xrazor.org/post/leetcode_issomorphic/</guid>
-      <description>题目 Given two strings s and t, determine if they are isomorphic.
-Two strings are isomorphic if the characters in s can be replaced to get t.
-All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
-For example, Given &amp;ldquo;egg&amp;rdquo;, &amp;ldquo;add&amp;rdquo;, return true.
-Given &amp;ldquo;foo&amp;rdquo;, &amp;ldquo;bar&amp;rdquo;, return false.</description>
+      <description>题目 Given two strings s and t, determine if they are isomorphic. Two strings are isomorphic if the characters in s can be replaced to get t. All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself. For example, Given &amp;ldquo;egg&amp;rdquo;, &amp;ldquo;add&amp;rdquo;, return true. Given &amp;ldquo;foo&amp;rdquo;,</description>
     </item>
     
     <item>
@@ -46,9 +35,7 @@ Given &amp;ldquo;foo&amp;rdquo;, &amp;ldquo;bar&amp;rdquo;, return false.</descr
       <pubDate>Wed, 15 Mar 2017 08:31:42 +0800</pubDate>
       
       <guid>http://xrazor.org/post/leetcode_hindex/</guid>
-      <description>题目 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher&amp;rsquo;s h-index.
-According to the definition of h-index on Wikipedia: &amp;ldquo;A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.&amp;rdquo;
-For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively.</description>
+      <description>题目 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher&amp;rsquo;s h-index. According to the definition of h-index on Wikipedia: &amp;ldquo;A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.&amp;rdquo; For example, given citations = [3, 0,</description>
     </item>
     
   </channel>

@@ -1,34 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>机器学习 on (*´･д･)?</title>
+    <title>机器学习&#34; on Hack and Guitar</title>
     <link>http://xrazor.org/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
-    <description>Recent content in 机器学习 on (*´･д･)?</description>
+    <description>Recent content in 机器学习&#34; on Hack and Guitar</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jul 2017 16:40:10 +0800</lastBuildDate>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Jun 2017 23:04:01 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>如何评价模型的好坏</title>
-      <link>http://xrazor.org/post/%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%A5%BD%E5%9D%8F/</link>
-      <pubDate>Sun, 23 Jul 2017 16:40:10 +0800</pubDate>
-      
-      <guid>http://xrazor.org/post/%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%A5%BD%E5%9D%8F/</guid>
-      <description>这个问题可以分解为3个子问题：首先，评估模型时具体评估的是什么？其次，评估方法和过程是怎样的？最后，评估指标该如何选择？ 下面将针对这三个子问题分别回答。
-1.评估模型时具体评估的是什么？ 总的来说评估的是模型的泛化能力。泛化能力通过泛化误差来体现，模型的泛化误差小，说明面对未知数据，模型也能根据学到的东西做出很好的预测，即泛化能力强。而泛化误差=偏差(Bias)+方差(Variance)+噪音(Noise)。偏差度量了算法的期望预测与真实结果的偏离程度，刻画了模型本身的拟合能力；方差度量了同样大小的训练集导致的学习性能的变化，刻画了数据扰动造成的影响。最后噪音表达了在当前任务上任何算法能达到的期望泛化误差的下界，即问题本身的难度。
-偏差过大是模型设计问题 如果在训练集上偏差很大，说明模型欠拟合，模型本身学习能力不强；如果在训练集上偏差小而在测试集上偏差很大，说明模型过拟合，学到了训练集中一些普适性不强的东西。
-方差过大是训练过程控制问题 如果方差过大，说明训练出来的模型会随着数据集变动而变动。假设下式： gap = validation error − training error 在衡量的时候，可通过改变训练集的大小，当训练集由小变大时，对于方差小的模型，gap会逐步比较小，反之则大。
-至此可以作如下总结： 高偏差低方差: 模型欠拟合，模型学习能力不足，需重新设计；低偏差高方差，说明模型存在过拟合的风险，需要增加数据或做正则化。
-2.模型评估的方法和过程是怎样的？ 通过交叉验证法(CrossValidation)来做。交叉验证法将数据集分成n个大小相似的子集，同时子集的正负例分布需保持基本一致，然后用其中的n-1个子集做训练集，剩下的做测试集，重复n次训练，如此得到n次的结果（指标）的均值。
-3.评估指标该如何选择？ 常用的评估指标有以下几个：
-准确率 对于二分类来说，如果样本数为n，正确预测的样本数为m，则准确率p=n/m，这是最基本的度量标准之一，准确率越高模型越好。但是实际任务中可能更关注的是“筛出来的正例有多少是真正例”或“真正例有多少被筛出来了”，这样的情况下准确率就不足以评估好坏了。
-查准率(precision)、查全率(recall)、F1和PR曲线 对于二分类来说预测结果可能有真正例（TP）、假正例（FP）、真负例（TN）、假负例（FN）。查准率P=TP/(TP+FP)，查全率R=TP/(TP+FN)。顾名思义，查准率高则说明查出来的大多是真的，查全率高说明真的大多被查出来了。这两个指标通常是越高越好，但是查准率和查全率是跷跷板的两头，此高彼低，因此有时候不太好衡量，所以又引入了F1指标，F1=1 /((1/P+1/R)*0.5), 这是P和R的调和平均值，另外，在某些场景下，对P、R的偏好不同，可对P和R做加权调和平均。对查准率和查全率。F1越高模型越好。另外，以P为纵轴R为横轴，可做PR曲线，直观的判断模型的表现，当一条PR曲线被另一条包住，则后者表现更好。
-ROC和AUC 有些模型的预测结果是一个概率或数值，根据这个预测值与设定好的分类阈值比较后再确定分类。因此可以对样本预测结果排序后再根据需要选择不同的阈值。这是排序的质量就反应了模型泛化能力的好坏。ROC就是从这个思路切入的，它纵轴为真正例率(TPR=TP/ (TP+ FN))，横轴为假正例率(FPR=FP / (FP + TN))，排序后逐个把样本作为正例进行预测，每次计算出TPR和FPR，这样就可以做出ROC曲线。ROC曲线越靠近左上角模型越好，但是有时候不同的ROC曲线会相交，不太好判断孰优孰劣，因此又引入了AUC，是ROC与x轴围城的面积，AUC越高越好。
-综上所述，模型表现的好坏要结合具体的数据集和业务问题来综合考虑，有针对性地选择评估指标。</description>
-    </item>
     
     <item>
       <title>实做CNN手写数字辨识</title>
@@ -36,94 +17,7 @@ ROC和AUC 有些模型的预测结果是一个概率或数值，根据这个预�
       <pubDate>Sun, 25 Jun 2017 23:04:01 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E5%AE%9E%E5%81%9Acnn%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%BE%A8%E8%AF%86/</guid>
-      <description>开始   语言：Python2 框架：Keras Backend: tensorflow OS: Archlinux Package: numpy,pandas,seaborn,sklearn,etc Method: CPU(i7) 数据集: MNIST  模型结构：
-In -&amp;gt; [[Conv2D-&amp;gt;relu]*2 -&amp;gt; MaxPool2D -&amp;gt; Dropout]*2 -&amp;gt; Flatten -&amp;gt; Dense -&amp;gt; Dropout -&amp;gt; Out.  现在让我们在Ipython里面跑。
-数据预处理 import各种包 import pandas as pd import numpy as np import matplotlib.pyplot as plt import matplotlib.image as mpimg import seaborn as sns np.random.seed(2) # seed中使用数字相同，则每次程序中生成的随机数都相同 from sklearn.model_selection import train_test_split from sklearn.metrics import confusion_matrix import itertools from keras.</description>
-    </item>
-    
-    <item>
-      <title>梯度下降法总结</title>
-      <link>http://xrazor.org/post/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Sat, 20 May 2017 16:18:12 +0800</pubDate>
-      
-      <guid>http://xrazor.org/post/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
-      <description> 传统的按照每次迭代取的样本数来分 Batch Gradient Descent 全量梯度下降 每次都取整个训练集的样本来更新。
-缺点:计算慢，不能在线更新模型。
-Stochastic gradient descent 随机梯度下降 每次只取训练集中的1个样本进行训练。 优点：训练速度快，模型可在线更新，能够有几率跳出局部最小点。 缺点：单个样本训练出来的gradient波动比较大。
-Mini-batch gradient descent 小批量梯度下降 每次取一小撮样本来更新参数。 优点：一定程度上克服了前两个的缺点，训练相对稳定且速度快。
-梯度下降最关键的问题在于学习率：
-一是学习率大了会导致不能收敛，在极值点附近震荡，学习率小了收敛速度慢。
-二是传统的学习率是定死的，每个特征的学习率都一样。
-为了解决这个学习率的问题，众位先贤相出了很多不同的办法来调节学习率，核心的目的就是：让学习率自动自适应调节。
-下面就来总结不同的梯度下降优化算法。这要分3大类：
- 基于梯度 基于动量 梯度和动量相结合   梯度下降优化算法 基于梯度 Adagrad  * 图片引自NTU李宏毅教授的slides
-adagrad就是每一次更新参数学习率都会除上之前每一步的梯度的和的开方(不开根号性能变差)，在梯度大的方向，学习率会小一些，而在梯度小的方向，学习率就会相对较大。
-RMSprop Adagrad有两个问题：一是是有时候它的学习率衰减得太快了，二是在实际中某一个参数的实际梯度可能是有急有缓的，这样Adagrad就没有办法很好的处理这种情况。比如前面急坡时学习率就已经衰减到一个比较小的值了，但是急坡后可能是缓坡，此时我们需要一个比原来更大的学习率，然而Adagrad没有办法给我们。所以要寻求一个对近期的梯度变化也能做出响应的算法。比如说RMSprop。  RMSprop每一次更新都会考虑之前的&amp;amp;delta&amp;amp;和这一步的梯度，参数&amp;amp;alpha&amp;amp;就是用来权衡是考虑当下多一些还是考虑之前的多一些。比如当&amp;amp;alpha&amp;amp;&amp;lt;0.5时，开方中的第一项的权重就相对比第二项小，这时就是更多的着眼于当下的梯度。
-基于动量 momentum  基于动量的参数更新每次减掉的不是梯度，而是动量，而动量又是上一次动量和这一次梯度×学习率的和，因此是参数的更新具有了一定的惯性。
- 比如当小球卡在local minuma时，由于之前的动量的存在，及时在本次迭代梯度为0的情况下，小球能有机会向右移动，跳出局部最小区域。这就是动量的核心思想。
-梯度和动量结合 Adam Adam(Adaptive Moment Estimation)本质上是带有动量项的RMSprop，它利用梯度的一阶矩估计和二阶矩估计动态调整每个参数的学习率。Adam的优点主要在于经过偏置校正后，每一次迭代学习率都有个确定范围，使得参数比较平稳。  特点：
- 结合了Adagrad善于处理稀疏梯度和RMSprop善于处理非平稳目标的优点 对内存需求较小 为不同的参数计算不同的自适应学习率 也适用于大多非凸优化 适用于大数据集和高维空间  </description>
-    </item>
-    
-    <item>
-      <title>机器学习的几个规定动作</title>
-      <link>http://xrazor.org/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%84%E5%AE%9A%E5%8A%A8%E4%BD%9C/</link>
-      <pubDate>Mon, 20 Mar 2017 00:05:02 +0800</pubDate>
-      
-      <guid>http://xrazor.org/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%84%E5%AE%9A%E5%8A%A8%E4%BD%9C/</guid>
-      <description> 我们拿到一个机器学习项目之后，通常都会经过以下几个步骤：
-1. Insight 数据洞察 统计机器学习一般是从已知数据集中训练模型，并用模型对未知数据进行预测。因此对已知数据的理解变得尤为重要。
-Common Sense 善于利用常识 这个放在第一位，是因为刚开始做机器学习的同学，可能会觉得任何事情都从数据统计的角度去观察会很fancy。但实事是，这样的思维有时候会让我们只见树木不见森林，陷入到数据的细节里面。为了避免这种情况的发生，我们要做的就是首先通过肉眼观察数据，通过直觉来判断那几个Category有可能会在后面作为Features。 以Kaggle的入门Case——Titanic为例。Data Category不多:ID, 生还情况， 船舱等级， 名字， 性别， 年龄， 家属人数， 船票信息， 票价， 仓位， 登船码头。从直觉来看，与生还情况相关性最大的，应该是性别和年龄，因为在国外Children and Lady first的道德环境，小孩和女人的生还概率可能较大；此外，从阶级等级来看，有钱人可能会得到优先安排而有较高的生还概率，而有钱人一般住高级舱，Fare也比较高， 而年少多金的人（船舱等级 X 年龄），身份可能更为显赫。另外同船家属人数的多少，可能也是一个Feature，因为一家人可能会相互帮助从而提高生还率。等等。这样我们通过常识和直觉就能得到了几个方向的猜测，至于对与不对，可以留到后面再来验证。
-Data Visualization 数据可视化 Python下用pandas很容易做数据统计描述，但是有时候数据不如图表那么直观，我们需要用matplotlib和seaborn等可视化工具来生成图表，帮助我们快速分析，并且在整个项目过程中，可视化是很重要的可能会被反复使用的技能，它能帮助我们保持思路清晰。 在这个过程中，上一步的许多猜测会得到进一步的验证。一边做可视化，一边确定哪些是要带入模型的Feature， 同时可能还要人工设计几个Features，比如Titanic case里面的（船舱等级X年龄）。
-2. Preprocessing 数据预处理 缺失值填充
-对于年龄等数值型的数据，可以通过Randomforest拟合出一个数据，但是由于年龄这种东西，并不是船舱等级、船票等其他类的数据一定存在太大关系，因此用这样的方法，虽然看起来fancy，但是并不一定有太大作用，可能直觉乱填一个效果都比之要好，因此也不能时刻迷信算法的结果。其他的思路还有取区间平均值，或者中位数。这都需要大量的试才能得到好的结果。并不是一蹴而就的事情。
-0-1化 有些数据类别本身不是数值型的，而是一些字符型的类别，为了便于带入模型计算，我们要把它转化为0-1数据，也就是Dummy Code。这一步可以直接用pandas里面的get_dummies方法，实现很方便。
-归一化 当数据与数据之间的范围相差很大，比如说年龄的范围从1岁到80岁，而船舱的等级就是1-3级，这样会导致带入模型使用梯度下降法或者拟牛顿法求解时，数据收敛很慢，甚至是不收敛。因此要对数据做scaling，就是归一化， 把数据归一到一个很小的范围，比如（-1，1）.可以调用sklearn的preprocessing处理。
-数据弃用 代入模型的时候肯定不是所有数据都代入，选择好Features之后把不用的数据类别都drop掉。 通过以上的步骤我们得到了一组clean data，下一步就是构建模型了。但是不要看前面这两步简单，其实有很多判断和取舍，并且需要反复的测试对比，才能得到最终的Features，所以俗话说得好：数据和特征决定了机器学习的上限，而模型和算法只是不断的逼近这个上限。很多项目的大部分时间（&amp;gt;70%）实际上都花在特征工程上，可见其重要性。
-3.Modeling 建模 选择方法 在做kaggle的时候，大家可以很方便的调用sklearn的各种机器学习方法，比如LR,SVM,NB,DT,KNN等等，反正就几行代码的事。事实上，我猜测，在工业界，实际选择方法的时候一是考虑模型的泛化能力，二是考虑模型的鲁棒性， 三是考虑模型的计算消耗， 四是考虑模型的解释性。因此并不像我们“游戏”里面选择那么自由。 在kaggle中我们可以根据项目要解决的问题，选择相对匹配的算法，比如项目要解决的是二分类问题，那么可能LR,SVM,DT是相对好的选择；如果项目是图像或语音识别，那可能CNN等深度学习算法优势会更大。等等。
-模型评估  Optimization 性能优化
- 基于数据的优化
- 基于算法的优化
- 基于参数的优化
- 基于模型融合的优化
-  </description>
-    </item>
-    
-    <item>
-      <title>10分钟训练一个神经网络</title>
-      <link>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
-      <pubDate>Sat, 18 Feb 2017 21:17:20 +0800</pubDate>
-      
-      <guid>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
-      <description>准备  OS:Archlinux 语言:Python2 框架:Keras(非GPU) IDE:Ipython 数据集:MNIST  开始 默认以上环境已经齐备，下面直接开始。
-Step 1:把包导进来 import matplotlib.pyplot as plt # 1 from keras.datasets import mnist # 2 from keras.models import Sequential # 3 from keras.layers.core import Dense, Dropout, Activation # 4 from keras.utils import np_utils # 5  对应注释上的编号:
- 画图的 内置数据集 Sequential的神经网络是线性的从头到尾不分叉的 Dense即fully connection, Dropout层防止过拟合，Actiction 即激活层 numpy移植版  Step 2:把数据load进来 nb_classes = 10 (X_train, y_train), (X_test, y_test) = mnist.load_data() # 1 print(&amp;quot;X_train original shape&amp;quot;, X_train.</description>
-    </item>
-    
-    <item>
-      <title>Word2vec简单实践</title>
-      <link>http://xrazor.org/post/word2vec%E7%AE%80%E5%8D%95%E5%AE%9E%E8%B7%B5/</link>
-      <pubDate>Thu, 12 Jan 2017 23:57:26 +0800</pubDate>
-      
-      <guid>http://xrazor.org/post/word2vec%E7%AE%80%E5%8D%95%E5%AE%9E%E8%B7%B5/</guid>
-      <description>word2vec 简介 word2vec是google的一个开源工具，能够根据输入的词的集合计算出词与词之间的距离。 它将term转换成向量形式，可以把对文本内容的处理简化为向量空间中的向量运算，计算出向量空间上的相似度，来表示文本语义上的相似度。 word2vec计算的是余弦值，距离范围为0-1之间，值越大代表两个词关联度越高。 词向量：用Distributed Representation表示词，通常也被称为“Word Representation”或“Word Embedding（嵌入）”。 安装Gensim 和分词工具
-Gensim 这里主要通过Gensim模块来实现word2vec:
-pip install gensim -i https://pypi.douban.com/simple  后面用豆瓣的源会快一些。
-分词工具 分词工具有很多：中科院NLPIR，哈工大LTP，结巴分词等。我这里用的是结巴分词。如果没有也是先用pip安装。
-pip install jieba -i https://pypi.douban.com/simple  语料准备 随便下载一部小说，我这里用的是&amp;lt;天龙八部&amp;gt;。下下来可能是乱码。可以自己写一段小代码重新加工一下:
-#!/usr/bin/env python # -*- coding: utf-8 -*- file_in = open(&#39;/home/luke/Downloads/tlbb.txt&#39;, &#39;r&#39;) file_out = open(&#39;/home/luke/Downloads/tlbb_utf8.txt&#39;, &#39;w&#39;) line = file_in.readline() while line: newline = line.decode(&#39;GB18030&#39;).encode(&#39;utf-8&#39;) #用GBK、GB2312都会出错 print newline, print &amp;gt;&amp;gt; file_out, newline, line = file_in.readline() file_in.close() file_out.close()  训练模型 # -*- coding: utf-8 -*- import gensim.</description>
-    </item>
-    
-    <item>
-      <title>信息熵、信息增益和Gini指数</title>
-      <link>http://xrazor.org/post/%E4%BF%A1%E6%81%AF%E7%86%B5%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E5%92%8Cgini%E6%8C%87%E6%95%B0/</link>
-      <pubDate>Mon, 21 Nov 2016 23:21:28 +0800</pubDate>
-      
-      <guid>http://xrazor.org/post/%E4%BF%A1%E6%81%AF%E7%86%B5%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E5%92%8Cgini%E6%8C%87%E6%95%B0/</guid>
-      <description>在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增益的大小作为特征选择判定的标准，C4.5则选用信息增益比为选择标准，CART则用Gini指数作为选择标准。那么，所引入的这几个指标的内涵意义是什么呢？本文将作一个简单的梳理。
-信息熵 在信息论里面，熵被用来衡量一个随机变量出现的期望值，对不确定性的测量，是描述一个系统所需的最低存储单元。在信息世界，熵越高，所需传递的信息越丰富，熵越低，则意味着所需传输的信息越少。而在热力学里，熵越高，表示混乱度越高。 这三个解释乍一看毫无关联，实际上确实可以相互印证的。以抛硬币为例，自然条件下结果为正面或反面的概率均为50%， 此时结果的不确定性最高， 越混乱，而我们要描述这个结果所需的文字（暂且用文字的个数代表存储单元）越多，比如你会这么描述“结果可能是正面，也可能是反面”（加逗号14个字）；而当我们假定正面出现的概率为100%时，信息熵为0，不混乱很清晰，而此时我们描述这个结果所需的存储单元是很少的，比如说“是正面”（3个字）就能描述清楚。
-信息增益 有了上面的概念，我们就可以结合ID3算法来看看信息增益是什么东西。 在ID3中，使用信息增益作为特征选择的准则，用H（D）表示数据集的经验熵，用H（D|A)表示在A特征下数据集D的经验条件熵，则信息增益g（D，A）= H(D) - H(D|A), 表示 有A 和 没A ，整个系统的不确定性变化了多少。这里要牢记， 熵高，是说明不确定很大，如果H（D）很大，而 H（D|A)很小，则g（D,A）会趋大， 说明特征A 的存在，大大降低了系统的不确定性， 因此它是一个关键的特征。
-Gini指数 Gini指数是CART算法中生成分类树时用来选择特征的一个指标。</description>
+      <description>开始 语言：Python2 框架：Keras Backend: tensorflow OS: Archlinux Package: numpy,pandas,seaborn,sklearn,etc Method: CPU(i7) 数据集: MNIST 模型结构： In -&amp;gt; [[Conv2D-&amp;gt;relu]*2 -&amp;gt; MaxPool2D -&amp;gt; Dropout]*2 -&amp;gt; Flatten -&amp;gt; Dense -&amp;gt; Dropout -&amp;gt; Out. 现在让我们在Ipython里面跑。</description>
     </item>
     
   </channel>

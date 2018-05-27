@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>(*´･д･)?</title>
+    <title>Hack and Guitar</title>
     <link>http://xrazor.org/</link>
-    <description>Recent content on (*´･д･)?</description>
+    <description>Recent content on Hack and Guitar</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sun, 27 May 2018 15:53:26 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <pubDate>Sun, 27 May 2018 15:53:26 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E4%B9%9F%E8%B0%88monads/</guid>
-      <description></description>
+      <description>Why Monads 号称计算机科学中最难理解的概念之一，首先我们要问的是，为什么要研究这个，它的意义在什么地方，在工程上它有实际价值吗？</description>
     </item>
     
     <item>
@@ -26,12 +26,7 @@
       <pubDate>Tue, 15 May 2018 23:15:16 +0800</pubDate>
       
       <guid>http://xrazor.org/post/sbt%E6%8D%A2%E6%BA%90/</guid>
-      <description>1.只需要编辑 ~/.sbt/repositories文件，加入
-[repositories] local aliyun: http://maven.aliyun.com/nexus/content/groups/public/ central: http://repo1.maven.org/maven2/  2.然后 sbt run -Dsbt.override.build.repos=true
-主要是sbt后面的参数：-Dsbt.override.build.repos=true
-试了很多，这个有用。
-作者：Scott Huang
-链接：https://www.zhihu.com/question/31158252/answer/326757822 来源：知乎</description>
+      <description>1.只需要编辑 ~/.sbt/repositories文件，加入 [repositories] local aliyun: http://maven.aliyun.com/nexus/content/groups/public/ central: http://repo1.maven.org/maven2/ 2.然后 sbt run -Dsbt.override.build.repos=true 主要是sbt后面的参数：-Dsbt.override</description>
     </item>
     
     <item>
@@ -40,17 +35,7 @@
       <pubDate>Thu, 05 Apr 2018 21:10:24 +0800</pubDate>
       
       <guid>http://xrazor.org/post/ctf_web_02sql%E6%89%8B%E5%B7%A5%E6%B3%A8%E5%85%A5%E5%AE%9E%E9%AA%8C/</guid>
-      <description>来源
-题目 题目来源:实验吧
-题目:http://ctf5.shiyanbar.com/web/wonderkun/web/index.html
-解题 打开后就一个框，什么都没有，在username的地方我们输入&#39; or 1=1,意图是构造如下sql语句：
-select * from user where username=&#39;&#39; or 1=1;  然而失败了，看结果我们知道是过滤了关键字or，但是没有过滤单引号，所以接下来我们只能构造仅有单引号的语句。
-select * from user where username=&#39; &#39; =&#39; &#39;  username=&amp;rsquo; &amp;lsquo;会返回false，然后false 等于&amp;rsquo; &amp;lsquo;(NULL)，结果就是true了，奇技淫巧有没有，渗透就是这种节奏。
-我们实际输入&amp;rsquo;=&amp;lsquo;, password的地方也如此。结果就成功了。
-关于其他手工注入常用奇技淫巧的总结 1.判断是否存在注入漏洞 &#39; and 1=1 and 1=2  2.通过枚举查看字段个数 Order by 数字  比如:
-select * from user order by 3  如果正常返回则说明有第三列，继续：
-select * from user order by 4  如果此时报错，说明此表只有3个字段
-3.对于SQLserver and user &amp;gt; 0  user是SQLserver的内置参数，类型是nvarchar，当和int比较时，会先将nvarchar转化为int， 转化过程中可能会报错，比如:将nvarchar值 ”xxx” 转换数据类型为 int 的列时发生语法错误。xxx正是user的值！ (待续)</description>
+      <description>来源 题目 题目来源:实验吧 题目:http://ctf5.shiyanbar.com/web/wonderkun/web/index.html 解</description>
     </item>
     
     <item>
@@ -59,19 +44,7 @@ select * from user order by 4  如果此时报错，说明此表只有3个字段
       <pubDate>Sun, 01 Apr 2018 08:48:58 +0800</pubDate>
       
       <guid>http://xrazor.org/post/ctf_web_01sqlmap%E5%AE%9E%E9%AA%8C%E8%BF%99%E4%B8%AA%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9C%89%E7%82%B9%E7%AE%80%E5%8D%95/</guid>
-      <description>从今天开始学习CTF, 主攻Web+Misc。
-不积跬步无以至千里，不积小流无以至江海。慢慢来，细细看，玩中学。
-今天先来学习一下sqlmap。
-题目 题目来源:实验吧
-题目:http://ctf5.shiyanbar.com/8/index.php?id=1
-解题 1.手工注入测试 http://ctf5.shiyanbar.com/8/index.php?id=1&#39;  在末尾添加单引号：id=1&amp;rsquo;
-这样如果报错则可初步判断存在注入点。
-2.上sqlmap扫描 sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; --dbs  很快就扫出了3个DB的名字，看着这个my_db嫌疑比较大，接下来我们就对它下手。
-3.获取tables sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; -D my_db --tables  马上拿到了table名,显然我们要找的是这个thiskey,别问我怎么知道的:D
-4.获取字段 sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; -D my_db -T thiskey --columns  这样我们就拿到了column, 下一步就是猜解字段内容
-5.猜解内容 sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; -D my_db -T thiskey -C k0y --dump  这样我们就拿到了第一个flag.
-虽然简单，却也大概了解了sqlmap的能力和用法。
-明天见。</description>
+      <description>从今天开始学习CTF, 主攻Web+Misc。 不积跬步无以至千里，不积小流无以至江海。慢慢来，细细看，玩中学。 今天先来学习一下sqlmap。 题</description>
     </item>
     
     <item>
@@ -80,14 +53,7 @@ select * from user order by 4  如果此时报错，说明此表只有3个字段
       <pubDate>Sun, 25 Feb 2018 23:04:01 +0800</pubDate>
       
       <guid>http://xrazor.org/post/hihocoder1696%E6%8A%98%E7%BA%BF%E4%B8%AD%E7%82%B9/</guid>
-      <description>题目 时间限制:10000ms 单点时限:1000ms 内存限制:256MB
-描述 给定平面上N个点P1, P2, &amp;hellip; PN，将他们按顺序连起来，形成一条折线。
-请你求出这条折线的中点坐标。
-输入 第一行包含一个整数N。 (2 &amp;lt;= N &amp;lt;= 100)
-以下N行每行包含两个整数Xi, Yi代表Pi的坐标。(0 &amp;lt;= Xi, Yi &amp;lt;= 10000)
-输出 输出折线段的中点坐标。坐标保留一位小数。
-样例输入 3 0 0 30 30 40 20  样例输出 20.0 20.0  思路  每输入一个点，就计算与上一个点所形成线段的长度，并与之前线段长度累加，则输入最后一个点后，可求得折线总长s 计算出是加上哪一段线段后，使得当前距离大于d,其中d = 1&amp;frasl;2 * s，则说明折线中点在该线段上 计算该段线段长度 计算该线段为d“贡献”了多少长度 按照比例求出中点坐标
-代码  #include&amp;lt;bits/stdc++.h&amp;gt; using namespace std; int x[110],y[110]; double s[110]; double dis(int i) { return sqrt((x[i]-x[i-1])*(x[i]-x[i-1])+(y[i]-y[i-1])*(y[i]-y[i-1])); } int main() { int n; scanf(&amp;quot;%d&amp;quot;,&amp;amp;n); scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;x[0],&amp;amp;y[0]); for(int i=1;i&amp;lt;n;i++) { scanf(&amp;quot;%d%d&amp;quot;,&amp;amp;x[i],&amp;amp;y[i]); s[i]=dis(i)+s[i-1]; } double d=s[n-1]/2; int t=lower_bound(s,s+n,d)-s; double len=s[t]-s[t-1]; d-=s[t-1]; printf(&amp;quot;%.</description>
+      <description>题目 时间限制:10000ms 单点时限:1000ms 内存限制:256MB 描述 给定平面上N个点P1, P2, &amp;hellip; PN，将他们按顺序连起来，形成一条折线。</description>
     </item>
     
     <item>
@@ -96,28 +62,7 @@ select * from user order by 4  如果此时报错，说明此表只有3个字段
       <pubDate>Fri, 05 Jan 2018 23:00:16 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E7%9B%B4%E6%92%AD%E8%A1%8C%E4%B8%9A%E4%B8%BB%E6%92%AD%E6%8C%87%E6%95%B0%E5%92%8C%E6%8E%92%E5%90%8D%E8%AE%BE%E8%AE%A1/</guid>
-      <description>问题 设计一套指数，并据此对全网直播进行排名。
-分析 指数的作用就是作为过滤信息依据， 根据依据从海量主播中快速的找到符合某一标准的主播，同时作为排行榜依据。
-主要考虑维度  开播稳定性 成长性 吸引能力 互动指数 人气值  最终根据以上5个维度的评分再计算出一个综合指数。
-需要考虑问题 1. 时间衰减问题 1.1 长时间没有播，指数应如何变化 ?
-1.2 如果未来将&amp;rdquo;用户点赞&amp;rdquo;作为特征, 如何避免在排行榜上出现马太效应?即排行越靠前的主播，得到的“点赞”越多，进而排名更趋前。
-1.3 衰减方式如何确定？ 重力因子or牛顿冷却定律？
-解决方案:
-1.1 -&amp;gt; 若主播当天没有开播，开播稳定性天然考虑了不开播的情况，因此按既定算法计算，其他指标按牛顿冷却定律做周期为365天的衰减。
-1.2 -&amp;gt; 若“用户点赞”的权重很高，为避免马太效应，在前端页面的展现上，可采用滚动展示/异地展示的方式，使非头部的主播得到更多曝光；算法上配合牛顿冷却定律，避免某些主播“一战成名”后长期盘踞排行榜头部。
-1.3 -&amp;gt; 先确定周期，再考虑衰减过程中的梯度变化(各时间段内是需要平滑的还是陡峭的)
-2.冷启动问题 2.1 新(收录)主播，数据量较小，如何给出恰当的排名?比如未经处理前，A、B两个主播综合评分都有90分，但A的观测样本只有3个，而B有100个。
-2.2 新人主播指数上是否初始权重更高? 初始分数？
-解决方案
-2.1 -&amp;gt; 采用威尔逊区间，利用置信区间进行可信度的修正，弥补样本量过小的影响，对于B来说由于样本多，因此置信区间更窄，即数据更可信；反之A的更宽，因此B的置信区间下界会比A大，故B可排在A前。该方法已被较多大厂使用，如reddit, 知乎， Yelp、Digg等。
-2.2 -&amp;gt; 威尔逊区间在算法上会对对新(收录)主播在排名上会有所压制，所以另一个可考虑的方法是使用贝叶斯平均，比如对于每一个新主播，根据其所在直播类型的平均情况给一个基础分，再根据该主播后期的表现对基础分进行修正更新。全球最大电影评分网站IMDB也使用了此种算法。
-3.平滑问题 3.1 如何避免指标大幅震荡?
-3.2 数据缺失，比如爬虫爬取失败导致的关注数缺失?
-解决方案
-3.1 -&amp;gt; 在单天的指标计算上，采用移动平均，减缓震荡幅度；与前值作比对，如大于设定振幅上限，则取上限值。
-3.2 -&amp;gt; 如数量不多，采用该主播前后数据填充，如单个主播整体缺失，采用行业内同级别主播均值数据填充。
-基本公式结构 采用时间衰减:
-$$Index=f(δ_t * g(xt) + δ{t-1} * g(x{t-1}) + \cdots + δ{t-T} * g(x_{t-T})]$$</description>
+      <description>问题 设计一套指数，并据此对全网直播进行排名。 分析 指数的作用就是作为过滤信息依据， 根据依据从海量主播中快速的找到符合某一标准的主播，同时作为排</description>
     </item>
     
     <item>
@@ -126,17 +71,7 @@ $$Index=f(δ_t * g(xt) + δ{t-1} * g(x{t-1}) + \cdots + δ{t-T} * g(x_{t-T})]$$<
       <pubDate>Mon, 01 Jan 2018 15:32:26 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E9%82%A3%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</guid>
-      <description> Coding辅助 cppman C++ 98/11/14 手册查询 for Linux/MacOS
-编辑辅助 pandoc 将markdown转化为任意电子书格式
-graphviz 文本转图表
-运维辅助 nload 监控当前主机网络流量
-screenfetch 当前主机信息
-iotop 磁盘io实时监控
-bmon 指定网卡流量监控
-thefuck 命令行智能纠错工具
-渗透辅助 hydra 暴力破解pwd
-其他 figlet *将输入字符转换成艺术字体
-bash学习资源 bash-guide </description>
+      <description>Coding辅助 cppman C++ 98/11/14 手册查询 for Linux/MacOS 编辑辅助 pandoc 将markdown转化为任意电子书格式 graphviz 文本转图表 运维辅助 nload 监控当前主机网络流量 screenfetch 当前主机信息 iotop</description>
     </item>
     
     <item>
@@ -145,13 +80,7 @@ bash学习资源 bash-guide </description>
       <pubDate>Sat, 30 Dec 2017 23:49:31 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1/</guid>
-      <description>什么是架构 架构狭义的说狭义的来说，是在信息系统研发中，负责依据需求来确定主要的系统设计、技术选择的主体框架结构，并负责搭建实施的活动。而广义的架构应包含业务架构。
-架构的三个层次 按照定义，架构可分为三个层次：
- 业务架构 系统架构 技术架构  业务架构 根据业务需求设计业务模块和交互关系。比如：一个商城网站。
-系统架构 根据业务需求设计系统和子系统的模块。比如：MVC架构。
-技术架构 根据业务需求决定采用的技术及框架。比如。基于MVC的RoR。
-DDD与Micro-server DDD Domain Driven Design 领域驱动设计。一种方法论。主要解决的问题是：让业务架构和系统架构绑定，实现系统架构随着业务架构的演进而演进，即系统架构有随着业务架构进化的能力。这样以来，技术架构与系统架构就是解耦的。
-Micro-server 微服务。可基于DDD实现。</description>
+      <description>什么是架构 架构狭义的说狭义的来说，是在信息系统研发中，负责依据需求来确定主要的系统设计、技术选择的主体框架结构，并负责搭建实施的活动。而广义</description>
     </item>
     
     <item>
@@ -160,9 +89,7 @@ Micro-server 微服务。可基于DDD实现。</description>
       <pubDate>Mon, 27 Nov 2017 23:08:28 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E4%BD%A0%E7%9A%84ssh%E8%A2%AB%E7%88%86%E4%BA%86%E4%B9%88/</guid>
-      <description>世界很危险 前段时间买了个法国杜甫，今天突发奇想要看看有有多少人爆过我的ssh，不看不知道，一看吓一跳。 首先用lastb命令看看有多少登录不成功的记录：
-lastb  结果：
-root ssh:notty 218.87.109.152 Sat Nov 25 03:16 - 03:16 (00:00) root ssh:notty 218.87.109.152 Sat Nov 25 03:15 - 03:15 (00:00) root ssh:notty 218.87.109.152 Sat Nov 25 03:15 - 03:15 (00:00) root ssh:notty 218.87.109.152 Sat Nov 25 03:15 - 03:15 (00:00) root ssh:notty 218.87.109.152 Sat Nov 25 03:15 - 03:15 (00:00) root ssh:notty 218.87.109.152 Sat Nov 25 03:15 - 03:15 (00:00) root ssh:notty 218.87.109.152 Sat Nov 25 03:15 - 03:15 (00:00) root ssh:notty 123.</description>
+      <description>世界很危险 前段时间买了个法国杜甫，今天突发奇想要看看有有多少人爆过我的ssh，不看不知道，一看吓一跳。 首先用lastb命令看看有多少登录不成</description>
     </item>
     
     <item>
@@ -171,13 +98,7 @@ root ssh:notty 218.87.109.152 Sat Nov 25 03:16 - 03:16 (00:00) root ssh:notty 21
       <pubDate>Thu, 16 Nov 2017 23:58:01 +0800</pubDate>
       
       <guid>http://xrazor.org/post/terminal%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4pip%E5%92%8Cgit%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8/</guid>
-      <description>问题描述 今天用pip安装东西的时候忽然频繁出现连不上的问题，百思不得其解，尝试了用各种代理各种恢复未果。然后用git clone出现如下错误：
-Cloning into &#39;spider&#39;... fatal: unable to access &#39;https://github.com/gsh199449/spider.git/&#39;: Failed to connect to 127.0.0.1 port 44131: Connection refused  才怀疑到环境上。
-解决办法 先在终端中查看当前代理状况
-env | grep -i proxy  然后发现是这样的：
-HTTP_PROXY=http://127.0.0.1:44131/ http_proxy=http://127.0.0.1:44131/ no_proxy=localhost,127.0.0.0/8,::1 NO_PROXY=localhost,127.0.0.0/8,::1 HTTPS_PROXY=http://127.0.0.1:44131/  故可以确定是代理设置的问题，所以将其恢复为无代理状态。
-unset http_proxy  或者
-http_proxy=&amp;quot;&amp;quot;  至此，问题解决。</description>
+      <description>问题描述 今天用pip安装东西的时候忽然频繁出现连不上的问题，百思不得其解，尝试了用各种代理各种恢复未果。然后用git clone出现如下错误：</description>
     </item>
     
     <item>
@@ -186,14 +107,7 @@ http_proxy=&amp;quot;&amp;quot;  至此，问题解决。</description>
       <pubDate>Sat, 07 Oct 2017 19:47:06 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E8%AF%BB%E5%A4%A7%E8%B4%A5%E5%B1%80%EF%BD%89%E4%BB%80%E4%B9%88%E5%86%B3%E5%AE%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F/</guid>
-      <description>这几天看了吴晓波的《大败局I》，一方面感到振奋，另一方面也感到惋惜，那些璀璨如星河的企业，却也如流星般转瞬即逝。到底一个企业的生存周期由什么因素决定?成功人的成功方式大相径庭，失败者的失败原因却惊人相似。假设以$T$代表企业的生存周期，那么与之对应的函数也许与两个核心因素有关。其一，是媒介影响与公关关系，系企业的外部因素,用$M$来表示；其二，是企业财务风险，系企业的内部因素，用$F$来表示。
-$$T = f(M, F)$$
-媒介影响与公关关系 广告 纵览全书，给人的一种直观感受就是：广告是一把双刃剑，它能打江山，却不能指望用它来守江山。秦池酒厂、爱多ＶＣＤ都拿过央视的标王，巨人、飞龙、三株靠广告迅速打出名气走上巅峰，太阳神、南德更是操纵大众注意力的好手。《大败局Ｉ》所介绍的１０个企业中，就有半数以上的企业前期依靠广告打下了广阔的市场获得了令人眼热的回报，这给人的错觉就是，在那个年代，广告就等于市场，做市场就是要做广告。然而正所谓墙倒众人推，广告在给他们带来了巨大光环的同时，也把他们全方位的暴露在了公众和媒体的视野之下。这就到了第二个层次，媒介关系。
-媒介关系 “川酒入秦”的新闻成为秦池酒厂倾覆的导火索，史玉柱因为媒体围剿被逼得躲在办公室不敢见人，三株集团更是因为“八瓶三株喝死一条老汉”的新闻瞬间土崩瓦解（最后证明三株口服液并非致死主要原因），在这些血淋淋的事迹面前，虽然并不能说媒体是造成这些雄极一时的企业覆灭的根本原因，但是媒体的“墙倒众人推”，以及当时企业自身公关手段和意识不成熟，确实加速了企业的终结。
-政商关系 从古到今，没有哪一个商人真正摆脱政治的影响，如果没有感觉到，恐怕是因为还做的不够大。玫瑰园作为当时京城最好的别墅项目，因为前任政商关系不清不楚，最后深陷狼狈；而三株集团将政商关系上升到企业战略的高度，直接写在年度工作目标中，成为一项具体的工作落实部署，其中利害关系无需多言。
-财务风险 杠杆 要说这些企业覆灭的根本，有一点绕不过去的就是企业家的“自负”，在快速成功后积累起来的盲目乐观情绪，使他们错误的估计了形势，错误的上杠杆，拿被高估的未来收益来拍板在的事，动不动就要“上天入地”、“称霸全球”、“大力出奇迹”，比如史玉柱的巨人大厦从３８层加高到了７０层，比如亚细亚的全国连锁计划，比如太阳神、三株的多元化。这种秉性，虽是帮他们打下了江山，却使他们在遭遇逆境的时候跌得更惨。可能他们没有严重的认识到，杠杆所带来的风险会让他们连活下去的机会都没有。
-股权结构 企业创立初期的股权结构，以及企业发展过程中的股权分配，到现在都是一个研究的热点。为爱多ＶＣＤ打拼一辈子的胡志标，被同样持股４５％却从未参与经营的“发小”陈天南绝杀，瀛海威创始人被董事局罢免出门，股权之威可见一斑，其中的张弛之道值得细究。
-一点疑惑——质量对企业的终结有影响吗？ 从书中可以看到，被终结的企业，似乎没有一家是因为质量真的不行而被终结的，别人说你好——不好也好，别人说你不好——好也不好，公众和媒体的舆论比产品本身的好坏影响力更大。那么能不能认为，质量很重要，但是没有重要到一下子决定企业的生死呢。</description>
+      <description>这几天看了吴晓波的《大败局I》，一方面感到振奋，另一方面也感到惋惜，那些璀璨如星河的企业，却也如流星般转瞬即逝。到底一个企业的生存周期由什么</description>
     </item>
     
     <item>
@@ -202,8 +116,7 @@ $$T = f(M, F)$$
       <pubDate>Fri, 06 Oct 2017 14:05:10 +0800</pubDate>
       
       <guid>http://xrazor.org/post/latex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</guid>
-      <description>LaTex可以配合Markdown使用优雅地生成数学公式。公式部分以\$号开头，以\$号结尾。“\”为转义符，这里是为了显示需要，真实输入的时候不需要写。
-   LaTex写法 效果     x_i $x_i$   x^2 $x^2$   \sqrt{2} $\sqrt{2}$   \sqrt[3]{2} $\sqrt[3]{2}$   e^{x^2} \neq {e^x}^2 $e^{x^2} \neq {e^x}^2$   e^{-\alpha t} $e^{-\alpha t}$   x^{y^z} $x^{y^z}$   \int_a^b f(x) $\int _a^b f(x)$   sum_{i=1}^{n} $\sum_{i=1}^{n}$   \prod_\epsilon^{\infty} $\prod_\epsilon^{\infty}$   \frac ab $\frac ab$   \underbrace{a+b+\cdots+z}_{26} $\underbrace{a+b+\cdots+z}_{26}$   \vec a $\vec a$   \overrightarrow{AB} $\overrightarrow{AB}$   \leqslant $\leqslant$   \geqslant $\geqslant$    具体可参看PDF《一份不太简短的LATEX介绍》</description>
+      <description>LaTex可以配合Markdown使用优雅地生成数学公式。公式部分以\$号开头，以\$号结尾。“\”为转义符，这里是为了显示需要，真实输入的</description>
     </item>
     
     <item>
@@ -212,34 +125,7 @@ $$T = f(M, F)$$
       <pubDate>Wed, 04 Oct 2017 18:03:49 +0800</pubDate>
       
       <guid>http://xrazor.org/post/hugo&#43;nginx&#43;webhook%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</guid>
-      <description>hugo是个静态网页生成系统，生成速度很快，占空间小，适合用来搭建个人博客。废话少说，直接进入正题。
-本次实践主要实现３个目标：
-1.学会用hugo生成页面;
-2.用nginx作代理，并将hugo部署到服务器上;
-3.使用github的webhook实现本地到线上的自动发布.
-在本地安装并使用hugo 安装 本地使用的系统为ArchLinux，安装较为方便，直接使用命令行安装：
-sudo pacman -S hugo
-生成新网站 安装好后,　比如你预想的网站根目录名字是“blog”，则可输入命令：
-hugo new site blog
-这样就会在打开终端的地方生成一个名为&amp;rdquo;blog&amp;rdquo;的文件夹，里面是网站的目录文件。
-生成新文章 在新生成&amp;rdquo;blog”的目录下输入命令：
-hugo new post/&amp;lt;你想写的新文章的标题&amp;gt;.md
-这样就会在blog/content/post/目录下生成一个md文件，这就是你的新文章了，通常是用markdown格式写的。
-安装主题 众所周知，这种东西肯定少不了主题，而这个主题存放的地方是在网站根目录下的themes文件夹，从官网上或者在github其他地方找到你钟意的主题，然后在themes文件夹下使用git命令下载：
-git clone &amp;lt;git地址名称&amp;gt;.git　&amp;lt;你自己安的一个名字&amp;gt;
-这样在themes文件夹下就会生成一个文件夹，文件夹的名字是在命令中你取的，文件夹的内容是从git上下载下来的主题内容。然后在网站根目录下有一个config.toml文件，这是hugo的配置文件，将里面的theme字段改成你要使用的主题文件夹的名称。比如你想要用的主题你给它命名为“ivy”，那么在config.toml中则改为：
-theme = &#39;ivy&#39;
-这样就ok了。其他配置项的用法可自行google之。
-生成静态网页 编辑好文章后，要使用hugo生成静态网页，方法也简单得没天理，就是在网站根目录（比如在本例中为‘blog’文件夹）下使用命令：
-hugo
-这样就会在根目录下生成一个public文件夹，这里面就是根据你的内容包括主题生成的静态网页，此时你可以把这个文件夹丢到GithubPages或CodingPages上，或者是扔到服务器上（后文详解），就算是内网发布了。
-将hugo部署在服务器上 因为hugo生成的是静态网页，所以说是部署，实际上就是把前文提到的public文件夹扔到服务器上，然后让外网能访问到就ok了。
-域名与解析 首先买一个域名；其次，将域名解析到你的服务器（也就是说输入这个域名等同于输入了你服务器的ip），这里推荐DNSPOD,免费且好用，具体过程这里就不细表了。
-下载nginx 一般服务器上默认没有安装，得手动安装，也很简单：
-sudo pacman -S nginx
-配置nginx 通过以下命令查找nginx的配置文件所在位置: nginx -t
-找到路径下的nginx.conf后，我们要对其作一些简单的修改，注意看我注释的部分：
-user root;　# 原本的用户是nginx而不是root worker_processes auto; error_log /var/log/nginx/error.log; pid /run/nginx.pid; # Load dynamic modules.</description>
+      <description>hugo是个静态网页生成系统，生成速度很快，占空间小，适合用来搭建个人博客。废话少说，直接进入正题。 本次实践主要实现３个目标： 1.学会用hu</description>
     </item>
     
     <item>
@@ -248,17 +134,7 @@ user root;　# 原本的用户是nginx而不是root worker_processes auto; error
       <pubDate>Sun, 23 Jul 2017 16:40:10 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%A5%BD%E5%9D%8F/</guid>
-      <description>这个问题可以分解为3个子问题：首先，评估模型时具体评估的是什么？其次，评估方法和过程是怎样的？最后，评估指标该如何选择？ 下面将针对这三个子问题分别回答。
-1.评估模型时具体评估的是什么？ 总的来说评估的是模型的泛化能力。泛化能力通过泛化误差来体现，模型的泛化误差小，说明面对未知数据，模型也能根据学到的东西做出很好的预测，即泛化能力强。而泛化误差=偏差(Bias)+方差(Variance)+噪音(Noise)。偏差度量了算法的期望预测与真实结果的偏离程度，刻画了模型本身的拟合能力；方差度量了同样大小的训练集导致的学习性能的变化，刻画了数据扰动造成的影响。最后噪音表达了在当前任务上任何算法能达到的期望泛化误差的下界，即问题本身的难度。
-偏差过大是模型设计问题 如果在训练集上偏差很大，说明模型欠拟合，模型本身学习能力不强；如果在训练集上偏差小而在测试集上偏差很大，说明模型过拟合，学到了训练集中一些普适性不强的东西。
-方差过大是训练过程控制问题 如果方差过大，说明训练出来的模型会随着数据集变动而变动。假设下式： gap = validation error − training error 在衡量的时候，可通过改变训练集的大小，当训练集由小变大时，对于方差小的模型，gap会逐步比较小，反之则大。
-至此可以作如下总结： 高偏差低方差: 模型欠拟合，模型学习能力不足，需重新设计；低偏差高方差，说明模型存在过拟合的风险，需要增加数据或做正则化。
-2.模型评估的方法和过程是怎样的？ 通过交叉验证法(CrossValidation)来做。交叉验证法将数据集分成n个大小相似的子集，同时子集的正负例分布需保持基本一致，然后用其中的n-1个子集做训练集，剩下的做测试集，重复n次训练，如此得到n次的结果（指标）的均值。
-3.评估指标该如何选择？ 常用的评估指标有以下几个：
-准确率 对于二分类来说，如果样本数为n，正确预测的样本数为m，则准确率p=n/m，这是最基本的度量标准之一，准确率越高模型越好。但是实际任务中可能更关注的是“筛出来的正例有多少是真正例”或“真正例有多少被筛出来了”，这样的情况下准确率就不足以评估好坏了。
-查准率(precision)、查全率(recall)、F1和PR曲线 对于二分类来说预测结果可能有真正例（TP）、假正例（FP）、真负例（TN）、假负例（FN）。查准率P=TP/(TP+FP)，查全率R=TP/(TP+FN)。顾名思义，查准率高则说明查出来的大多是真的，查全率高说明真的大多被查出来了。这两个指标通常是越高越好，但是查准率和查全率是跷跷板的两头，此高彼低，因此有时候不太好衡量，所以又引入了F1指标，F1=1 /((1/P+1/R)*0.5), 这是P和R的调和平均值，另外，在某些场景下，对P、R的偏好不同，可对P和R做加权调和平均。对查准率和查全率。F1越高模型越好。另外，以P为纵轴R为横轴，可做PR曲线，直观的判断模型的表现，当一条PR曲线被另一条包住，则后者表现更好。
-ROC和AUC 有些模型的预测结果是一个概率或数值，根据这个预测值与设定好的分类阈值比较后再确定分类。因此可以对样本预测结果排序后再根据需要选择不同的阈值。这是排序的质量就反应了模型泛化能力的好坏。ROC就是从这个思路切入的，它纵轴为真正例率(TPR=TP/ (TP+ FN))，横轴为假正例率(FPR=FP / (FP + TN))，排序后逐个把样本作为正例进行预测，每次计算出TPR和FPR，这样就可以做出ROC曲线。ROC曲线越靠近左上角模型越好，但是有时候不同的ROC曲线会相交，不太好判断孰优孰劣，因此又引入了AUC，是ROC与x轴围城的面积，AUC越高越好。
-综上所述，模型表现的好坏要结合具体的数据集和业务问题来综合考虑，有针对性地选择评估指标。</description>
+      <description>这个问题可以分解为3个子问题：首先，评估模型时具体评估的是什么？其次，评估方法和过程是怎样的？最后，评估指标该如何选择？ 下面将针对这三个子问</description>
     </item>
     
     <item>
@@ -267,9 +143,7 @@ ROC和AUC 有些模型的预测结果是一个概率或数值，根据这个预�
       <pubDate>Sun, 25 Jun 2017 23:04:01 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E5%AE%9E%E5%81%9Acnn%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%BE%A8%E8%AF%86/</guid>
-      <description>开始   语言：Python2 框架：Keras Backend: tensorflow OS: Archlinux Package: numpy,pandas,seaborn,sklearn,etc Method: CPU(i7) 数据集: MNIST  模型结构：
-In -&amp;gt; [[Conv2D-&amp;gt;relu]*2 -&amp;gt; MaxPool2D -&amp;gt; Dropout]*2 -&amp;gt; Flatten -&amp;gt; Dense -&amp;gt; Dropout -&amp;gt; Out.  现在让我们在Ipython里面跑。
-数据预处理 import各种包 import pandas as pd import numpy as np import matplotlib.pyplot as plt import matplotlib.image as mpimg import seaborn as sns np.random.seed(2) # seed中使用数字相同，则每次程序中生成的随机数都相同 from sklearn.model_selection import train_test_split from sklearn.metrics import confusion_matrix import itertools from keras.</description>
+      <description>开始 语言：Python2 框架：Keras Backend: tensorflow OS: Archlinux Package: numpy,pandas,seaborn,sklearn,etc Method: CPU(i7) 数据集: MNIST 模型结构： In -&amp;gt; [[Conv2D-&amp;gt;relu]*2 -&amp;gt; MaxPool2D -&amp;gt; Dropout]*2 -&amp;gt; Flatten -&amp;gt; Dense -&amp;gt; Dropout -&amp;gt; Out. 现在让我们在Ipython里面跑。</description>
     </item>
     
     <item>
@@ -278,10 +152,7 @@ In -&amp;gt; [[Conv2D-&amp;gt;relu]*2 -&amp;gt; MaxPool2D -&amp;gt; Dropout]*2 -
       <pubDate>Sat, 10 Jun 2017 21:24:23 +0800</pubDate>
       
       <guid>http://xrazor.org/post/impala&#43;spark%E6%93%8D%E4%BD%9C%E5%AE%9E%E8%B7%B5/</guid>
-      <description>背景 最近Mysql+Redis的架构无法满足日益变化和增长的数据需求，因此需要引更适合于大数据的系统架构，目的是在scalability和数据的读写性能上有所提升。初步采用的是CDH的部署，选用了Hadoop、HBase、Hive、Impala作为资源层。用Spark做批处理和流计算。
-选用Impala的原因及基本使用 Why Impala  Implala基本使用sql语法，可以实现开发者无缝切换使用，学习成本低。 性能卓越，比hive快。  Impala和其他组件的关系  Hadoop是一切的基础 Hbase是基于Hadoop的NoSQL数据库 Hive在本文中起到存储Metadata的作用，原本是通过MapReduce对Hadoop中的数据进行访问。 Impala是一个取数接口。  建表 step 1 进入hbase的shell，在hbase中建表, 第二项是列族名
-create &#39;danmu_test_003&#39;, &#39;danmu_info&#39;  step 2 在hive中建外部表, 第一个字段自动作为rowkey, varchar 要标range,不然会报错。
-CREATE EXTERNAL TABLE gogo.danmu_test_003( uid bigint, level int, room_id int, nick_name varchar(255), create_time varchar(255), content varchar(255)) ROW FORMAT SERDE &#39;org.apache.hadoop.hive.hbase.HBaseSerDe&#39; STORED BY &#39;org.apache.hadoop.hive.hbase.HBaseStorageHandler&#39; WITH SERDEPROPERTIES (&amp;quot;hbase.columns.mapping&amp;quot; = &amp;quot;:key, danmu_info:level, danmu_info:room_id, danmu_info:nick_name, danmu_info:create_time, danmu_info:content&amp;quot;) TBLPROPERTIES(&amp;quot;hbase.table.name&amp;quot; = &amp;quot;danmu_test_003&amp;quot;);  step 3 在impala-shell中同步数据:</description>
+      <description>背景 最近Mysql+Redis的架构无法满足日益变化和增长的数据需求，因此需要引更适合于大数据的系统架构，目的是在scalability和数</description>
     </item>
     
     <item>
@@ -290,22 +161,7 @@ CREATE EXTERNAL TABLE gogo.danmu_test_003( uid bigint, level int, room_id int, n
       <pubDate>Sat, 20 May 2017 16:18:12 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
-      <description> 传统的按照每次迭代取的样本数来分 Batch Gradient Descent 全量梯度下降 每次都取整个训练集的样本来更新。
-缺点:计算慢，不能在线更新模型。
-Stochastic gradient descent 随机梯度下降 每次只取训练集中的1个样本进行训练。 优点：训练速度快，模型可在线更新，能够有几率跳出局部最小点。 缺点：单个样本训练出来的gradient波动比较大。
-Mini-batch gradient descent 小批量梯度下降 每次取一小撮样本来更新参数。 优点：一定程度上克服了前两个的缺点，训练相对稳定且速度快。
-梯度下降最关键的问题在于学习率：
-一是学习率大了会导致不能收敛，在极值点附近震荡，学习率小了收敛速度慢。
-二是传统的学习率是定死的，每个特征的学习率都一样。
-为了解决这个学习率的问题，众位先贤相出了很多不同的办法来调节学习率，核心的目的就是：让学习率自动自适应调节。
-下面就来总结不同的梯度下降优化算法。这要分3大类：
- 基于梯度 基于动量 梯度和动量相结合   梯度下降优化算法 基于梯度 Adagrad  * 图片引自NTU李宏毅教授的slides
-adagrad就是每一次更新参数学习率都会除上之前每一步的梯度的和的开方(不开根号性能变差)，在梯度大的方向，学习率会小一些，而在梯度小的方向，学习率就会相对较大。
-RMSprop Adagrad有两个问题：一是是有时候它的学习率衰减得太快了，二是在实际中某一个参数的实际梯度可能是有急有缓的，这样Adagrad就没有办法很好的处理这种情况。比如前面急坡时学习率就已经衰减到一个比较小的值了，但是急坡后可能是缓坡，此时我们需要一个比原来更大的学习率，然而Adagrad没有办法给我们。所以要寻求一个对近期的梯度变化也能做出响应的算法。比如说RMSprop。  RMSprop每一次更新都会考虑之前的&amp;amp;delta&amp;amp;和这一步的梯度，参数&amp;amp;alpha&amp;amp;就是用来权衡是考虑当下多一些还是考虑之前的多一些。比如当&amp;amp;alpha&amp;amp;&amp;lt;0.5时，开方中的第一项的权重就相对比第二项小，这时就是更多的着眼于当下的梯度。
-基于动量 momentum  基于动量的参数更新每次减掉的不是梯度，而是动量，而动量又是上一次动量和这一次梯度×学习率的和，因此是参数的更新具有了一定的惯性。
- 比如当小球卡在local minuma时，由于之前的动量的存在，及时在本次迭代梯度为0的情况下，小球能有机会向右移动，跳出局部最小区域。这就是动量的核心思想。
-梯度和动量结合 Adam Adam(Adaptive Moment Estimation)本质上是带有动量项的RMSprop，它利用梯度的一阶矩估计和二阶矩估计动态调整每个参数的学习率。Adam的优点主要在于经过偏置校正后，每一次迭代学习率都有个确定范围，使得参数比较平稳。  特点：
- 结合了Adagrad善于处理稀疏梯度和RMSprop善于处理非平稳目标的优点 对内存需求较小 为不同的参数计算不同的自适应学习率 也适用于大多非凸优化 适用于大数据集和高维空间  </description>
+      <description>传统的按照每次迭代取的样本数来分 Batch Gradient Descent 全量梯度下降 每次都取整个训练集的样本来更新。 缺点:计算慢，不能在线更新模型。 Stochastic gradient descent 随机梯度下降 每次只取</description>
     </item>
     
     <item>
@@ -314,11 +170,7 @@ RMSprop Adagrad有两个问题：一是是有时候它的学习率衰减得太�
       <pubDate>Sat, 25 Mar 2017 23:04:01 +0800</pubDate>
       
       <guid>http://xrazor.org/post/leetcode_issomorphic/</guid>
-      <description>题目 Given two strings s and t, determine if they are isomorphic.
-Two strings are isomorphic if the characters in s can be replaced to get t.
-All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
-For example, Given &amp;ldquo;egg&amp;rdquo;, &amp;ldquo;add&amp;rdquo;, return true.
-Given &amp;ldquo;foo&amp;rdquo;, &amp;ldquo;bar&amp;rdquo;, return false.</description>
+      <description>题目 Given two strings s and t, determine if they are isomorphic. Two strings are isomorphic if the characters in s can be replaced to get t. All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself. For example, Given &amp;ldquo;egg&amp;rdquo;, &amp;ldquo;add&amp;rdquo;, return true. Given &amp;ldquo;foo&amp;rdquo;,</description>
     </item>
     
     <item>
@@ -327,22 +179,7 @@ Given &amp;ldquo;foo&amp;rdquo;, &amp;ldquo;bar&amp;rdquo;, return false.</descr
       <pubDate>Mon, 20 Mar 2017 00:05:02 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%84%E5%AE%9A%E5%8A%A8%E4%BD%9C/</guid>
-      <description> 我们拿到一个机器学习项目之后，通常都会经过以下几个步骤：
-1. Insight 数据洞察 统计机器学习一般是从已知数据集中训练模型，并用模型对未知数据进行预测。因此对已知数据的理解变得尤为重要。
-Common Sense 善于利用常识 这个放在第一位，是因为刚开始做机器学习的同学，可能会觉得任何事情都从数据统计的角度去观察会很fancy。但实事是，这样的思维有时候会让我们只见树木不见森林，陷入到数据的细节里面。为了避免这种情况的发生，我们要做的就是首先通过肉眼观察数据，通过直觉来判断那几个Category有可能会在后面作为Features。 以Kaggle的入门Case——Titanic为例。Data Category不多:ID, 生还情况， 船舱等级， 名字， 性别， 年龄， 家属人数， 船票信息， 票价， 仓位， 登船码头。从直觉来看，与生还情况相关性最大的，应该是性别和年龄，因为在国外Children and Lady first的道德环境，小孩和女人的生还概率可能较大；此外，从阶级等级来看，有钱人可能会得到优先安排而有较高的生还概率，而有钱人一般住高级舱，Fare也比较高， 而年少多金的人（船舱等级 X 年龄），身份可能更为显赫。另外同船家属人数的多少，可能也是一个Feature，因为一家人可能会相互帮助从而提高生还率。等等。这样我们通过常识和直觉就能得到了几个方向的猜测，至于对与不对，可以留到后面再来验证。
-Data Visualization 数据可视化 Python下用pandas很容易做数据统计描述，但是有时候数据不如图表那么直观，我们需要用matplotlib和seaborn等可视化工具来生成图表，帮助我们快速分析，并且在整个项目过程中，可视化是很重要的可能会被反复使用的技能，它能帮助我们保持思路清晰。 在这个过程中，上一步的许多猜测会得到进一步的验证。一边做可视化，一边确定哪些是要带入模型的Feature， 同时可能还要人工设计几个Features，比如Titanic case里面的（船舱等级X年龄）。
-2. Preprocessing 数据预处理 缺失值填充
-对于年龄等数值型的数据，可以通过Randomforest拟合出一个数据，但是由于年龄这种东西，并不是船舱等级、船票等其他类的数据一定存在太大关系，因此用这样的方法，虽然看起来fancy，但是并不一定有太大作用，可能直觉乱填一个效果都比之要好，因此也不能时刻迷信算法的结果。其他的思路还有取区间平均值，或者中位数。这都需要大量的试才能得到好的结果。并不是一蹴而就的事情。
-0-1化 有些数据类别本身不是数值型的，而是一些字符型的类别，为了便于带入模型计算，我们要把它转化为0-1数据，也就是Dummy Code。这一步可以直接用pandas里面的get_dummies方法，实现很方便。
-归一化 当数据与数据之间的范围相差很大，比如说年龄的范围从1岁到80岁，而船舱的等级就是1-3级，这样会导致带入模型使用梯度下降法或者拟牛顿法求解时，数据收敛很慢，甚至是不收敛。因此要对数据做scaling，就是归一化， 把数据归一到一个很小的范围，比如（-1，1）.可以调用sklearn的preprocessing处理。
-数据弃用 代入模型的时候肯定不是所有数据都代入，选择好Features之后把不用的数据类别都drop掉。 通过以上的步骤我们得到了一组clean data，下一步就是构建模型了。但是不要看前面这两步简单，其实有很多判断和取舍，并且需要反复的测试对比，才能得到最终的Features，所以俗话说得好：数据和特征决定了机器学习的上限，而模型和算法只是不断的逼近这个上限。很多项目的大部分时间（&amp;gt;70%）实际上都花在特征工程上，可见其重要性。
-3.Modeling 建模 选择方法 在做kaggle的时候，大家可以很方便的调用sklearn的各种机器学习方法，比如LR,SVM,NB,DT,KNN等等，反正就几行代码的事。事实上，我猜测，在工业界，实际选择方法的时候一是考虑模型的泛化能力，二是考虑模型的鲁棒性， 三是考虑模型的计算消耗， 四是考虑模型的解释性。因此并不像我们“游戏”里面选择那么自由。 在kaggle中我们可以根据项目要解决的问题，选择相对匹配的算法，比如项目要解决的是二分类问题，那么可能LR,SVM,DT是相对好的选择；如果项目是图像或语音识别，那可能CNN等深度学习算法优势会更大。等等。
-模型评估  Optimization 性能优化
- 基于数据的优化
- 基于算法的优化
- 基于参数的优化
- 基于模型融合的优化
-  </description>
+      <description>我们拿到一个机器学习项目之后，通常都会经过以下几个步骤： 1. Insight 数据洞察 统计机器学习一般是从已知数据集中训练模型，并用模型对未知数据进行预测。因</description>
     </item>
     
     <item>
@@ -351,12 +188,7 @@ Data Visualization 数据可视化 Python下用pandas很容易做数据统计描
       <pubDate>Sun, 19 Mar 2017 09:48:02 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%9C%B0%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/</guid>
-      <description>要学习一个新的领域，最好的方法可能是找到这个领域的综述，快速掌握知识框架后按照一定的路径去阅读相关的论文，以探究框架下的细节。但有时候会遇到这么一个问题：感觉论文越读越多，A细节不懂找相关论文查一下，查的时候发现又有些细节不懂，又查另一篇论文，如此反复，陷入细节之中而不得要领。怎样才能高效的阅读论文呢？恐怕要追根溯源，想一想我们为什么要阅读论文。
-所有的论文特别是科技论文都是为了解决某一特定情境下的特定问题而存在的，要么是提出新的方法，要么是在已有方法上的创新。因此在读的时候如果是以看科普的心态去读，就会陷入细节中，因为论文本身就不是一个科普文。
-那么，论文究竟应该怎么读呢?
-带着特定的问题去读 只有带着特定的问题，才能有的放矢， 只在文中找自己想要的，一方面可以节省时间，另一方面也可以帮助自己抓住问题的重点而不是纠缠于细节。那么，问题从何而来呢？ 是从你对当前知识的理解和你想要运用这个领域的知识来解决什么任务得到的。比如任务是我们要借助人工智能的方法来实现验证码的自动识别，那么首先我们就会了解计算机视觉领域的相关知识，然后发现CNN在该领域的重要地位，因此我们就会找到AlexNet的那篇论文，在我们知识储备不多的情况下，我们问出的问题可能是这样的：CNN到底是什么东西/它的框架结构是什么， 因此在读的时候只要聚焦这两个问题就好了。 第一遍读完后可能又会生出新的问题，那么这是可以重读第二遍或者其他的相关论文。以此递进，就能每读一篇论文都有所收获。当然这里的问题举的都比较随便，在实践的时候问出“真正”的问题也是需要经过思考的。
-边读边猜 记得以前数学老师说过一句话：数学好的人他们的答案都是猜出来的，而不是算出来的。乍一听很不可思议对不对。实际上做学术搞科研也是如此。这个猜不是说胡乱猜，而是在掌握一定知识的情况下，大胆的假设和想象，如果你能想到的结论是一个很具象也很有可行性的方法，那么你大概就不需要再去逐行的看论文原文的描述，而是只需要在里面找一些论证即可。
-以批判的眼光去读而不是以学生的眼光去读 这里说的不是要我们眼高于顶盲目自大，而是要学会思辨。先领会作者说的是什么，再看看作者为什么这么做/这么写，最后最关键的试着评判这篇论文做的怎么样/亮点在哪/不足在哪，前两步是总结，而最后一步则是提炼，只有这样才能真正的有所收货。想想那些小学时代“很用功”的同学，他们一遍又一遍的抄着错题集，这本抄完搬到那本抄，为什么有些还是拿不到好成绩呢，因为他们只有机械的总结，而没有把问题归纳提炼，“泛化能力”始终得不到提高，如此而已。</description>
+      <description>要学习一个新的领域，最好的方法可能是找到这个领域的综述，快速掌握知识框架后按照一定的路径去阅读相关的论文，以探究框架下的细节。但有时候会遇到</description>
     </item>
     
     <item>
@@ -365,9 +197,7 @@ Data Visualization 数据可视化 Python下用pandas很容易做数据统计描
       <pubDate>Wed, 15 Mar 2017 08:31:42 +0800</pubDate>
       
       <guid>http://xrazor.org/post/leetcode_hindex/</guid>
-      <description>题目 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher&amp;rsquo;s h-index.
-According to the definition of h-index on Wikipedia: &amp;ldquo;A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.&amp;rdquo;
-For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively.</description>
+      <description>题目 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher&amp;rsquo;s h-index. According to the definition of h-index on Wikipedia: &amp;ldquo;A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.&amp;rdquo; For example, given citations = [3, 0,</description>
     </item>
     
     <item>
@@ -376,9 +206,7 @@ For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5
       <pubDate>Sat, 18 Feb 2017 21:17:20 +0800</pubDate>
       
       <guid>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
-      <description>准备  OS:Archlinux 语言:Python2 框架:Keras(非GPU) IDE:Ipython 数据集:MNIST  开始 默认以上环境已经齐备，下面直接开始。
-Step 1:把包导进来 import matplotlib.pyplot as plt # 1 from keras.datasets import mnist # 2 from keras.models import Sequential # 3 from keras.layers.core import Dense, Dropout, Activation # 4 from keras.utils import np_utils # 5  对应注释上的编号:
- 画图的 内置数据集 Sequential的神经网络是线性的从头到尾不分叉的 Dense即fully connection, Dropout层防止过拟合，Actiction 即激活层 numpy移植版  Step 2:把数据load进来 nb_classes = 10 (X_train, y_train), (X_test, y_test) = mnist.load_data() # 1 print(&amp;quot;X_train original shape&amp;quot;, X_train.</description>
+      <description>准备 OS:Archlinux 语言:Python2 框架:Keras(非GPU) IDE:Ipython 数据集:MNIST 开始 默认以上环境已经齐备，下面直接开始。 Step 1:把包导进来 import matplotlib.pyplot as plt #</description>
     </item>
     
     <item>
@@ -387,12 +215,7 @@ Step 1:把包导进来 import matplotlib.pyplot as plt # 1 from keras.datasets i
       <pubDate>Thu, 12 Jan 2017 23:57:26 +0800</pubDate>
       
       <guid>http://xrazor.org/post/word2vec%E7%AE%80%E5%8D%95%E5%AE%9E%E8%B7%B5/</guid>
-      <description>word2vec 简介 word2vec是google的一个开源工具，能够根据输入的词的集合计算出词与词之间的距离。 它将term转换成向量形式，可以把对文本内容的处理简化为向量空间中的向量运算，计算出向量空间上的相似度，来表示文本语义上的相似度。 word2vec计算的是余弦值，距离范围为0-1之间，值越大代表两个词关联度越高。 词向量：用Distributed Representation表示词，通常也被称为“Word Representation”或“Word Embedding（嵌入）”。 安装Gensim 和分词工具
-Gensim 这里主要通过Gensim模块来实现word2vec:
-pip install gensim -i https://pypi.douban.com/simple  后面用豆瓣的源会快一些。
-分词工具 分词工具有很多：中科院NLPIR，哈工大LTP，结巴分词等。我这里用的是结巴分词。如果没有也是先用pip安装。
-pip install jieba -i https://pypi.douban.com/simple  语料准备 随便下载一部小说，我这里用的是&amp;lt;天龙八部&amp;gt;。下下来可能是乱码。可以自己写一段小代码重新加工一下:
-#!/usr/bin/env python # -*- coding: utf-8 -*- file_in = open(&#39;/home/luke/Downloads/tlbb.txt&#39;, &#39;r&#39;) file_out = open(&#39;/home/luke/Downloads/tlbb_utf8.txt&#39;, &#39;w&#39;) line = file_in.readline() while line: newline = line.decode(&#39;GB18030&#39;).encode(&#39;utf-8&#39;) #用GBK、GB2312都会出错 print newline, print &amp;gt;&amp;gt; file_out, newline, line = file_in.readline() file_in.close() file_out.close()  训练模型 # -*- coding: utf-8 -*- import gensim.</description>
+      <description>word2vec 简介 word2vec是google的一个开源工具，能够根据输入的词的集合计算出词与词之间的距离。 它将term转换成向量形式，可以把对文本内</description>
     </item>
     
     <item>
@@ -401,16 +224,7 @@ pip install jieba -i https://pypi.douban.com/simple  语料准备 随便下载�
       <pubDate>Wed, 21 Dec 2016 23:14:34 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8C%81%E7%BB%AD%E8%BE%93%E5%87%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%A5%E8%AF%86/</guid>
-      <description>我们每个人都经历了十几年甚至几十年漫长的学习生涯， 不知道也许有过这样的经历：
-学了很多但是讲不出来... 知识点无法串成一个体系... 感觉东西越学越多...  我也有过相似的经历，并且为此困惑了很长的时间，直到看到一句话：
-最好的学习方式就是“输出”。
-的确，从别人那“听”来的知识，都是别人的，只有从自己这“输出”出去的知识才是自己的。这“输出”的过程，等于是强迫大脑对自己的知识进行系统化联接的过程，是一个对自己知识在加工的过程。所以，当我们做过一次演讲、发表一篇文章后，总感觉自己对相关的知识的理解更深了。
-那么怎么“输出”知识知识呢？
-首先要明确的是，“输出”的知识不一定要给到某一个具体的对象，而是通过这个过程对自己的思路和知识储备有一个归纳整理的过程，因此，“输出”的方法就有很多啦。
-写博客 随便找个地儿，有什么心得感悟，就记录下来，就像写日记一样（其实写日记真的是一个很好的习惯）。等到过一段时间再会过头来印证，彼时的理解对不对？
-现场分享 不要害怕和大家交流自己的观点，世上不会有相同的两片叶子，大胆说出自己的想法，不仅使别人得到启发，更重要的是自己在说的过程中对思维进行了提炼。
-对着镜子讲话 有时候可能对自己不是很有自信，或是想法还没有很成熟的时候，就对镜子对着自己说，尽可能的把自己的想法描述得很清晰。当你能很清晰很有层次的描述某个问题的时候，说明你已经理解了它；当你能用三言两语把它讲清楚的时候，你已经掌握了它；当你无论碰到谁都能用合适的语言在短时间内使其窥探到问题的全貌的时候，你已经驾驭了它。
-现在网络很发达，要做什么分享也很方便，无数的平台无数的渠道，在互联网城邦中，做一个有分享精神的人罢。：D</description>
+      <description>我们每个人都经历了十几年甚至几十年漫长的学习生涯， 不知道也许有过这样的经历： 学了很多但是讲不出来... 知识点无法串成一个体系... 感觉东西越</description>
     </item>
     
     <item>
@@ -419,10 +233,7 @@ pip install jieba -i https://pypi.douban.com/simple  语料准备 随便下载�
       <pubDate>Mon, 21 Nov 2016 23:21:28 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E4%BF%A1%E6%81%AF%E7%86%B5%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E5%92%8Cgini%E6%8C%87%E6%95%B0/</guid>
-      <description>在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增益的大小作为特征选择判定的标准，C4.5则选用信息增益比为选择标准，CART则用Gini指数作为选择标准。那么，所引入的这几个指标的内涵意义是什么呢？本文将作一个简单的梳理。
-信息熵 在信息论里面，熵被用来衡量一个随机变量出现的期望值，对不确定性的测量，是描述一个系统所需的最低存储单元。在信息世界，熵越高，所需传递的信息越丰富，熵越低，则意味着所需传输的信息越少。而在热力学里，熵越高，表示混乱度越高。 这三个解释乍一看毫无关联，实际上确实可以相互印证的。以抛硬币为例，自然条件下结果为正面或反面的概率均为50%， 此时结果的不确定性最高， 越混乱，而我们要描述这个结果所需的文字（暂且用文字的个数代表存储单元）越多，比如你会这么描述“结果可能是正面，也可能是反面”（加逗号14个字）；而当我们假定正面出现的概率为100%时，信息熵为0，不混乱很清晰，而此时我们描述这个结果所需的存储单元是很少的，比如说“是正面”（3个字）就能描述清楚。
-信息增益 有了上面的概念，我们就可以结合ID3算法来看看信息增益是什么东西。 在ID3中，使用信息增益作为特征选择的准则，用H（D）表示数据集的经验熵，用H（D|A)表示在A特征下数据集D的经验条件熵，则信息增益g（D，A）= H(D) - H(D|A), 表示 有A 和 没A ，整个系统的不确定性变化了多少。这里要牢记， 熵高，是说明不确定很大，如果H（D）很大，而 H（D|A)很小，则g（D,A）会趋大， 说明特征A 的存在，大大降低了系统的不确定性， 因此它是一个关键的特征。
-Gini指数 Gini指数是CART算法中生成分类树时用来选择特征的一个指标。</description>
+      <description>在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增</description>
     </item>
     
     <item>
@@ -431,16 +242,7 @@ Gini指数 Gini指数是CART算法中生成分类树时用来选择特征的一�
       <pubDate>Sun, 21 Aug 2016 23:26:03 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%89%8B%E6%89%8E/</guid>
-      <description>基础知识 首先，计算机编码的结构为:
-二进制位（Bit）——二进制字符串——字节（8 Bit） 众所周知，二进制是计算机信息表达的基础。每个Bit有0和1两种状态，8个二进制位就可以有256种状态，称为1个字节。
-ASCii编码 有了上面的设定，人们就想了——怎么把日常的信息转化位计算机的执行语言呢？即建立计算机语言和人类语言的桥梁。 于是ASCii出现了，它规定了128个二进制字符串，使之与英文字母等常用字符一一对应。比如大写字母A对应的二进制字符串是01000001。这128个符号（包括32个不能打印出来的控制符号），只占用了一个字节的后面7位，最前面的1位统一规定为0。
-Unicode 慢慢的，不光是英文需要与计算机语言桥接，法语日语中文俄文也要啊！所以你搞一个编码我搞一个编码，纷纷把自己的语言和计算机语言联系起来。结果悲剧了，不同的编码方式导致了解码的时候得到的信息不一致。法文编码的用日文的解码方式得出来一堆乱码。怎么办？ 为解决这个问题，Unicode应运而生。它包含了世界上所有文字符号，每个符号都有一个独一无二的编码。这样就不会出现乱码的问题了。它是类似这样的：&amp;amp;#x0041（表示大写字母A）。 但是，Unicode并不是没有问题。它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。 比如，汉字”严”的unicode是十六进制数4E25，转换成二进制数足足有15位（100111000100101），也就是说这个符号的表示至少需要2个字节。表示其他更大的符号，可能需要3个字节或者4个字节，甚至更多。这样计算机就迷茫了。如何才能区别Unicode和ASCII？计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？另一个问题是，我们已经知道，英文字母只用一个字节表示就够了，如果Unicode统一规定，每个符号用四个字节表示，那么每个英文字母前都必然有三个字节是0，这对于存储来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。
-UTF-8 因此大家需要一个通用的Unicode的实现方式，UTF-8就此出现。 它的前提思想就是用第一个字节来告诉计算机——“我是多少字符表示的符号“。因此它是一种可变长的编码方式，字符可以用单字符（英文）也可用双字符（中文）甚至更多的字符（更大的符号）来表示。 它的规则如下：
-1）对于单字节的符号，字节的第一位设为0，后面7位为这个符号的unicode码。因此对于英语字母，UTF-8编码和ASCII码是相同的。
-2）对于n字节的符号（n&amp;gt;1），第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的unicode码。 下表总结了编码规则，字母x表示可用编码的位。
-Unicode符号范围 | UTF-8编码方式 (十六进制) | （二进制） --------------------+--------------------------------------------- 0000 0000-0000 007F | 0xxxxxxx 0000 0080-0000 07FF | 110xxxxx 10xxxxxx 0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx 0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  跟据上表，解读UTF-8编码非常简单。如果一个字节的第一位是0，则这个字节单独就是一个字符；如果第一位是1，则连续有多少个1，就表示当前字符占用多少个字节。 下面，还是以汉字”严”为例，演示如何实现UTF-8编码。 已知”严”的unicode是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800-0000 FFFF），因此”严”的UTF-8编码需要三个字节，即格式是”1110xxxx 10xxxxxx 10xxxxxx”。然后，从”严”的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，”严”的UTF-8编码是”11100100 10111000 10100101”。
-Python中编码的处理 首先就要弄清础，你想搞的对象是啥？是str？还是Unicode，这样你才能知道是用encode还是decode。
-isinstance(&#39;object&#39;,str) instance(&#39;object&#39;,unicode)  不要对str使用encode，不要对unicode使用decode。</description>
+      <description>基础知识 首先，计算机编码的结构为: 二进制位（Bit）——二进制字符串——字节（8 Bit） 众所周知，二进制是计算机信息表达的基础。每个Bit有</description>
     </item>
     
     <item>
@@ -449,18 +251,7 @@ isinstance(&#39;object&#39;,str) instance(&#39;object&#39;,unicode)  不要对st
       <pubDate>Thu, 16 Jun 2016 23:30:05 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E7%8E%B0%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%95%B0%E5%AD%A6%E7%A9%BA%E9%97%B4/</guid>
-      <description>现代数学以集合为研究对象，这样的好处就是可以将很多不同问题的本质抽象出来。因为每个人的研究方向不同，为了能有效研究集合，必须给集合赋予一些“框架”（或叫做”结构“）。
-从数学的本质上看，最基本的集合有两种 ：
- 线性空间 度量空间
-  对于线性空间，主要研究集合的描述，直观的说就是告诉别人这个集合是什么样子。为了描述清楚，首先引入了基（相当于三维座标系）的概念，对于一个线性空间来说，集合中的元素只要知道其在给定基下的座标即可。
-  但是，线性座标系中的元素没有长度的概念，为了量化线性空间中的元素，所以又在线性空间中引入了特殊的“长度”，即范数。
-线性空间+范数=赋范线性空间 但是赋范线性空间中没有角度的概念，为了解决这个问题，又在线性空间中引入了内积的概念。
-因为有了度量，所以可以在度量、赋范线性空间以及内积空间中引入极限，但抽象空间中的极限和实数极限很大的一个不同点，就是极限点可能不在原先给定的集合中（即造成了原先集合少点、或者少皮），所以又引入了完备的概念，完备的内积空间即Hilbert空间。
-至此，我们的升级版的线性空间已包括：
- 基 范数 内积 完备性
-  线性空间 + 范数 = 赋范空间
-赋范空间 + 线性结构 + 内积 = 内积空间
-内积空间 + 完备性 = Hilbert空间</description>
+      <description>现代数学以集合为研究对象，这样的好处就是可以将很多不同问题的本质抽象出来。因为每个人的研究方向不同，为了能有效研究集合，必须给集合赋予一些“</description>
     </item>
     
     <item>
@@ -469,10 +260,7 @@ isinstance(&#39;object&#39;,str) instance(&#39;object&#39;,unicode)  不要对st
       <pubDate>Sun, 27 Mar 2016 08:47:52 +0800</pubDate>
       
       <guid>http://xrazor.org/post/web%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5%E5%B0%8F%E7%BB%93/</guid>
-      <description> 三次握手  来一发?SYN 好啊，确定来一发吗? ACK+ SYN 确定 ACK  WebSocket Websocket是为了解决client和service之间实现双向长连接通信而设计的。主要应用于监控、聊天。websocket与http都是基于TCP协议，但与http的区别在于，http是一种单向无状态协议，而websocket是一种双向有状态协议。
-RESTful REST &amp;ndash; REpresentational State Transfer,全称是 Resource Representational State Transfer, 直接翻译：资源在网络中以某种表现形式进行状态转移。一句话总结:URL定位资源，用HTTP动词（method:GET,POST,DELETE,DETC）描述操作。RESTful API可以通过一套统一的接口为Client提供服务。
-RESTful API原则  url简洁 只带名词不带动词 保证GET方法安全，使资源不被污染  MVC 主要是为了实现前后端逻辑分离。
- M(Model):后台抽象逻辑 V(View): 状态等综合形成的上下文 C(Control):用户端信息  </description>
+      <description>三次握手 来一发?SYN 好啊，确定来一发吗? ACK+ SYN 确定 ACK WebSocket Websocket是为了解决client和service之间实现双向长连接通信而设计的</description>
     </item>
     
     <item>
@@ -481,11 +269,7 @@ RESTful API原则  url简洁 只带名词不带动词 保证GET方法安全，�
       <pubDate>Mon, 22 Feb 2016 11:50:21 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E4%BD%8D%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/</guid>
-      <description> 位运算概念 位运算是指对整数在内存中进行二进制操作。而bitmap是利用位运算的特性，bit位来标记某个元素对应value，而key即是该元素。由于采取了bit为单位存储数据，所以可以大大节省存储空间。
-位运算基本操作    符号 描述 运算规则     &amp;amp; 与 2个为1，结果才为1     或   ^ 异或 相同为0，相异为1   ～ 取反 0变1,1变0   &amp;lt;&amp;lt; 左移 所有二进位左移若干位，相当于乘2的n次方   &amp;gt;&amp;gt; 右移 所有二进位右移若干位，相当于除2的n次方    位运算基本应用 判断寄偶数 a &amp;amp; 1  结果为0则a为偶数，结果为1则为奇数
-两数交换 a ^= b b ^= a a ^= b  核心是：1.0异或任何数，都为任何数本身；2.异或满足交换律；
-改变符号 取反后加1
-～a + 1  bitmap空间压缩 </description>
+      <description>位运算概念 位运算是指对整数在内存中进行二进制操作。而bitmap是利用位运算的特性，bit位来标记某个元素对应value，而key即是该元素</description>
     </item>
     
     <item>
@@ -503,9 +287,7 @@ RESTful API原则  url简洁 只带名词不带动词 保证GET方法安全，�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://xrazor.org/bookmarks/</guid>
-      <description> MachineLearning  NTU李宏毅  Statistic  统计之都  Security  看雪论坛 UC Exploit-db
-ShotCuts sci-hub
-Friend  </description>
+      <description>MachineLearning NTU李宏毅 Statistic 统计之都 Security 看雪论坛 UC Exploit-db ShotCuts sci-hub Friend</description>
     </item>
     
     <item>
@@ -514,7 +296,7 @@ Friend  </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://xrazor.org/about/</guid>
-      <description> 工学学士，管理学学士，工商管理硕士； ２年工人，２年秘书，１年创业，１年数据挖掘，业余爬虫，三脚猫黑帽； 划了１５年水的篮球后卫；１１年不认真的民谣，５年蜻蜓点水的摄影； 还想再看看更大的世界。  </description>
+      <description>工学学士，管理学学士，工商管理硕士； ２年工人，２年秘书，１年创业，１年数据挖掘，业余爬虫，三脚猫黑帽； 划了１５年水的篮球后卫；１１年不认真的</description>
     </item>
     
     <item>
@@ -523,7 +305,7 @@ Friend  </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://xrazor.org/skilltree/</guid>
-      <description> 机器学习 数理统计基础 最优化 模型评估 常见算法 特征工程 安全渗透 SEO 读书扎记 读《大败局Ｉ》——什么决定了一个企业的生存周期? </description>
+      <description>机器学习 数理统计基础 最优化 模型评估 常见算法 特征工程 安全渗透 SEO 读书扎记 读《大败局Ｉ》——什么决定了一个企业的生存周期?</description>
     </item>
     
   </channel>
