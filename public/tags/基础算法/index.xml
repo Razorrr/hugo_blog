@@ -5,7 +5,7 @@
     <link>http://xrazor.org/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 基础算法 on (*´･д･)?</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Mon, 22 Feb 2016 11:50:21 +0800</lastBuildDate>
     
 	<atom:link href="http://xrazor.org/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
@@ -17,11 +17,7 @@
       <pubDate>Mon, 22 Feb 2016 11:50:21 +0800</pubDate>
       
       <guid>http://xrazor.org/post/%E4%BD%8D%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/</guid>
-      <description> 位运算概念 位运算是指对整数在内存中进行二进制操作。而bitmap是利用位运算的特性，bit位来标记某个元素对应value，而key即是该元素。由于采取了bit为单位存储数据，所以可以大大节省存储空间。
-位运算基本操作    符号 描述 运算规则     &amp;amp; 与 2个为1，结果才为1     或   ^ 异或 相同为0，相异为1   ～ 取反 0变1,1变0   &amp;lt;&amp;lt; 左移 所有二进位左移若干位，相当于乘2的n次方   &amp;gt;&amp;gt; 右移 所有二进位右移若干位，相当于除2的n次方    位运算基本应用 判断寄偶数 a &amp;amp; 1  结果为0则a为偶数，结果为1则为奇数
-两数交换 a ^= b b ^= a a ^= b  核心是：1.0异或任何数，都为任何数本身；2.异或满足交换律；
-改变符号 取反后加1
-～a + 1  bitmap空间压缩 </description>
+      <description>位运算概念 位运算是指对整数在内存中进行二进制操作。而bitmap是利用位运算的特性，bit位来标记某个元素对应value，而key即是该元素</description>
     </item>
     
   </channel>
