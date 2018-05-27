@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 专心打杂</title>
+    <link>http://xrazor.org/post/</link>
+    <description>Recent content in Posts on 专心打杂</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 27 May 2018 15:53:26 +0800</lastBuildDate>
+    
+	<atom:link href="http://xrazor.org/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>也谈monads</title>
+      <link>http://xrazor.org/post/%E4%B9%9F%E8%B0%88monads/</link>
+      <pubDate>Sun, 27 May 2018 15:53:26 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E4%B9%9F%E8%B0%88monads/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sbt换源</title>
+      <link>http://xrazor.org/post/sbt%E6%8D%A2%E6%BA%90/</link>
+      <pubDate>Tue, 15 May 2018 23:15:16 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/sbt%E6%8D%A2%E6%BA%90/</guid>
+      <description>1.只需要编辑 ~/.sbt/repositories文件，加入 [repositories] local aliyun: http://maven.aliyun.com/nexus/content/groups/public/ central: http://repo1.maven.org/maven2/ 2.然后 sbt run -Dsbt.override.build.repos=true 主要是sbt后面的参数：-Dsbt.override</description>
+    </item>
+    
+    <item>
+      <title>[CTF_WEB_02]sql手工注入实验</title>
+      <link>http://xrazor.org/post/ctf_web_02sql%E6%89%8B%E5%B7%A5%E6%B3%A8%E5%85%A5%E5%AE%9E%E9%AA%8C/</link>
+      <pubDate>Thu, 05 Apr 2018 21:10:24 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/ctf_web_02sql%E6%89%8B%E5%B7%A5%E6%B3%A8%E5%85%A5%E5%AE%9E%E9%AA%8C/</guid>
+      <description>来源 题目 题目来源:实验吧 题目:http://ctf5.shiyanbar.com/web/wonderkun/web/index.html 解</description>
+    </item>
+    
+    <item>
+      <title>[CTF_WEB_01]sqlmap实验——“这个看起来有点简单”</title>
+      <link>http://xrazor.org/post/ctf_web_01sqlmap%E5%AE%9E%E9%AA%8C%E8%BF%99%E4%B8%AA%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9C%89%E7%82%B9%E7%AE%80%E5%8D%95/</link>
+      <pubDate>Sun, 01 Apr 2018 08:48:58 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/ctf_web_01sqlmap%E5%AE%9E%E9%AA%8C%E8%BF%99%E4%B8%AA%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%9C%89%E7%82%B9%E7%AE%80%E5%8D%95/</guid>
+      <description>从今天开始学习CTF, 主攻Web+Misc。 不积跬步无以至千里，不积小流无以至江海。慢慢来，细细看，玩中学。 今天先来学习一下sqlmap。 题</description>
+    </item>
+    
+    <item>
+      <title>Hihocoder1696折线中点</title>
+      <link>http://xrazor.org/post/hihocoder1696%E6%8A%98%E7%BA%BF%E4%B8%AD%E7%82%B9/</link>
+      <pubDate>Sun, 25 Feb 2018 23:04:01 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/hihocoder1696%E6%8A%98%E7%BA%BF%E4%B8%AD%E7%82%B9/</guid>
+      <description>题目 时间限制:10000ms 单点时限:1000ms 内存限制:256MB 描述 给定平面上N个点P1, P2, &amp;hellip; PN，将他们按顺序连起来，形成一条折线。</description>
+    </item>
+    
+    <item>
+      <title>直播行业主播指数和排名设计</title>
+      <link>http://xrazor.org/post/%E7%9B%B4%E6%92%AD%E8%A1%8C%E4%B8%9A%E4%B8%BB%E6%92%AD%E6%8C%87%E6%95%B0%E5%92%8C%E6%8E%92%E5%90%8D%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Fri, 05 Jan 2018 23:00:16 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E7%9B%B4%E6%92%AD%E8%A1%8C%E4%B8%9A%E4%B8%BB%E6%92%AD%E6%8C%87%E6%95%B0%E5%92%8C%E6%8E%92%E5%90%8D%E8%AE%BE%E8%AE%A1/</guid>
+      <description>问题 设计一套指数，并据此对全网直播进行排名。 分析 指数的作用就是作为过滤信息依据， 根据依据从海量主播中快速的找到符合某一标准的主播，同时作为排</description>
+    </item>
+    
+    <item>
+      <title>那些好用的命令行工具</title>
+      <link>http://xrazor.org/post/%E9%82%A3%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Mon, 01 Jan 2018 15:32:26 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E9%82%A3%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</guid>
+      <description>Coding辅助 cppman C++ 98/11/14 手册查询 for Linux/MacOS 编辑辅助 pandoc 将markdown转化为任意电子书格式 graphviz 文本转图表 运维辅助 nload 监控当前主机网络流量 screenfetch 当前主机信息 iotop</description>
+    </item>
+    
+    <item>
+      <title>架构的三个层次</title>
+      <link>http://xrazor.org/post/%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1/</link>
+      <pubDate>Sat, 30 Dec 2017 23:49:31 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E6%9E%B6%E6%9E%84%E7%9A%84%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1/</guid>
+      <description>什么是架构 架构狭义的说狭义的来说，是在信息系统研发中，负责依据需求来确定主要的系统设计、技术选择的主体框架结构，并负责搭建实施的活动。而广义</description>
+    </item>
+    
+    <item>
+      <title>你的ssh被爆了么</title>
+      <link>http://xrazor.org/post/%E4%BD%A0%E7%9A%84ssh%E8%A2%AB%E7%88%86%E4%BA%86%E4%B9%88/</link>
+      <pubDate>Mon, 27 Nov 2017 23:08:28 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E4%BD%A0%E7%9A%84ssh%E8%A2%AB%E7%88%86%E4%BA%86%E4%B9%88/</guid>
+      <description>世界很危险 前段时间买了个法国杜甫，今天突发奇想要看看有有多少人爆过我的ssh，不看不知道，一看吓一跳。 首先用lastb命令看看有多少登录不成</description>
+    </item>
+    
+    <item>
+      <title>Terminal代理设置导致pip和git无法正常使用</title>
+      <link>http://xrazor.org/post/terminal%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4pip%E5%92%8Cgit%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 16 Nov 2017 23:58:01 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/terminal%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4pip%E5%92%8Cgit%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8/</guid>
+      <description>问题描述 今天用pip安装东西的时候忽然频繁出现连不上的问题，百思不得其解，尝试了用各种代理各种恢复未果。然后用git clone出现如下错误：</description>
+    </item>
+    
+    <item>
+      <title>读《大败局Ｉ》——什么决定了一个企业的生存周期?</title>
+      <link>http://xrazor.org/post/%E8%AF%BB%E5%A4%A7%E8%B4%A5%E5%B1%80%EF%BD%89%E4%BB%80%E4%B9%88%E5%86%B3%E5%AE%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Sat, 07 Oct 2017 19:47:06 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E8%AF%BB%E5%A4%A7%E8%B4%A5%E5%B1%80%EF%BD%89%E4%BB%80%E4%B9%88%E5%86%B3%E5%AE%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F/</guid>
+      <description>这几天看了吴晓波的《大败局I》，一方面感到振奋，另一方面也感到惋惜，那些璀璨如星河的企业，却也如流星般转瞬即逝。到底一个企业的生存周期由什么</description>
+    </item>
+    
+    <item>
+      <title>LaTex快速入门</title>
+      <link>http://xrazor.org/post/latex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Fri, 06 Oct 2017 14:05:10 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/latex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</guid>
+      <description>LaTex可以配合Markdown使用优雅地生成数学公式。公式部分以\$号开头，以\$号结尾。“\”为转义符，这里是为了显示需要，真实输入的</description>
+    </item>
+    
+    <item>
+      <title>Hugo&#43;nginx&#43;webhook:在服务器上搭建个人博客并实现自动发布</title>
+      <link>http://xrazor.org/post/hugo&#43;nginx&#43;webhook%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Wed, 04 Oct 2017 18:03:49 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/hugo&#43;nginx&#43;webhook%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</guid>
+      <description>hugo是个静态网页生成系统，生成速度很快，占空间小，适合用来搭建个人博客。废话少说，直接进入正题。 本次实践主要实现３个目标： 1.学会用hu</description>
+    </item>
+    
+    <item>
+      <title>如何评价模型的好坏</title>
+      <link>http://xrazor.org/post/%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%A5%BD%E5%9D%8F/</link>
+      <pubDate>Sun, 23 Jul 2017 16:40:10 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%A5%BD%E5%9D%8F/</guid>
+      <description>这个问题可以分解为3个子问题：首先，评估模型时具体评估的是什么？其次，评估方法和过程是怎样的？最后，评估指标该如何选择？ 下面将针对这三个子问</description>
+    </item>
+    
+    <item>
+      <title>实做CNN手写数字辨识</title>
+      <link>http://xrazor.org/post/%E5%AE%9E%E5%81%9Acnn%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%BE%A8%E8%AF%86/</link>
+      <pubDate>Sun, 25 Jun 2017 23:04:01 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E5%AE%9E%E5%81%9Acnn%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%BE%A8%E8%AF%86/</guid>
+      <description>开始 语言：Python2 框架：Keras Backend: tensorflow OS: Archlinux Package: numpy,pandas,seaborn,sklearn,etc Method: CPU(i7) 数据集: MNIST 模型结构： In -&amp;gt; [[Conv2D-&amp;gt;relu]*2 -&amp;gt; MaxPool2D -&amp;gt; Dropout]*2 -&amp;gt; Flatten -&amp;gt; Dense -&amp;gt; Dropout -&amp;gt; Out. 现在让我们在Ipython里面跑。</description>
+    </item>
+    
+    <item>
+      <title>Impala&#43;Spark操作实践</title>
+      <link>http://xrazor.org/post/impala&#43;spark%E6%93%8D%E4%BD%9C%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Sat, 10 Jun 2017 21:24:23 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/impala&#43;spark%E6%93%8D%E4%BD%9C%E5%AE%9E%E8%B7%B5/</guid>
+      <description>背景 最近Mysql+Redis的架构无法满足日益变化和增长的数据需求，因此需要引更适合于大数据的系统架构，目的是在scalability和数</description>
+    </item>
+    
+    <item>
+      <title>梯度下降法总结</title>
+      <link>http://xrazor.org/post/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sat, 20 May 2017 16:18:12 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>传统的按照每次迭代取的样本数来分 Batch Gradient Descent 全量梯度下降 每次都取整个训练集的样本来更新。 缺点:计算慢，不能在线更新模型。 Stochastic gradient descent 随机梯度下降 每次只取</description>
+    </item>
+    
+    <item>
+      <title>leetcode_isSomorphic</title>
+      <link>http://xrazor.org/post/leetcode_issomorphic/</link>
+      <pubDate>Sat, 25 Mar 2017 23:04:01 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/leetcode_issomorphic/</guid>
+      <description>题目 Given two strings s and t, determine if they are isomorphic. Two strings are isomorphic if the characters in s can be replaced to get t. All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself. For example, Given &amp;ldquo;egg&amp;rdquo;, &amp;ldquo;add&amp;rdquo;, return true. Given &amp;ldquo;foo&amp;rdquo;,</description>
+    </item>
+    
+    <item>
+      <title>机器学习的几个规定动作</title>
+      <link>http://xrazor.org/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%84%E5%AE%9A%E5%8A%A8%E4%BD%9C/</link>
+      <pubDate>Mon, 20 Mar 2017 00:05:02 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%87%A0%E4%B8%AA%E8%A7%84%E5%AE%9A%E5%8A%A8%E4%BD%9C/</guid>
+      <description>我们拿到一个机器学习项目之后，通常都会经过以下几个步骤： 1. Insight 数据洞察 统计机器学习一般是从已知数据集中训练模型，并用模型对未知数据进行预测。因</description>
+    </item>
+    
+    <item>
+      <title>如何高效地阅读论文</title>
+      <link>http://xrazor.org/post/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%9C%B0%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/</link>
+      <pubDate>Sun, 19 Mar 2017 09:48:02 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%9C%B0%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/</guid>
+      <description>要学习一个新的领域，最好的方法可能是找到这个领域的综述，快速掌握知识框架后按照一定的路径去阅读相关的论文，以探究框架下的细节。但有时候会遇到</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_Hindex</title>
+      <link>http://xrazor.org/post/leetcode_hindex/</link>
+      <pubDate>Wed, 15 Mar 2017 08:31:42 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/leetcode_hindex/</guid>
+      <description>题目 Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher&amp;rsquo;s h-index. According to the definition of h-index on Wikipedia: &amp;ldquo;A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.&amp;rdquo; For example, given citations = [3, 0,</description>
+    </item>
+    
+    <item>
+      <title>10分钟训练一个神经网络</title>
+      <link>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Sat, 18 Feb 2017 21:17:20 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/10%E5%88%86%E9%92%9F%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <description>准备 OS:Archlinux 语言:Python2 框架:Keras(非GPU) IDE:Ipython 数据集:MNIST 开始 默认以上环境已经齐备，下面直接开始。 Step 1:把包导进来 import matplotlib.pyplot as plt #</description>
+    </item>
+    
+    <item>
+      <title>Word2vec简单实践</title>
+      <link>http://xrazor.org/post/word2vec%E7%AE%80%E5%8D%95%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Thu, 12 Jan 2017 23:57:26 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/word2vec%E7%AE%80%E5%8D%95%E5%AE%9E%E8%B7%B5/</guid>
+      <description>word2vec 简介 word2vec是google的一个开源工具，能够根据输入的词的集合计算出词与词之间的距离。 它将term转换成向量形式，可以把对文本内</description>
+    </item>
+    
+    <item>
+      <title>为什么要持续输出自己的知识</title>
+      <link>http://xrazor.org/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8C%81%E7%BB%AD%E8%BE%93%E5%87%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Wed, 21 Dec 2016 23:14:34 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8C%81%E7%BB%AD%E8%BE%93%E5%87%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%A5%E8%AF%86/</guid>
+      <description>我们每个人都经历了十几年甚至几十年漫长的学习生涯， 不知道也许有过这样的经历： 学了很多但是讲不出来... 知识点无法串成一个体系... 感觉东西越</description>
+    </item>
+    
+    <item>
+      <title>信息熵、信息增益和Gini指数</title>
+      <link>http://xrazor.org/post/%E4%BF%A1%E6%81%AF%E7%86%B5%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E5%92%8Cgini%E6%8C%87%E6%95%B0/</link>
+      <pubDate>Mon, 21 Nov 2016 23:21:28 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E4%BF%A1%E6%81%AF%E7%86%B5%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E5%92%8Cgini%E6%8C%87%E6%95%B0/</guid>
+      <description>在机器学习决策树中，引入里熵、信息增益、信息增益比和Gini指数，作为特征选择的准则。不同的算法对应了不同的特征选择准则，如ID3选用信息增</description>
+    </item>
+    
+    <item>
+      <title>计算机字符编码手扎</title>
+      <link>http://xrazor.org/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%89%8B%E6%89%8E/</link>
+      <pubDate>Sun, 21 Aug 2016 23:26:03 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%89%8B%E6%89%8E/</guid>
+      <description>基础知识 首先，计算机编码的结构为: 二进制位（Bit）——二进制字符串——字节（8 Bit） 众所周知，二进制是计算机信息表达的基础。每个Bit有</description>
+    </item>
+    
+    <item>
+      <title>现代数学与数学空间</title>
+      <link>http://xrazor.org/post/%E7%8E%B0%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%95%B0%E5%AD%A6%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Thu, 16 Jun 2016 23:30:05 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E7%8E%B0%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%95%B0%E5%AD%A6%E7%A9%BA%E9%97%B4/</guid>
+      <description>现代数学以集合为研究对象，这样的好处就是可以将很多不同问题的本质抽象出来。因为每个人的研究方向不同，为了能有效研究集合，必须给集合赋予一些“</description>
+    </item>
+    
+    <item>
+      <title>Web编程概念小结</title>
+      <link>http://xrazor.org/post/web%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Sun, 27 Mar 2016 08:47:52 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/web%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5%E5%B0%8F%E7%BB%93/</guid>
+      <description>三次握手 来一发?SYN 好啊，确定来一发吗? ACK+ SYN 确定 ACK WebSocket Websocket是为了解决client和service之间实现双向长连接通信而设计的</description>
+    </item>
+    
+    <item>
+      <title>位运算总结</title>
+      <link>http://xrazor.org/post/%E4%BD%8D%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 22 Feb 2016 11:50:21 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E4%BD%8D%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/</guid>
+      <description>位运算概念 位运算是指对整数在内存中进行二进制操作。而bitmap是利用位运算的特性，bit位来标记某个元素对应value，而key即是该元素</description>
+    </item>
+    
+  </channel>
+</rss>

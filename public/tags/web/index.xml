@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on 专心打杂</title>
+    <link>http://xrazor.org/tags/web/</link>
+    <description>Recent content in Web on 专心打杂</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 27 Mar 2016 08:47:52 +0800</lastBuildDate>
+    
+	<atom:link href="http://xrazor.org/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web编程概念小结</title>
+      <link>http://xrazor.org/post/web%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Sun, 27 Mar 2016 08:47:52 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/web%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5%E5%B0%8F%E7%BB%93/</guid>
+      <description>三次握手 来一发?SYN 好啊，确定来一发吗? ACK+ SYN 确定 ACK WebSocket Websocket是为了解决client和service之间实现双向长连接通信而设计的</description>
+    </item>
+    
+  </channel>
+</rss>

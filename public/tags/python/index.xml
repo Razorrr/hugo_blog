@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 专心打杂</title>
+    <link>http://xrazor.org/tags/python/</link>
+    <description>Recent content in Python on 专心打杂</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 10 Jun 2017 21:24:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://xrazor.org/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Impala&#43;Spark操作实践</title>
+      <link>http://xrazor.org/post/impala&#43;spark%E6%93%8D%E4%BD%9C%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Sat, 10 Jun 2017 21:24:23 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/impala&#43;spark%E6%93%8D%E4%BD%9C%E5%AE%9E%E8%B7%B5/</guid>
+      <description>背景 最近Mysql+Redis的架构无法满足日益变化和增长的数据需求，因此需要引更适合于大数据的系统架构，目的是在scalability和数</description>
+    </item>
+    
+    <item>
+      <title>计算机字符编码手扎</title>
+      <link>http://xrazor.org/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%89%8B%E6%89%8E/</link>
+      <pubDate>Sun, 21 Aug 2016 23:26:03 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%89%8B%E6%89%8E/</guid>
+      <description>基础知识 首先，计算机编码的结构为: 二进制位（Bit）——二进制字符串——字节（8 Bit） 众所周知，二进制是计算机信息表达的基础。每个Bit有</description>
+    </item>
+    
+  </channel>
+</rss>

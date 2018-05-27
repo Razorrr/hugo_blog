@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数学之美 on 专心打杂</title>
+    <link>http://xrazor.org/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</link>
+    <description>Recent content in 数学之美 on 专心打杂</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 05 Jan 2018 23:00:16 +0800</lastBuildDate>
+    
+	<atom:link href="http://xrazor.org/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>直播行业主播指数和排名设计</title>
+      <link>http://xrazor.org/post/%E7%9B%B4%E6%92%AD%E8%A1%8C%E4%B8%9A%E4%B8%BB%E6%92%AD%E6%8C%87%E6%95%B0%E5%92%8C%E6%8E%92%E5%90%8D%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Fri, 05 Jan 2018 23:00:16 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E7%9B%B4%E6%92%AD%E8%A1%8C%E4%B8%9A%E4%B8%BB%E6%92%AD%E6%8C%87%E6%95%B0%E5%92%8C%E6%8E%92%E5%90%8D%E8%AE%BE%E8%AE%A1/</guid>
+      <description>问题 设计一套指数，并据此对全网直播进行排名。 分析 指数的作用就是作为过滤信息依据， 根据依据从海量主播中快速的找到符合某一标准的主播，同时作为排</description>
+    </item>
+    
+    <item>
+      <title>LaTex快速入门</title>
+      <link>http://xrazor.org/post/latex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Fri, 06 Oct 2017 14:05:10 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/latex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</guid>
+      <description>LaTex可以配合Markdown使用优雅地生成数学公式。公式部分以\$号开头，以\$号结尾。“\”为转义符，这里是为了显示需要，真实输入的</description>
+    </item>
+    
+    <item>
+      <title>现代数学与数学空间</title>
+      <link>http://xrazor.org/post/%E7%8E%B0%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%95%B0%E5%AD%A6%E7%A9%BA%E9%97%B4/</link>
+      <pubDate>Thu, 16 Jun 2016 23:30:05 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/%E7%8E%B0%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B8%8E%E6%95%B0%E5%AD%A6%E7%A9%BA%E9%97%B4/</guid>
+      <description>现代数学以集合为研究对象，这样的好处就是可以将很多不同问题的本质抽象出来。因为每个人的研究方向不同，为了能有效研究集合，必须给集合赋予一些“</description>
+    </item>
+    
+  </channel>
+</rss>

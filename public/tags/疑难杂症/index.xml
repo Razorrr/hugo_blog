@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>疑难杂症 on 专心打杂</title>
+    <link>http://xrazor.org/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</link>
+    <description>Recent content in 疑难杂症 on 专心打杂</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 16 Nov 2017 23:58:01 +0800</lastBuildDate>
+    
+	<atom:link href="http://xrazor.org/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Terminal代理设置导致pip和git无法正常使用</title>
+      <link>http://xrazor.org/post/terminal%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4pip%E5%92%8Cgit%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 16 Nov 2017 23:58:01 +0800</pubDate>
+      
+      <guid>http://xrazor.org/post/terminal%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E5%AF%BC%E8%87%B4pip%E5%92%8Cgit%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8/</guid>
+      <description>问题描述 今天用pip安装东西的时候忽然频繁出现连不上的问题，百思不得其解，尝试了用各种代理各种恢复未果。然后用git clone出现如下错误：</description>
+    </item>
+    
+  </channel>
+</rss>
